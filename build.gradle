@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'kro.dodoworld'
-version = '1.5.3'
+version = '1.6'
 
 repositories {
     mavenLocal()

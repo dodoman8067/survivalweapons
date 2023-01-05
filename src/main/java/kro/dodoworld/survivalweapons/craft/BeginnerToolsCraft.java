@@ -14,8 +14,8 @@ public class BeginnerToolsCraft implements Listener {
 
     @EventHandler
     public void onCraft(CraftItemEvent event){
+        int itemType = random.nextInt(1,6);
         if(!event.getCurrentItem().equals(ItemsInit.MysteryBeginnerTool)) return;
-        int itemType = random.nextInt(0,6);
         if(itemType == 1){
             event.setCurrentItem(new ItemStack(ItemsInit.BeginnerAxe));
         }
@@ -29,7 +29,7 @@ public class BeginnerToolsCraft implements Listener {
             event.setCurrentItem(new ItemStack(ItemsInit.BeginnerHoe));
         }
         if(itemType == 5){
-            event.setCurrentItem(new ItemStack(ItemsInit.BeginnerHoe));
+            event.setCurrentItem(new ItemStack(ItemsInit.BeginnerSword));
         }
     }
 }

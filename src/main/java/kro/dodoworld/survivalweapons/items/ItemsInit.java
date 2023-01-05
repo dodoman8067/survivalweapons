@@ -280,7 +280,7 @@ public class ItemsInit {
         stack3.setItemMeta(meta3);
         BeginnerPickaxe = stack3;
 
-        ItemStack stack4 = new ItemStack(Material.STONE_PICKAXE);
+        ItemStack stack4 = new ItemStack(Material.STONE_HOE);
         ItemMeta meta4 = stack4.getItemMeta();
         meta4.setDisplayName(ChatColor.WHITE + "Beginner's Hoe");
         meta4.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 1, false);
