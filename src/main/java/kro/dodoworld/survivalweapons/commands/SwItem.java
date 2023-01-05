@@ -1,0 +1,44 @@
+package kro.dodoworld.survivalweapons.commands;
+
+import kro.dodoworld.survivalweapons.items.ItemsInit;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+
+public class SwItem implements CommandExecutor {
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if(command.getName().equals("switem")){
+            if(sender instanceof Player player){
+                if(player.isOp()){
+                    if(args.length > 0) {
+                        String arg = args[0];
+                        if(arg.equals("exodus")){
+                            player.getInventory().addItem(new ItemStack(ItemsInit.Exodus));
+                        }
+                        if(arg.equals("dragon_sword")){
+                            player.getInventory().addItem(new ItemStack(ItemsInit.DragonSword));
+                        }
+                        if(arg.equals("marvel_of_thunder_storm")){
+                            player.getInventory().addItem(new ItemStack(ItemsInit.MarvelOfThunderStorm));
+                        }
+                        if(arg.equals("giant_sword")){
+                            player.getInventory().addItem(new ItemStack(ItemsInit.GiantSword));
+                        }
+                        if(arg.equals("lighting_axe")){
+                            player.getInventory().addItem(new ItemStack(ItemsInit.LightingSword));
+                        }
+                        if(arg.equals("self_attack_sword")){
+                            player.getInventory().addItem(new ItemStack(ItemsInit.SelfAttackSword));
+                        }
+                    }else{
+                        player.sendMessage("Usage : /switem <item_name>");
+                    }
+                }
+            }
+        }
+        return true;
+    }
+}
