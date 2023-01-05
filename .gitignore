@@ -115,12 +115,6 @@ gradle-app.setting
 run/
 
 ironpack
-build.gradle
-gradle.properties
-gradlew
-gradlew.bat
-settings.gradle
-.gitignore
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar
