@@ -7,12 +7,10 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.enchantments.Enchantment;
-import org.bukkit.entity.Item;
-import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.Recipe;
+import org.bukkit.inventory.RecipeChoice;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -35,6 +33,12 @@ public class ItemsInit {
     public static ItemStack SelfAttackSword;
     public static ItemStack NuclearBomb;
     public static ItemStack IronPack;
+    public static ItemStack BeginnerSword;
+    public static ItemStack BeginnerPickaxe;
+    public static ItemStack BeginnerAxe;
+    public static ItemStack BeginnerShovel;
+    public static ItemStack BeginnerHoe;
+    public static ItemStack MysteryBeginnerTool;
 
     public static void init(){
         createFireGoldenSword();
@@ -47,6 +51,8 @@ public class ItemsInit {
         createSelfAttackSword();
         createNuclearBomb();
         createIronPack();
+        createBeginnerTools();
+        createMysteryBeginnerTool();
     }
 
     private static void createFireGoldenSword(){
@@ -206,6 +212,84 @@ public class ItemsInit {
         recipe.setIngredient('I', Material.RAW_IRON);
 
         Bukkit.addRecipe(recipe);
+    }
+
+
+    private static void createMysteryBeginnerTool(){
+        ItemStack stack = new ItemStack(Material.COAL_BLOCK);
+        ItemMeta meta = stack.getItemMeta();
+        meta.setDisplayName(ChatColor.GOLD + "숨겨진 아이템");
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.GREEN + "당신이 제작하려는 아이템은" + ChatColor.AQUA + " 제작 후" + ChatColor.GREEN + " 공개됩니다.");
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+
+        MysteryBeginnerTool = stack;
+
+        ItemStack MysteryBeginnerToolRecipe = new ItemStack(ItemsInit.MysteryBeginnerTool);
+        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("mystery_beginner_tool_recipe"), MysteryBeginnerToolRecipe);
+        recipe.shape("SSS", "SCS", "SSS");
+        recipe.setIngredient('S', Material.COBBLESTONE);
+        recipe.setIngredient('C', Material.CHEST);
+
+        Bukkit.addRecipe(recipe);
+    }
+
+    private static void createBeginnerTools(){
+        ItemStack stack = new ItemStack(Material.STONE_SWORD);
+        ItemMeta meta = stack.getItemMeta();
+        meta.setDisplayName(ChatColor.WHITE + "Beginner's Sword");
+        meta.addEnchant(Enchantment.DAMAGE_ALL, 1, false);
+        meta.addEnchant(Enchantment.DURABILITY, 1, false);
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.WHITE + "초보자의 검");
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+        BeginnerSword = stack;
+
+        ItemStack stack1 = new ItemStack(Material.STONE_AXE);
+        ItemMeta meta1 = stack1.getItemMeta();
+        meta1.setDisplayName(ChatColor.WHITE + "Beginner's Axe");
+        meta1.addEnchant(Enchantment.DIG_SPEED, 2, false);
+        meta1.addEnchant(Enchantment.DURABILITY, 1, false);
+        List<String> lore1 = new ArrayList<>();
+        lore1.add(ChatColor.WHITE + "초보자의 도끼");
+        meta1.setLore(lore1);
+        stack1.setItemMeta(meta1);
+        BeginnerAxe = stack1;
+
+        ItemStack stack2 = new ItemStack(Material.STONE_SHOVEL);
+        ItemMeta meta2 = stack2.getItemMeta();
+        meta2.setDisplayName(ChatColor.WHITE + "Beginner's Shovel");
+        meta2.addEnchant(Enchantment.DIG_SPEED, 2, false);
+        meta2.addEnchant(Enchantment.DURABILITY, 1, false);
+        List<String> lore2 = new ArrayList<>();
+        lore2.add(ChatColor.WHITE + "초보자의 삽");
+        meta2.setLore(lore2);
+        stack2.setItemMeta(meta2);
+        BeginnerShovel = stack2;
+
+        ItemStack stack3 = new ItemStack(Material.STONE_PICKAXE);
+        ItemMeta meta3 = stack3.getItemMeta();
+        meta3.setDisplayName(ChatColor.WHITE + "Beginner's Pickaxe");
+        meta3.addEnchant(Enchantment.DIG_SPEED, 2, false);
+        meta3.addEnchant(Enchantment.DURABILITY, 1, false);
+        List<String> lore3 = new ArrayList<>();
+        lore3.add(ChatColor.WHITE + "초보자의 곡괭이");
+        meta3.setLore(lore3);
+        stack3.setItemMeta(meta3);
+        BeginnerPickaxe = stack3;
+
+        ItemStack stack4 = new ItemStack(Material.STONE_PICKAXE);
+        ItemMeta meta4 = stack4.getItemMeta();
+        meta4.setDisplayName(ChatColor.WHITE + "Beginner's Hoe");
+        meta4.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 1, false);
+        meta4.addEnchant(Enchantment.DURABILITY, 1, false);
+        List<String> lore4 = new ArrayList<>();
+        lore4.add(ChatColor.WHITE + "초보자의 괭이");
+        meta4.setLore(lore4);
+        stack4.setItemMeta(meta4);
+        BeginnerHoe = stack4;
     }
 
     public static boolean hasLore(String lore, Player player){

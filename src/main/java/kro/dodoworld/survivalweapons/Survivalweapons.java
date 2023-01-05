@@ -4,6 +4,7 @@ import kro.dodoworld.survivalweapons.commands.SwItem;
 import kro.dodoworld.survivalweapons.commands.tab.SurvivalweaponsTabCompleter;
 import kro.dodoworld.survivalweapons.config.ExodusConfig;
 import kro.dodoworld.survivalweapons.config.IronPackConfig;
+import kro.dodoworld.survivalweapons.craft.BeginnerToolsCraft;
 import kro.dodoworld.survivalweapons.craft.ItemCraft;
 import kro.dodoworld.survivalweapons.event.UpdateConfig;
 import kro.dodoworld.survivalweapons.features.AgroEnderman;
@@ -40,6 +41,7 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new UpdateConfig(), this);
         getServer().getPluginManager().registerEvents(new ItemCraft(), this);
         getServer().getPluginManager().registerEvents(new AgroEnderman(), this);
+        getServer().getPluginManager().registerEvents(new BeginnerToolsCraft(), this);
 
         getCommand("switem").setExecutor(new SwItem());
         getCommand("switem").setTabCompleter(new SurvivalweaponsTabCompleter());
