@@ -10,6 +10,8 @@ import java.lang.reflect.Field;
 import java.util.Base64;
 import java.util.UUID;
 public class CustomSkulls {
+
+    //master
     public static ItemStack getSkull(String url) {
         ItemStack skull = new ItemStack(Material.PLAYER_HEAD, 1);
         if (url == null || url.isEmpty())
