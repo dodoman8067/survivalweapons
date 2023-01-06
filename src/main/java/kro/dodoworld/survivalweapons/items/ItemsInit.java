@@ -11,7 +11,6 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.RecipeChoice;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -24,6 +23,7 @@ import java.util.UUID;
  */
 public class ItemsInit {
 
+    @Deprecated
     public static ItemStack FireGoldenSword;
     public static ItemStack LightingSword;
     public static ItemStack SpeedSterBoots;
@@ -170,7 +170,7 @@ public class ItemsInit {
         stack.setItemMeta(meta);
         Exodus = stack;
         ItemStack ExodusRecipe = new ItemStack(ItemsInit.Exodus);
-        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("exodus_recipe"), ExodusRecipe);
+        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("exodus"), ExodusRecipe);
         recipe.shape("NEN", "DAD", "   ");
         recipe.setIngredient('N', Material.NETHERITE_BLOCK);
         recipe.setIngredient('E', Material.EMERALD_BLOCK);
@@ -211,7 +211,7 @@ public class ItemsInit {
         IronPack = stack;
 
         ItemStack IronPackRecipe = new ItemStack(ItemsInit.IronPack);
-        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("iron_pack_recipe"), IronPackRecipe);
+        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("iron_pack"), IronPackRecipe);
         recipe.shape("III", "ICI", "III");
         recipe.setIngredient('C', Material.COAL);
         recipe.setIngredient('I', Material.RAW_IRON);
@@ -232,7 +232,7 @@ public class ItemsInit {
         MysteryBeginnerTool = stack;
 
         ItemStack MysteryBeginnerToolRecipe = new ItemStack(ItemsInit.MysteryBeginnerTool);
-        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("mystery_beginner_tool_recipe"), MysteryBeginnerToolRecipe);
+        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("mystery_beginner_tool"), MysteryBeginnerToolRecipe);
         recipe.shape("SSS", "SCS", "SSS");
         recipe.setIngredient('S', Material.COBBLESTONE);
         recipe.setIngredient('C', Material.CHEST);
@@ -270,7 +270,7 @@ public class ItemsInit {
         GoldenHead = stack;
 
         ItemStack GoldenHeadRecipe = new ItemStack(ItemsInit.GoldenHead);
-        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("golden_head_from_zombie_recipe"), GoldenHeadRecipe);
+        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("golden_head_from_zombie"), GoldenHeadRecipe);
         recipe.shape("SSS", "SCS", "SSS");
         recipe.setIngredient('S', Material.GOLD_INGOT);
         recipe.setIngredient('C', Material.ZOMBIE_HEAD);
@@ -278,7 +278,7 @@ public class ItemsInit {
         Bukkit.addRecipe(recipe);
 
         ItemStack GoldenHeadRecipe1 = new ItemStack(ItemsInit.GoldenHead);
-        ShapedRecipe recipe1 = new ShapedRecipe(NamespacedKey.minecraft("golden_head_from_skeleton_recipe"), GoldenHeadRecipe1);
+        ShapedRecipe recipe1 = new ShapedRecipe(NamespacedKey.minecraft("golden_head_from_skeleton"), GoldenHeadRecipe1);
         recipe1.shape("SSS", "SCS", "SSS");
         recipe1.setIngredient('S', Material.GOLD_INGOT);
         recipe1.setIngredient('C', Material.SKELETON_SKULL);
@@ -286,7 +286,7 @@ public class ItemsInit {
         Bukkit.addRecipe(recipe1);
 
         ItemStack GoldenHeadRecipe2 = new ItemStack(ItemsInit.GoldenHead);
-        ShapedRecipe recipe2 = new ShapedRecipe(NamespacedKey.minecraft("golden_head_from_creeper_recipe"), GoldenHeadRecipe2);
+        ShapedRecipe recipe2 = new ShapedRecipe(NamespacedKey.minecraft("golden_head_from_creeper"), GoldenHeadRecipe2);
         recipe2.shape("SSS", "SCS", "SSS");
         recipe2.setIngredient('S', Material.GOLD_INGOT);
         recipe2.setIngredient('C', Material.CREEPER_HEAD);
