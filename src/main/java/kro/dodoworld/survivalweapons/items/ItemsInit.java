@@ -170,7 +170,7 @@ public class ItemsInit {
         ItemStack ExodusRecipe = new ItemStack(ItemsInit.Exodus);
         ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("exodus_recipe"), ExodusRecipe);
         recipe.shape("NEN", "DAD", "   ");
-        recipe.setIngredient('N', Material.NETHERITE_INGOT);
+        recipe.setIngredient('N', Material.NETHERITE_BLOCK);
         recipe.setIngredient('E', Material.EMERALD_BLOCK);
         recipe.setIngredient('D', Material.DIAMOND_BLOCK);
         recipe.setIngredient('A', Material.ENCHANTED_GOLDEN_APPLE);
