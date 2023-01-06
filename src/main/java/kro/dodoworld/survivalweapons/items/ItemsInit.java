@@ -1,5 +1,6 @@
 package kro.dodoworld.survivalweapons.items;
 
+import kro.dodoworld.survivalweapons.util.CustomSkulls;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -39,6 +40,7 @@ public class ItemsInit {
     public static ItemStack BeginnerShovel;
     public static ItemStack BeginnerHoe;
     public static ItemStack MysteryBeginnerTool;
+    public static ItemStack GoldenHead;
 
     public static void init(){
         createFireGoldenSword();
@@ -53,6 +55,7 @@ public class ItemsInit {
         createIronPack();
         createBeginnerTools();
         createMysteryBeginnerTool();
+        createGoldenHead();
     }
 
     private static void createFireGoldenSword(){
@@ -233,6 +236,46 @@ public class ItemsInit {
         recipe.setIngredient('C', Material.CHEST);
 
         Bukkit.addRecipe(recipe);
+    }
+
+    private static void createGoldenHead(){
+        ItemStack stack = new ItemStack(CustomSkulls.getSkull("http://textures.minecraft.net/texture/4e5b308a1eb5caa97e5fb257b2d9e1861fdef15161d50a1f46f22315f4929"));
+        ItemMeta meta = stack.getItemMeta();
+        meta.setDisplayName(ChatColor.GOLD + "Golden Head");
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.GREEN + "먹을시 :");
+        lore.add(ChatColor.BLUE + "재생 IV +20초");
+        lore.add(ChatColor.BLUE + "신속 II +25초");
+        lore.add(ChatColor.BLUE + "저항 III +3초");
+        lore.add(ChatColor.BLUE + "화염 저항 +180초");
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+
+        GoldenHead = stack;
+
+        ItemStack GoldenHeadRecipe = new ItemStack(ItemsInit.GoldenHead);
+        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("golden_head_from_zombie_recipe"), GoldenHeadRecipe);
+        recipe.shape("SSS", "SCS", "SSS");
+        recipe.setIngredient('S', Material.GOLD_INGOT);
+        recipe.setIngredient('C', Material.ZOMBIE_HEAD);
+
+        Bukkit.addRecipe(recipe);
+
+        ItemStack GoldenHeadRecipe1 = new ItemStack(ItemsInit.GoldenHead);
+        ShapedRecipe recipe1 = new ShapedRecipe(NamespacedKey.minecraft("golden_head_from_skeleton_recipe"), GoldenHeadRecipe1);
+        recipe1.shape("SSS", "SCS", "SSS");
+        recipe1.setIngredient('S', Material.GOLD_INGOT);
+        recipe1.setIngredient('C', Material.SKELETON_SKULL);
+
+        Bukkit.addRecipe(recipe1);
+
+        ItemStack GoldenHeadRecipe2 = new ItemStack(ItemsInit.GoldenHead);
+        ShapedRecipe recipe2 = new ShapedRecipe(NamespacedKey.minecraft("golden_head_from_creeper_recipe"), GoldenHeadRecipe2);
+        recipe2.shape("SSS", "SCS", "SSS");
+        recipe2.setIngredient('S', Material.GOLD_INGOT);
+        recipe2.setIngredient('C', Material.CREEPER_HEAD);
+
+        Bukkit.addRecipe(recipe2);
     }
 
     private static void createBeginnerTools(){
