@@ -29,6 +29,4 @@ public class LightingSword implements Listener {
 
         }
     }
-
-
 }
