@@ -17,6 +17,8 @@ import java.util.logging.Logger;
 
 public final class Survivalweapons extends JavaPlugin {
 
+    //Current branch is 1.18
+
     private final Logger logger = getLogger();
 
     @Override
