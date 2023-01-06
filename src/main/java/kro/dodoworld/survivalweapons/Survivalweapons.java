@@ -25,6 +25,7 @@ public final class Survivalweapons extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         ItemsInit.init();
+        Anduril.registerAnduril(this);
         Cooldown.setUpCooldown();
         ExodusConfig.init();
         ExodusConfig.getExodusConfig().options().copyDefaults(true);
