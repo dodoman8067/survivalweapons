@@ -3,7 +3,7 @@ version: '${version}'
 main: kro.dodoworld.survivalweapons.Survivalweapons
 description: Only For _dodoman's Server.
 author: _dodoman
-api-version: 1.19
+api-version: 1.18
 commands:
   givegoldensword:
     description: Gives Player Zombie Piglin's Sword.
