@@ -41,6 +41,7 @@ public class ItemsInit {
     public static ItemStack BeginnerHoe;
     public static ItemStack MysteryBeginnerTool;
     public static ItemStack GoldenHead;
+    public static ItemStack Anduril;
 
     public static void init(){
         createFireGoldenSword();
@@ -56,6 +57,7 @@ public class ItemsInit {
         createBeginnerTools();
         createMysteryBeginnerTool();
         createGoldenHead();
+        createAnduril();
     }
 
     private static void createFireGoldenSword(){
@@ -238,6 +240,20 @@ public class ItemsInit {
         Bukkit.addRecipe(recipe);
     }
 
+
+    private static void createAnduril(){
+        ItemStack stack = new ItemStack(Material.IRON_SWORD);
+        ItemMeta meta = stack.getItemMeta();
+        meta.setDisplayName(ChatColor.GOLD + "Andúril");
+        meta.addEnchant(Enchantment.DAMAGE_ALL, 2, false);
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.BLUE + "+ 영구 신속 I");
+        lore.add(ChatColor.BLUE + "+ 영구 저항 I");
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+
+        Anduril = stack;
+    }
     private static void createGoldenHead(){
         ItemStack stack = new ItemStack(CustomSkulls.getSkull("http://textures.minecraft.net/texture/4e5b308a1eb5caa97e5fb257b2d9e1861fdef15161d50a1f46f22315f4929"));
         ItemMeta meta = stack.getItemMeta();

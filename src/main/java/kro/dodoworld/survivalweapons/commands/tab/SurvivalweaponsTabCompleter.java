@@ -19,6 +19,7 @@ public class SurvivalweaponsTabCompleter implements TabCompleter {
             commandArgs.add("giant_sword");
             commandArgs.add("self_attack_sword");
             commandArgs.add("lighting_axe");
+            commandArgs.add("anduril");
         }
 
         return commandArgs;
