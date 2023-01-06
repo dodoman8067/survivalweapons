@@ -9,10 +9,9 @@ import org.bukkit.inventory.meta.SkullMeta;
 import java.lang.reflect.Field;
 import java.util.Base64;
 import java.util.UUID;
-
 public class CustomSkulls {
     public static ItemStack getSkull(String url) {
-        ItemStack skull = new ItemStack(Material.PLAYER_HEAD, 1, (short) 3);
+        ItemStack skull = new ItemStack(Material.PLAYER_HEAD, 1);
         if (url == null || url.isEmpty())
             return skull;
         SkullMeta skullMeta = (SkullMeta) skull.getItemMeta();
