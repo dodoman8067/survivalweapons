@@ -18,11 +18,18 @@ public class FeatherBoots implements Listener {
         Player player = (Player) event.getEntity();
 
         if(hasLoreOnBoots(ChatColor.AQUA + "낙사를 방지해 주지만 내구도가 깨진다.", player)){
-            event.setCancelled(true);
             ItemStack stack = player.getInventory().getItem(EquipmentSlot.FEET);
             Damageable meta = (Damageable) stack.getItemMeta();
-            meta.setDamage(meta.getDamage() + ((int) event.getFinalDamage() / 2));
-            stack.setItemMeta(meta);
+            if(!(stack.getType().getMaxDurability() < meta.getDamage())){
+                event.setCancelled(true);
+                meta.setDamage(meta.getDamage() + ((int) event.getFinalDamage() / 2));
+                stack.setItemMeta(meta);
+            }else{
+                stack.setItemMeta(meta);
+                stack.setAmount(stack.getAmount() - 1);
+            }
+
+
         }
     }
 
