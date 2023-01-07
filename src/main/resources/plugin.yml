@@ -9,4 +9,5 @@ commands:
     description: Main Command For Survivalweapons Plugin.
     aliases:
       - sw
+      - survivalweaponsitem
     usage: /<command> <item_name>

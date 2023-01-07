@@ -46,6 +46,7 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new AgroEnderman(), this);
         getServer().getPluginManager().registerEvents(new BeginnerToolsCraft(), this);
         getServer().getPluginManager().registerEvents(new GoldenHead(), this);
+        getServer().getPluginManager().registerEvents(new FeatherBoots(), this);
 
         getCommand("switem").setExecutor(new SwItem());
         getCommand("switem").setTabCompleter(new SurvivalweaponsTabCompleter());

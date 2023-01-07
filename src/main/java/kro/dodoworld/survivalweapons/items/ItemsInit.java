@@ -42,6 +42,8 @@ public class ItemsInit {
     public static ItemStack MysteryBeginnerTool;
     public static ItemStack GoldenHead;
     public static ItemStack Anduril;
+    public static ItemStack IronFeatherBoots;
+    public static ItemStack DiamondFeatherBoots;
 
     public static void init(){
         createFireGoldenSword();
@@ -57,6 +59,8 @@ public class ItemsInit {
         createMysteryBeginnerTool();
         createGoldenHead();
         createAnduril();
+        createIronFeatherBoots();
+        createDiamondFeatherBoots();
     }
 
     private static void createFireGoldenSword(){
@@ -76,6 +80,42 @@ public class ItemsInit {
         FireGoldenSword = stack;
     }
 
+
+    private static void createIronFeatherBoots(){
+        ItemStack stack = new ItemStack(Material.IRON_BOOTS);
+        ItemMeta meta = stack.getItemMeta();
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.AQUA + "낙사를 방지해 주지만 내구도가 깨진다.");
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+        IronFeatherBoots = stack;
+
+        ItemStack IronFeatherBoots = new ItemStack(ItemsInit.IronFeatherBoots);
+        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("feather_falling_iron_boots"), IronFeatherBoots);
+        recipe.shape("AFA", "FIF", "AFA");
+        recipe.setIngredient('F', Material.FEATHER);
+        recipe.setIngredient('I', Material.IRON_BOOTS);
+
+        Bukkit.addRecipe(recipe);
+    }
+
+    private static void createDiamondFeatherBoots(){
+        ItemStack stack = new ItemStack(Material.DIAMOND_BOOTS);
+        ItemMeta meta = stack.getItemMeta();
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.AQUA + "낙사를 방지해 주지만 내구도가 깨진다.");
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+        DiamondFeatherBoots = stack;
+
+        ItemStack DiamondFeatherBoots = new ItemStack(ItemsInit.DiamondFeatherBoots);
+        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("feather_falling_diamond_boots"), DiamondFeatherBoots);
+        recipe.shape("AFA", "FDF", "AFA");
+        recipe.setIngredient('F', Material.FEATHER);
+        recipe.setIngredient('D', Material.DIAMOND_BOOTS);
+
+        Bukkit.addRecipe(recipe);
+    }
     private static void createLightingSword(){
         ItemStack stack = new ItemStack(Material.DIAMOND_AXE);
         ItemMeta meta = stack.getItemMeta();
