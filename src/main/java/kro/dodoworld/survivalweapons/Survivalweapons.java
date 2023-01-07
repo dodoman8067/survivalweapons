@@ -5,7 +5,7 @@ import kro.dodoworld.survivalweapons.commands.tab.SurvivalweaponsTabCompleter;
 import kro.dodoworld.survivalweapons.config.ExodusConfig;
 import kro.dodoworld.survivalweapons.config.IronPackConfig;
 import kro.dodoworld.survivalweapons.craft.BeginnerToolsCraft;
-import kro.dodoworld.survivalweapons.craft.ItemCraft;
+import kro.dodoworld.survivalweapons.craft.LimitedItemCraft;
 import kro.dodoworld.survivalweapons.event.UpdateConfig;
 import kro.dodoworld.survivalweapons.features.AgroEnderman;
 import kro.dodoworld.survivalweapons.items.ItemsInit;
@@ -42,7 +42,7 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new DragonSword(this), this);
         getServer().getPluginManager().registerEvents(new Exodus(), this);
         getServer().getPluginManager().registerEvents(new UpdateConfig(), this);
-        getServer().getPluginManager().registerEvents(new ItemCraft(), this);
+        getServer().getPluginManager().registerEvents(new LimitedItemCraft(), this);
         getServer().getPluginManager().registerEvents(new AgroEnderman(), this);
         getServer().getPluginManager().registerEvents(new BeginnerToolsCraft(), this);
         getServer().getPluginManager().registerEvents(new GoldenHead(), this);

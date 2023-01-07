@@ -11,12 +11,13 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.CraftItemEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class ItemCraft implements Listener {
+public class LimitedItemCraft implements Listener {
     @EventHandler
     public void onCraft(CraftItemEvent event){
         if(event.getCurrentItem().equals(ItemsInit.Exodus)){
             FileConfiguration config = ExodusConfig.getExodusConfig();
             if(config.getInt(String.valueOf(event.getWhoClicked().getUniqueId())) != 0){
+                event.getWhoClicked().sendMessage(ChatColor.RED + "이 아이템은 더 이상 제작이 불가능합니다!");
                 event.setCurrentItem(new ItemStack(Material.AIR));
                 event.setCancelled(true);
             }else{
