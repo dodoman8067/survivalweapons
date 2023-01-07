@@ -27,7 +27,6 @@ public class ItemsInit {
     @Deprecated
     public static ItemStack FireGoldenSword;
     public static ItemStack LightingSword;
-    public static ItemStack SpeedSterBoots;
     public static ItemStack GiantSword;
     public static ItemStack MarvelOfThunderStorm;
     public static ItemStack DragonSword;
@@ -47,7 +46,6 @@ public class ItemsInit {
     public static void init(){
         createFireGoldenSword();
         createLightingSword();
-        createSpeedsterBoots();
         createGiantSword();
         createMarvelOfThunderStorm();
         createDragonSword();
@@ -93,25 +91,6 @@ public class ItemsInit {
         meta.setLore(lore);
         stack.setItemMeta(meta);
         LightingSword = stack;
-    }
-
-    private static void createSpeedsterBoots(){
-        ItemStack stack = new ItemStack(Material.IRON_BOOTS);
-        ItemMeta meta = stack.getItemMeta();
-        meta.setDisplayName(ChatColor.RED + "Fly Boots");
-        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 2, false);
-        AttributeModifier modifier = new AttributeModifier(UUID.randomUUID(), "generic.armorToughness", 2, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.FEET);
-        AttributeModifier modifier1 = new AttributeModifier(UUID.randomUUID(), "generic.armor", 3, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.FEET);
-        AttributeModifier modifier2 = new AttributeModifier(UUID.randomUUID(), "generic.movement_speed", 0.1, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.FEET);
-        meta.addAttributeModifier(Attribute.GENERIC_ARMOR_TOUGHNESS, modifier);
-        meta.addAttributeModifier(Attribute.GENERIC_ARMOR, modifier1);
-        meta.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED, modifier2);
-        List<String> lore = new ArrayList<>();
-        lore.add(ChatColor.RED + "도도를 현실에서 만날 시 주어집니다.");
-        lore.add(ChatColor.RED + "또는 특별한 이벤트에서 얻을 수 있습니댜.");
-        meta.setLore(lore);
-        stack.setItemMeta(meta);
-        SpeedSterBoots = stack;
     }
 
     private static void createGiantSword(){
