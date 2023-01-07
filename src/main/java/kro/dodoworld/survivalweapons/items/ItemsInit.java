@@ -24,6 +24,7 @@ import java.util.UUID;
  */
 public class ItemsInit {
 
+    @Deprecated
     public static ItemStack FireGoldenSword;
     public static ItemStack LightingSword;
     public static ItemStack SpeedSterBoots;
