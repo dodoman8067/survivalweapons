@@ -36,6 +36,9 @@ public class SwItem implements CommandExecutor {
                         if(arg.equals("anduril")){
                             player.getInventory().addItem(new ItemStack(ItemsInit.Anduril));
                         }
+                        if(arg.equals("zombie_pigmen_sword")){
+                            player.getInventory().addItem(new ItemStack(ItemsInit.FireGoldenSword));
+                        }
                     }else{
                         player.sendMessage("Usage : /switem <item_name>");
                     }
