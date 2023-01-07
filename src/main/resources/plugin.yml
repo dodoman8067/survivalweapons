@@ -5,30 +5,6 @@ description: Only For _dodoman's Server.
 author: _dodoman
 api-version: 1.18
 commands:
-  givegoldensword:
-    description: Gives Player Zombie Piglin's Sword.
-    usage: /<command>
-
-  givelightingsword:
-    description: Gives Player Lighting Axe.
-    usage: /<command>
-
-  givegiantsword:
-    description: Gives Player Giant's Sword.
-    usage: /<command>
-
-  givemarvel:
-    description: aaa
-    usage: /<command>
-
-  givedragonsword:
-    description: aaa
-    usage: /<command>
-
-  giveexodus:
-    description: aaa
-    usage: /<command>
-
   switem:
     description: Main Command For Survivalweapons Plugin.
     aliases:
