@@ -43,6 +43,7 @@ public class ItemsInit {
     public static ItemStack Anduril;
     public static ItemStack IronFeatherBoots;
     public static ItemStack DiamondFeatherBoots;
+    public static ItemStack BloodLust;
 
     public static void init(){
         createFireGoldenSword();
@@ -60,6 +61,7 @@ public class ItemsInit {
         createAnduril();
         createDiamondFeatherBoots();
         createIronFeatherBoots();
+        createBloodLust();
     }
 
     private static void createFireGoldenSword(){
@@ -273,6 +275,30 @@ public class ItemsInit {
 
         Anduril = stack;
     }
+
+    private static void createBloodLust(){
+        ItemStack stack = new ItemStack(Material.DIAMOND_SWORD);
+        ItemMeta meta = stack.getItemMeta();
+        meta.setDisplayName(ChatColor.RED + "Bloodlust");
+        meta.addEnchant(Enchantment.DAMAGE_ALL, 1, true);
+        meta.addEnchant(Enchantment.DURABILITY, 5, true);
+        meta.addEnchant(Enchantment.MENDING, 1, false);
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.RED + "플레이어들을 죽일 수록 이 검은 더 강력해진다.");
+        lore.add(ChatColor.GOLD + "1킬 : " + "날카로움" + ChatColor.DARK_GRAY + " I" + ChatColor.YELLOW + "→ II");
+        lore.add(ChatColor.GOLD + "2킬 : " + "날카로움" + ChatColor.DARK_GRAY + " II" + ChatColor.YELLOW + "→ III");
+        lore.add(ChatColor.GOLD + "4킬 : " + "날카로움" + ChatColor.DARK_GRAY + " III" + ChatColor.YELLOW + "→ IV");
+        lore.add(ChatColor.GOLD + "7킬 : " + "날카로움" + ChatColor.DARK_GRAY + " IV" + ChatColor.YELLOW + "→ V");
+        lore.add(ChatColor.GOLD + "10킬 : " + "날카로움" + ChatColor.DARK_GRAY + " V" + ChatColor.YELLOW + "→ VI");
+        lore.add(ChatColor.GOLD + "20킬 : " + "날카로움" + ChatColor.DARK_GRAY + " VI" + ChatColor.YELLOW + "→ VII");
+        lore.add(" ");
+        lore.add(ChatColor.AQUA + "킬 수 : " + ChatColor.YELLOW + "0");
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+
+        BloodLust = stack;
+    }
+
     private static void createGoldenHead(){
         ItemStack stack = new ItemStack(CustomSkulls.getSkull("http://textures.minecraft.net/texture/4e5b308a1eb5caa97e5fb257b2d9e1861fdef15161d50a1f46f22315f4929"));
         ItemMeta meta = stack.getItemMeta();
