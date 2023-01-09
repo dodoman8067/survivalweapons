@@ -7,7 +7,6 @@ import kro.dodoworld.survivalweapons.config.IronPackConfig;
 import kro.dodoworld.survivalweapons.craft.BeginnerToolsCraft;
 import kro.dodoworld.survivalweapons.craft.FeatherBootsBugFix;
 import kro.dodoworld.survivalweapons.craft.LimitedItemCraft;
-import kro.dodoworld.survivalweapons.event.SpawnDeadBody;
 import kro.dodoworld.survivalweapons.event.UpdateConfig;
 import kro.dodoworld.survivalweapons.features.AgroEnderman;
 import kro.dodoworld.survivalweapons.items.ItemsInit;

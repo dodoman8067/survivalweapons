@@ -47,6 +47,7 @@ tasks.withType(JavaCompile).configureEach {
     }
 }
 
+//Fix for Korean language
 compileJava.options.encoding = 'UTF-8'
 
 tasks.withType(JavaCompile) {
