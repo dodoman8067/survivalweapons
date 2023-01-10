@@ -270,6 +270,7 @@ public class ItemsInit {
         List<String> lore = new ArrayList<>();
         lore.add(ChatColor.BLUE + "+ 영구 신속 I");
         lore.add(ChatColor.BLUE + "+ 영구 저항 I");
+        lore.add(ChatColor.GRAY + "이 아이템은 마법 부여가 불가능합니다!");
         meta.setLore(lore);
         stack.setItemMeta(meta);
 

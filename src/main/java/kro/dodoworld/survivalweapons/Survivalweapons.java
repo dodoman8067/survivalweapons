@@ -7,6 +7,7 @@ import kro.dodoworld.survivalweapons.config.IronPackConfig;
 import kro.dodoworld.survivalweapons.craft.BeginnerToolsCraft;
 import kro.dodoworld.survivalweapons.craft.FeatherBootsBugFix;
 import kro.dodoworld.survivalweapons.craft.LimitedItemCraft;
+import kro.dodoworld.survivalweapons.craft.UnEnchantableItems;
 import kro.dodoworld.survivalweapons.event.UpdateConfig;
 import kro.dodoworld.survivalweapons.features.AgroEnderman;
 import kro.dodoworld.survivalweapons.items.ItemsInit;
@@ -49,6 +50,7 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new GoldenHead(), this);
         getServer().getPluginManager().registerEvents(new FeatherBoots(), this);
         getServer().getPluginManager().registerEvents(new FeatherBootsBugFix(), this);
+        getServer().getPluginManager().registerEvents(new UnEnchantableItems(), this);
 
         getCommand("switem").setExecutor(new SwItem());
         getCommand("switem").setTabCompleter(new SurvivalweaponsTabCompleter());
