@@ -44,6 +44,8 @@ public class ItemsInit {
     public static ItemStack Anduril;
     public static ItemStack IronFeatherBoots;
     public static ItemStack DiamondFeatherBoots;
+    public static ItemStack BloodLust;
+
 
     public static void init(){
         createFireGoldenSword();
@@ -61,6 +63,7 @@ public class ItemsInit {
         createAnduril();
         createIronFeatherBoots();
         createDiamondFeatherBoots();
+        createBloodLust();
     }
 
     private static void createFireGoldenSword(){
@@ -78,6 +81,29 @@ public class ItemsInit {
         meta.setLore(lore);
         stack.setItemMeta(meta);
         FireGoldenSword = stack;
+    }
+
+    private static void createBloodLust(){
+        ItemStack stack = new ItemStack(Material.DIAMOND_SWORD);
+        ItemMeta meta = stack.getItemMeta();
+        meta.setDisplayName(ChatColor.RED + "Bloodlust");
+        meta.addEnchant(Enchantment.DAMAGE_ALL, 1, true);
+        meta.addEnchant(Enchantment.DURABILITY, 5, true);
+        meta.addEnchant(Enchantment.MENDING, 1, false);
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.RED + "플레이어들을 죽일 수록 이 검은 더 강력해진다.");
+        lore.add(ChatColor.GOLD + "1킬 : " + "날카로움" + ChatColor.DARK_GRAY + " I" + ChatColor.YELLOW + "→ II");
+        lore.add(ChatColor.GOLD + "2킬 : " + "날카로움" + ChatColor.DARK_GRAY + " II" + ChatColor.YELLOW + "→ III");
+        lore.add(ChatColor.GOLD + "4킬 : " + "날카로움" + ChatColor.DARK_GRAY + " III" + ChatColor.YELLOW + "→ IV");
+        lore.add(ChatColor.GOLD + "7킬 : " + "날카로움" + ChatColor.DARK_GRAY + " IV" + ChatColor.YELLOW + "→ V");
+        lore.add(ChatColor.GOLD + "10킬 : " + "날카로움" + ChatColor.DARK_GRAY + " V" + ChatColor.YELLOW + "→ VI");
+        lore.add(ChatColor.GOLD + "20킬 : " + "날카로움" + ChatColor.DARK_GRAY + " VI" + ChatColor.YELLOW + "→ VII");
+        lore.add(" ");
+        lore.add(ChatColor.AQUA + "킬 수 : " + ChatColor.YELLOW + "0");
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+
+        BloodLust = stack;
     }
 
 
@@ -268,6 +294,7 @@ public class ItemsInit {
         List<String> lore = new ArrayList<>();
         lore.add(ChatColor.BLUE + "+ 영구 신속 I");
         lore.add(ChatColor.BLUE + "+ 영구 저항 I");
+        lore.add(ChatColor.GRAY + "이 아이템은 마법 부여가 불가능합니다!");
         meta.setLore(lore);
         stack.setItemMeta(meta);
 

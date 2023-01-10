@@ -7,6 +7,7 @@ import kro.dodoworld.survivalweapons.config.IronPackConfig;
 import kro.dodoworld.survivalweapons.craft.BeginnerToolsCraft;
 import kro.dodoworld.survivalweapons.craft.FeatherBootsBugFix;
 import kro.dodoworld.survivalweapons.craft.LimitedItemCraft;
+import kro.dodoworld.survivalweapons.craft.UnEnchantableItems;
 import kro.dodoworld.survivalweapons.event.UpdateConfig;
 import kro.dodoworld.survivalweapons.features.AgroEnderman;
 import kro.dodoworld.survivalweapons.items.ItemsInit;
@@ -25,8 +26,13 @@ public final class Survivalweapons extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
+        long itemMs = System.currentTimeMillis();
+        logger.info("Loading Items...");
         ItemsInit.init();
         Anduril.registerAnduril(this);
+        logger.info("Loading Items Took " + (System.currentTimeMillis() - itemMs) + "ms");
+        long configMs = System.currentTimeMillis();
+        logger.info("Loading Configs...");
         Cooldown.setUpCooldown();
         ExodusConfig.init();
         ExodusConfig.getExodusConfig().options().copyDefaults(true);
@@ -34,7 +40,10 @@ public final class Survivalweapons extends JavaPlugin {
         IronPackConfig.init();
         IronPackConfig.getIronPackConfig().options().copyDefaults(true);
         IronPackConfig.saveConfig();
+        logger.info("Loading Config Took " + (System.currentTimeMillis() - configMs) + "ms");
 
+        logger.info("Loading Listeners...");
+        long eventMs = System.currentTimeMillis();
         getServer().getPluginManager().registerEvents(new FireGoldenSword(), this);
         getServer().getPluginManager().registerEvents(new SelfAttackSword(), this);
         getServer().getPluginManager().registerEvents(new LightingSword(), this);
@@ -49,6 +58,8 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new GoldenHead(), this);
         getServer().getPluginManager().registerEvents(new FeatherBoots(), this);
         getServer().getPluginManager().registerEvents(new FeatherBootsBugFix(), this);
+        getServer().getPluginManager().registerEvents(new UnEnchantableItems(), this);
+        logger.info("Loading Listeners Took " + (System.currentTimeMillis() - eventMs) + "ms");
 
         getCommand("switem").setExecutor(new SwItem());
         getCommand("switem").setTabCompleter(new SurvivalweaponsTabCompleter());
