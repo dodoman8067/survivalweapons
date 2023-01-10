@@ -40,6 +40,14 @@ public class GiantSword implements Listener {
                     giant.setInvisible(true);
                     giant.getEquipment().setItemInMainHand(new ItemStack(Material.IRON_SWORD));
                     giant.getEquipment().setItemInMainHandDropChance(0);
+                    giant.getEquipment().setBoots(new ItemStack(Material.AIR));
+                    giant.getEquipment().setLeggings(new ItemStack(Material.AIR));
+                    giant.getEquipment().setChestplate(new ItemStack(Material.AIR));
+                    giant.getEquipment().setHelmet(new ItemStack(Material.AIR));
+                    giant.getEquipment().setBootsDropChance(0);
+                    giant.getEquipment().setLeggingsDropChance(0);
+                    giant.getEquipment().setChestplateDropChance(0);
+                    giant.getEquipment().setHelmetDropChance(0);
                     giant.setAI(false);
                     giant.setInvulnerable(true);
                     giant.setGravity(false);
@@ -52,7 +60,9 @@ public class GiantSword implements Listener {
                         if(entity instanceof LivingEntity){
                             if(entity != player){
                                 LivingEntity livingEntity = (LivingEntity) entity;
-                                livingEntity.setVelocity(new Vector(0,1,0));
+                                Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
+                                    livingEntity.setVelocity(new Vector(0, 2, 0));
+                                });
                                 livingEntity.damage(8 + (livingEntity.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue() * 0.4), player);
                             }
                         }
