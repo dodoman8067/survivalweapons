@@ -17,6 +17,7 @@ import java.util.List;
 public class BloodLust implements Listener {
     @EventHandler
     public void onKill(EntityDeathEvent event){
+        if(!(event.getEntity() instanceof Player)) return;
         if(event.getEntity().getKiller() == null) return;
         Player player = event.getEntity().getKiller();
         if(!ItemsInit.hasLore(ChatColor.RED + "플레이어들을 죽일 수록 이 검은 더 강력해진다.", player)) return;
