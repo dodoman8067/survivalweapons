@@ -59,6 +59,7 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new FeatherBoots(), this);
         getServer().getPluginManager().registerEvents(new FeatherBootsBugFix(), this);
         getServer().getPluginManager().registerEvents(new UnEnchantableItems(), this);
+        getServer().getPluginManager().registerEvents(new BloodLust(), this);
         logger.info("Loading Listeners Took " + (System.currentTimeMillis() - eventMs) + "ms");
 
         getCommand("switem").setExecutor(new SwItem());
