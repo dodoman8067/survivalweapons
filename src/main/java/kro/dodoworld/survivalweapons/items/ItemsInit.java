@@ -63,6 +63,7 @@ public class ItemsInit {
         createDiamondFeatherBoots();
         createIronFeatherBoots();
         createBloodLust();
+        createThunderBottle();
     }
 
     private static void createFireGoldenSword(){
