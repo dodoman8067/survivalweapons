@@ -303,11 +303,13 @@ public class ItemsInit {
     }
 
     private static void createThunderBottle(){
-        ItemStack stack = new ItemStack(CustomSkulls.getSkull("https://textures.minecraft.net/texture/24378b986e358555ee73f09b210d49ec13719de5ea88d75523770d31163f3aef"));
+        ItemStack stack = new ItemStack(CustomSkulls.getSkull("http://textures.minecraft.net/texture/24378b986e358555ee73f09b210d49ec13719de5ea88d75523770d31163f3aef"));
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.YELLOW + "Thunder Bottle");
         List<String> lore = new ArrayList<>();
         lore.add(ChatColor.YELLOW + "Lighting Axe의 조합법에 쓰인다.");
+        lore.add(" ");
+        lore.add(ChatColor.GRAY + "이 아이템은 설치가 불가능합니다.");
         meta.setLore(lore);
         stack.setItemMeta(meta);
 
