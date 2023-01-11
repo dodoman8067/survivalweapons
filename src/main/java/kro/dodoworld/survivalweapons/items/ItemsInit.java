@@ -45,6 +45,7 @@ public class ItemsInit {
     public static ItemStack IronFeatherBoots;
     public static ItemStack DiamondFeatherBoots;
     public static ItemStack BloodLust;
+    public static ItemStack ThunderBottle;
 
 
     public static void init(){
