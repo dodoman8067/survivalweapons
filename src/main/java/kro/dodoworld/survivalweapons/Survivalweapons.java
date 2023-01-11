@@ -10,6 +10,7 @@ import kro.dodoworld.survivalweapons.craft.LimitedItemCraft;
 import kro.dodoworld.survivalweapons.craft.UnEnchantableItems;
 import kro.dodoworld.survivalweapons.event.UpdateConfig;
 import kro.dodoworld.survivalweapons.features.AgroEnderman;
+import kro.dodoworld.survivalweapons.features.ObtainThunderBottleMethod;
 import kro.dodoworld.survivalweapons.items.ItemsInit;
 import kro.dodoworld.survivalweapons.items.custom.*;
 import kro.dodoworld.survivalweapons.util.Cooldown;
@@ -53,6 +54,7 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new UnEnchantableItems(), this);
         getServer().getPluginManager().registerEvents(new UnPlaceableBlocks(), this);
         getServer().getPluginManager().registerEvents(new BloodLust(), this);
+        getServer().getPluginManager().registerEvents(new ObtainThunderBottleMethod(), this);
 
         getCommand("switem").setExecutor(new SwItem());
         getCommand("switem").setTabCompleter(new SurvivalweaponsTabCompleter());

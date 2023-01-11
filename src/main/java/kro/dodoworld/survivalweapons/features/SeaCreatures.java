@@ -26,7 +26,7 @@ public class SeaCreatures implements Listener {
                 Drowned drowned = event.getHook().getLocation().getWorld().spawn(event.getHook().getLocation(), Drowned.class);
                 drowned.setTarget(player);
                 drowned.setPersistent(true);
-                drowned.setVelocity(player.getLocation().toVector());
+                drowned.setVelocity(player.getLocation().toVector().multiply(0.2));
             }
         }
     }
