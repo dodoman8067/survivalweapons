@@ -119,11 +119,3 @@ ironpack
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar
 /unused/
-/build.gradle
-/gradle.properties
-/gradlew
-/gradlew.bat
-/settings.gradle
-/gradle/wrapper/gradle-wrapper.jar
-/gradle/wrapper/gradle-wrapper.properties
-/gradle/
