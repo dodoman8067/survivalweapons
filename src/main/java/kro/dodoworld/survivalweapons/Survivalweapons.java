@@ -54,7 +54,7 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new UnEnchantableItems(), this);
         getServer().getPluginManager().registerEvents(new UnPlaceableBlocks(), this);
         getServer().getPluginManager().registerEvents(new BloodLust(), this);
-        getServer().getPluginManager().registerEvents(new ObtainThunderBottleMethod(this), this);
+        getServer().getPluginManager().registerEvents(new ObtainThunderBottleMethod(), this);
 
         getCommand("switem").setExecutor(new SwItem());
         getCommand("switem").setTabCompleter(new SurvivalweaponsTabCompleter());
