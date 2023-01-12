@@ -2,14 +2,18 @@ package kro.dodoworld.survivalweapons.items.custom;
 
 import kro.dodoworld.survivalweapons.Survivalweapons;
 import kro.dodoworld.survivalweapons.items.ItemsInit;
-import org.bukkit.*;
+
+import org.bukkit.ChatColor;
+import org.bukkit.Particle;
+import org.bukkit.World;
+import org.bukkit.Bukkit;
+import org.bukkit.Sound;
+import org.bukkit.SoundCategory;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-
-import java.util.concurrent.ThreadLocalRandom;
 
 public class DragonSword implements Listener {
 
