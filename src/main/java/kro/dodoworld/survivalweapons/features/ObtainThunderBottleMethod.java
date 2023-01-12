@@ -1,6 +1,7 @@
 package kro.dodoworld.survivalweapons.features;
 
 import kro.dodoworld.survivalweapons.items.ItemsInit;
+import net.minecraft.world.entity.monster.EntityWitch;
 import org.bukkit.craftbukkit.v1_18_R2.entity.CraftWitch;
 
 import org.bukkit.entity.Witch;
@@ -15,8 +16,8 @@ public class ObtainThunderBottleMethod implements Listener {
     public void onDeath(EntityDeathEvent event){
         if(event.getEntity().getKiller() != null && event.getEntity() instanceof Witch){
             if(!event.getEntity().getWorld().hasStorm()) return;
-            Witch witch = (Witch) event.getEntity();
-            if(!witch.isDrinkingPotion()) return;
+            CraftWitch witch = (CraftWitch) event.getEntity();
+            if(!witch.getHandle().n()) return;
 
             double chance = Math.random();
             if(chance <= 0.15){
