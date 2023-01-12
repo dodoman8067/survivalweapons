@@ -31,10 +31,9 @@ public class DragonSword implements Listener {
 
         if(!ItemsInit.hasLore(ChatColor.GREEN + "상대를 때릴 시 50% 확률로 기존 대미지의 50%만큼의 추가 대미지를 준다.", player)) return;
 
-        ThreadLocalRandom rnd = ThreadLocalRandom.current();
-        int chance = rnd.nextInt(0,2);
+        double chance = Math.random();
 
-        if(chance == 1){
+        if(chance <= 0.5){
             Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () ->
                     target.damage(event.getFinalDamage() / 2), 15L);
             world.spawnParticle(Particle.SPELL_WITCH, target.getLocation(), 25, 0.4, 0.5, 0.4);
