@@ -4,12 +4,10 @@ import kro.dodoworld.survivalweapons.commands.SwItem;
 import kro.dodoworld.survivalweapons.commands.tab.SurvivalweaponsTabCompleter;
 import kro.dodoworld.survivalweapons.config.ExodusConfig;
 import kro.dodoworld.survivalweapons.config.IronPackConfig;
-import kro.dodoworld.survivalweapons.craft.BeginnerToolsCraft;
-import kro.dodoworld.survivalweapons.craft.FeatherBootsBugFix;
-import kro.dodoworld.survivalweapons.craft.LimitedItemCraft;
-import kro.dodoworld.survivalweapons.craft.UnEnchantableItems;
+import kro.dodoworld.survivalweapons.craft.*;
 import kro.dodoworld.survivalweapons.event.UpdateConfig;
 import kro.dodoworld.survivalweapons.features.AgroEnderman;
+import kro.dodoworld.survivalweapons.features.ObtainThunderBottleMeathod;
 import kro.dodoworld.survivalweapons.items.ItemsInit;
 import kro.dodoworld.survivalweapons.items.custom.*;
 import kro.dodoworld.survivalweapons.util.Cooldown;
@@ -30,6 +28,7 @@ public final class Survivalweapons extends JavaPlugin {
         logger.info("Loading Items...");
         ItemsInit.init();
         Anduril.registerAnduril(this);
+        CustomItemRecipe.registerRecipe(this);
         logger.info("Loading Items Took " + (System.currentTimeMillis() - itemMs) + "ms");
         long configMs = System.currentTimeMillis();
         logger.info("Loading Configs...");
@@ -61,6 +60,7 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new UnEnchantableItems(), this);
         getServer().getPluginManager().registerEvents(new BloodLust(), this);
         getServer().getPluginManager().registerEvents(new UnPlaceableBlocks(), this);
+        getServer().getPluginManager().registerEvents(new ObtainThunderBottleMeathod(), this);
         logger.info("Loading Listeners Took " + (System.currentTimeMillis() - eventMs) + "ms");
 
         getCommand("switem").setExecutor(new SwItem());

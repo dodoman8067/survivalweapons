@@ -26,7 +26,6 @@ public class LightingSword implements Listener {
                 LightningStrike strike = world.strikeLightningEffect(entity.getLocation());
                 entity.damage(4, strike);
             }
-
         }
     }
 }

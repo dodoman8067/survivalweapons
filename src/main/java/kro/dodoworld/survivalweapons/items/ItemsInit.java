@@ -11,7 +11,6 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.RecipeChoice;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -45,12 +44,11 @@ public class ItemsInit {
     public static ItemStack IronFeatherBoots;
     public static ItemStack DiamondFeatherBoots;
     public static ItemStack BloodLust;
-    public static ItemStack ThunderBottle;
+    public static ItemStack LightingBottle;
 
 
     public static void init(){
         createFireGoldenSword();
-        createLightingSword();
         createGiantSword();
         createMarvelOfThunderStorm();
         createDragonSword();
@@ -65,7 +63,8 @@ public class ItemsInit {
         createIronFeatherBoots();
         createDiamondFeatherBoots();
         createBloodLust();
-        createThunderBottle();
+        createLightingBottle();
+        createLightingSword();
     }
 
     private static void createFireGoldenSword(){
@@ -128,19 +127,22 @@ public class ItemsInit {
         Bukkit.addRecipe(recipe);
     }
 
-    private static void createThunderBottle(){
+
+    private static void createLightingBottle(){
         ItemStack stack = new ItemStack(CustomSkulls.getSkull("https://textures.minecraft.net/texture/24378b986e358555ee73f09b210d49ec13719de5ea88d75523770d31163f3aef"));
         ItemMeta meta = stack.getItemMeta();
-        meta.setDisplayName(ChatColor.YELLOW + "Thunder Bottle");
+        meta.setDisplayName(ChatColor.GOLD + "Thunder Bottle");
         List<String> lore = new ArrayList<>();
-        lore.add(ChatColor.YELLOW + "Lighting Axe의 조합법에 쓰인다.");
+        lore.add(ChatColor.DARK_GRAY + "" + ChatColor.DARK_GRAY + ChatColor.ITALIC + "마녀들만이 번개를 유리병 속에 가두는 법을 알고 있다.");
         lore.add(" ");
         lore.add(ChatColor.GRAY + "이 아이템은 설치가 불가능합니다.");
         meta.setLore(lore);
         stack.setItemMeta(meta);
 
-        ThunderBottle = stack;
+        LightingBottle = stack;
     }
+
+
     private static void createDiamondFeatherBoots(){
         ItemStack stack = new ItemStack(Material.DIAMOND_BOOTS);
         ItemMeta meta = stack.getItemMeta();
