@@ -12,14 +12,18 @@ import org.bukkit.inventory.ShapedRecipe;
 public class CustomItemRecipe  {
 
 
+    public static void init(Survivalweapons plugin){
+        registerLightingAxeRecipe(plugin);
+    }
 
-    public static void registerRecipe(Survivalweapons plugin){
-        ItemStack stack = new ItemStack(ItemsInit.LightingBottle);
+
+    private static void registerLightingAxeRecipe(Survivalweapons plugin){
+        RecipeChoice custom2Choice = new RecipeChoice.ExactChoice(new ItemStack(Material.DIAMOND_AXE));
         RecipeChoice custom1Choice = new RecipeChoice.ExactChoice(ItemsInit.LightingBottle); //custom ingredient
         NamespacedKey key = new NamespacedKey(plugin, "lighting_axe");
         ShapedRecipe recipe = new ShapedRecipe(key, ItemsInit.LightingSword); //custom item that will be crafted
         recipe.shape("HYH", "HYH", "HTH");
-        recipe.setIngredient('T', Material.DIAMOND_AXE);
+        recipe.setIngredient('T', custom2Choice);
         recipe.setIngredient('H', custom1Choice); // usage of the RecipeChoice
         recipe.setIngredient('Y', Material.TNT);
         Bukkit.addRecipe(recipe);

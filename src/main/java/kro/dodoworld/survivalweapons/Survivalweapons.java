@@ -28,7 +28,7 @@ public final class Survivalweapons extends JavaPlugin {
         logger.info("Loading Items...");
         ItemsInit.init();
         Anduril.registerAnduril(this);
-        CustomItemRecipe.registerRecipe(this);
+        CustomItemRecipe.init(this);
         logger.info("Loading Items Took " + (System.currentTimeMillis() - itemMs) + "ms");
         long configMs = System.currentTimeMillis();
         logger.info("Loading Configs...");
