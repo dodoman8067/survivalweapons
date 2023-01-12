@@ -1,10 +1,7 @@
 package kro.dodoworld.survivalweapons.items;
 
 import kro.dodoworld.survivalweapons.util.CustomSkulls;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
+import org.bukkit.*;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.enchantments.Enchantment;
@@ -13,6 +10,9 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.PotionMeta;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -128,14 +128,18 @@ public class ItemsInit {
     }
 
 
+
+
     private static void createLightingBottle(){
-        ItemStack stack = new ItemStack(CustomSkulls.getSkull("https://textures.minecraft.net/texture/24378b986e358555ee73f09b210d49ec13719de5ea88d75523770d31163f3aef"));
-        ItemMeta meta = stack.getItemMeta();
+        ItemStack stack = new ItemStack(Material.POTION);
+        PotionMeta meta = (PotionMeta) stack.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Thunder Bottle");
         List<String> lore = new ArrayList<>();
-        lore.add(ChatColor.DARK_GRAY + "" + ChatColor.DARK_GRAY + ChatColor.ITALIC + "마녀들만이 번개를 유리병 속에 가두는 법을 알고 있다.");
-        lore.add(" ");
-        lore.add(ChatColor.GRAY + "이 아이템은 설치가 불가능합니다.");
+        lore.add(ChatColor.DARK_GRAY + "" + ChatColor.DARK_GRAY + ChatColor.ITALIC + "이것에 대한 정보는 얼마 없다.");
+        lore.add(ChatColor.DARK_GRAY + "" + ChatColor.DARK_GRAY + ChatColor.ITALIC + "하지만 이것은 강력한 무기를 만들 수 있다는 소문이 있다.");
+        meta.setColor(Color.fromRGB(250, 252, 78));
+        meta.addCustomEffect(new PotionEffect(PotionEffectType.SPEED, 60, 8, false), true);
+        meta.addCustomEffect(new PotionEffect(PotionEffectType.HARM, 1, 5, false), true);
         meta.setLore(lore);
         stack.setItemMeta(meta);
 

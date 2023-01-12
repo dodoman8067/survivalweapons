@@ -11,6 +11,7 @@ import kro.dodoworld.survivalweapons.features.ObtainThunderBottleMeathod;
 import kro.dodoworld.survivalweapons.items.ItemsInit;
 import kro.dodoworld.survivalweapons.items.custom.*;
 import kro.dodoworld.survivalweapons.util.Cooldown;
+import kro.dodoworld.survivalweapons.util.ItemStackCraft;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Logger;
@@ -28,7 +29,6 @@ public final class Survivalweapons extends JavaPlugin {
         logger.info("Loading Items...");
         ItemsInit.init();
         Anduril.registerAnduril(this);
-        CustomItemRecipe.init(this);
         logger.info("Loading Items Took " + (System.currentTimeMillis() - itemMs) + "ms");
         long configMs = System.currentTimeMillis();
         logger.info("Loading Configs...");
@@ -61,6 +61,7 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new BloodLust(), this);
         getServer().getPluginManager().registerEvents(new UnPlaceableBlocks(), this);
         getServer().getPluginManager().registerEvents(new ObtainThunderBottleMeathod(), this);
+        getServer().getPluginManager().registerEvents(new ItemStackCraft(), this);
         logger.info("Loading Listeners Took " + (System.currentTimeMillis() - eventMs) + "ms");
 
         getCommand("switem").setExecutor(new SwItem());
