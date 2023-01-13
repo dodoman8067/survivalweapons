@@ -12,17 +12,20 @@ public class SurvivalweaponsTabCompleter implements TabCompleter {
     List<String> commandArgs = new ArrayList<>();
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
-        if(commandArgs.isEmpty()){
-            commandArgs.add("exodus");
-            commandArgs.add("marvel_of_thunder_storm");
-            commandArgs.add("dragon_sword");
-            commandArgs.add("giant_sword");
-            commandArgs.add("self_attack_sword");
-            commandArgs.add("lighting_axe");
-            commandArgs.add("anduril");
-            commandArgs.add("bloodlust");
-        }
+        if(sender.isOp()){
+            if(commandArgs.isEmpty()){
+                commandArgs.add("exodus");
+                commandArgs.add("marvel_of_thunder_storm");
+                commandArgs.add("dragon_sword");
+                commandArgs.add("giant_sword");
+                commandArgs.add("self_attack_sword");
+                commandArgs.add("lighting_axe");
+                commandArgs.add("anduril");
+                commandArgs.add("bloodlust");
+            }
 
-        return commandArgs;
+            return commandArgs;
+        }
+        return null;
     }
 }
