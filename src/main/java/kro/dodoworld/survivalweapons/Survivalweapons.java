@@ -10,6 +10,7 @@ import kro.dodoworld.survivalweapons.features.AgroEnderman;
 import kro.dodoworld.survivalweapons.features.ObtainThunderBottleMeathod;
 import kro.dodoworld.survivalweapons.items.ItemsInit;
 import kro.dodoworld.survivalweapons.items.custom.*;
+import kro.dodoworld.survivalweapons.loot.LootTableInit;
 import kro.dodoworld.survivalweapons.util.Cooldown;
 import kro.dodoworld.survivalweapons.util.ItemStackCraft;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -62,6 +63,7 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new UnPlaceableBlocks(), this);
         getServer().getPluginManager().registerEvents(new ObtainThunderBottleMeathod(), this);
         getServer().getPluginManager().registerEvents(new ItemStackCraft(), this);
+        getServer().getPluginManager().registerEvents(new LootTableInit(), this);
         logger.info("Loading Listeners Took " + (System.currentTimeMillis() - eventMs) + "ms");
 
         getCommand("switem").setExecutor(new SwItem());
