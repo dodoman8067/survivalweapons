@@ -296,7 +296,6 @@ public class ItemsInit {
         lore.add(ChatColor.GOLD + "20킬 : " + "날카로움" + ChatColor.DARK_GRAY + " VI" + ChatColor.YELLOW + "→ VII");
         lore.add(" ");
         lore.add(ChatColor.AQUA + "킬 수 : " + ChatColor.YELLOW + "0");
-        lore.add(" ");
         lore.add(ChatColor.GRAY + "이 아이템은 마법 부여가 불가능합니다!");
         
         
