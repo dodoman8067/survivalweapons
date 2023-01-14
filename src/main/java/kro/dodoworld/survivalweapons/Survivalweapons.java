@@ -7,10 +7,10 @@ import kro.dodoworld.survivalweapons.config.IronPackConfig;
 import kro.dodoworld.survivalweapons.craft.*;
 import kro.dodoworld.survivalweapons.event.UpdateConfig;
 import kro.dodoworld.survivalweapons.features.AgroEnderman;
-import kro.dodoworld.survivalweapons.features.ObtainThunderBottleMeathod;
+import kro.dodoworld.survivalweapons.features.ObtainThunderBottleMethod;
+import kro.dodoworld.survivalweapons.features.ObtainVampireFangMethod;
 import kro.dodoworld.survivalweapons.items.ItemsInit;
 import kro.dodoworld.survivalweapons.items.custom.*;
-import kro.dodoworld.survivalweapons.loot.LootTableInit;
 import kro.dodoworld.survivalweapons.util.CoolDown;
 import kro.dodoworld.survivalweapons.util.ItemStackCraft;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -61,9 +61,9 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new UnEnchantableItems(), this);
         getServer().getPluginManager().registerEvents(new BloodLust(), this);
         getServer().getPluginManager().registerEvents(new UnPlaceableBlocks(), this);
-        getServer().getPluginManager().registerEvents(new ObtainThunderBottleMeathod(), this);
+        getServer().getPluginManager().registerEvents(new ObtainThunderBottleMethod(), this);
         getServer().getPluginManager().registerEvents(new ItemStackCraft(), this);
-        getServer().getPluginManager().registerEvents(new LootTableInit(), this);
+        getServer().getPluginManager().registerEvents(new ObtainVampireFangMethod(), this);
         logger.info("Loading Listeners Took " + (System.currentTimeMillis() - eventMs) + "ms");
 
         getCommand("switem").setExecutor(new SwItem());

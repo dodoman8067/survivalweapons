@@ -7,7 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class ObtainThunderBottleMeathod implements Listener {
+public class ObtainThunderBottleMethod implements Listener {
     @EventHandler
     public void onDeath(EntityDeathEvent event){
         if(event.getEntity().getKiller() != null && event.getEntity() instanceof Witch){
