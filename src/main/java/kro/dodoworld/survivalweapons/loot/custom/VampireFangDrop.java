@@ -22,11 +22,11 @@ public class VampireFangDrop implements LootTable {
         double chance = loot * .01;
 
         final List<ItemStack> items = new ArrayList<>();
-        if(random.nextDouble() <= (.01 + chance)) {
+        if(random.nextDouble() <= (.50 + chance)) {
 
             //int amount = random.nextInt(3);
             //items.add(new ItemStack(Material.AIR, amount == 0 ? 1 : amount));
-            items.add(new ItemStack(Material.AIR));
+            items.add(new ItemStack(ItemsInit.VampireFang));
         }
         return items;
     }
