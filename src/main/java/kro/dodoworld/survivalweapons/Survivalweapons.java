@@ -11,7 +11,7 @@ import kro.dodoworld.survivalweapons.features.ObtainThunderBottleMeathod;
 import kro.dodoworld.survivalweapons.items.ItemsInit;
 import kro.dodoworld.survivalweapons.items.custom.*;
 import kro.dodoworld.survivalweapons.loot.LootTableInit;
-import kro.dodoworld.survivalweapons.util.Cooldown;
+import kro.dodoworld.survivalweapons.util.CoolDown;
 import kro.dodoworld.survivalweapons.util.ItemStackCraft;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -33,7 +33,7 @@ public final class Survivalweapons extends JavaPlugin {
         logger.info("Loading Items Took " + (System.currentTimeMillis() - itemMs) + "ms");
         long configMs = System.currentTimeMillis();
         logger.info("Loading Configs...");
-        Cooldown.setUpCooldown();
+        CoolDown.setUpCooldown();
         ExodusConfig.init();
         ExodusConfig.getExodusConfig().options().copyDefaults(true);
         ExodusConfig.saveConfig();

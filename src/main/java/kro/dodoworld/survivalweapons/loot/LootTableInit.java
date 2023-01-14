@@ -1,7 +1,6 @@
 package kro.dodoworld.survivalweapons.loot;
 
 import kro.dodoworld.survivalweapons.loot.custom.VampireFangDrop;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
