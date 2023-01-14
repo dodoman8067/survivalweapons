@@ -50,6 +50,7 @@ public class ItemsInit {
     public static ItemStack BloodLust;
     public static ItemStack LightingBottle;
     public static ItemStack VampireFang;
+    public static ItemStack ZombieBlood;
 
 
     public static void init(){
@@ -71,6 +72,7 @@ public class ItemsInit {
         createLightingBottle();
         createLightingSword();
         createVampireFang();
+        createZombieBlood();
     }
 
     private static void createFireGoldenSword(){
@@ -99,12 +101,12 @@ public class ItemsInit {
         meta.addEnchant(Enchantment.MENDING, 1, false);
         List<String> lore = new ArrayList<>();
         lore.add(ChatColor.RED + "플레이어들을 죽일 수록 이 검은 더 강력해진다.");
-        lore.add(ChatColor.GOLD + "1킬 : " + "날카로움" + ChatColor.DARK_GRAY + " I" + ChatColor.YELLOW + "→ II");
-        lore.add(ChatColor.GOLD + "2킬 : " + "날카로움" + ChatColor.DARK_GRAY + " II" + ChatColor.YELLOW + "→ III");
-        lore.add(ChatColor.GOLD + "4킬 : " + "날카로움" + ChatColor.DARK_GRAY + " III" + ChatColor.YELLOW + "→ IV");
-        lore.add(ChatColor.GOLD + "7킬 : " + "날카로움" + ChatColor.DARK_GRAY + " IV" + ChatColor.YELLOW + "→ V");
-        lore.add(ChatColor.GOLD + "10킬 : " + "날카로움" + ChatColor.DARK_GRAY + " V" + ChatColor.YELLOW + "→ VI");
-        lore.add(ChatColor.GOLD + "20킬 : " + "날카로움" + ChatColor.DARK_GRAY + " VI" + ChatColor.YELLOW + "→ VII");
+        lore.add(ChatColor.GOLD + "1킬 : " + "날카로움" + ChatColor.DARK_GRAY + " I" + ChatColor.YELLOW + " → II");
+        lore.add(ChatColor.GOLD + "2킬 : " + "날카로움" + ChatColor.DARK_GRAY + " II" + ChatColor.YELLOW + " → III");
+        lore.add(ChatColor.GOLD + "4킬 : " + "날카로움" + ChatColor.DARK_GRAY + " III" + ChatColor.YELLOW + " → IV");
+        lore.add(ChatColor.GOLD + "7킬 : " + "날카로움" + ChatColor.DARK_GRAY + " IV" + ChatColor.YELLOW + " → V");
+        lore.add(ChatColor.GOLD + "10킬 : " + "날카로움" + ChatColor.DARK_GRAY + " V" + ChatColor.YELLOW + " → VI");
+        lore.add(ChatColor.GOLD + "20킬 : " + "날카로움" + ChatColor.DARK_GRAY + " VI" + ChatColor.YELLOW + " → VII");
         lore.add(" ");
         lore.add(ChatColor.AQUA + "킬 수 : " + ChatColor.YELLOW + "0");
         lore.add(ChatColor.GRAY + "이 아이템은 마법 부여가 불가능합니다!");
@@ -150,6 +152,23 @@ public class ItemsInit {
         stack.setItemMeta(meta);
 
         LightingBottle = stack;
+    }
+
+    private static void createZombieBlood(){
+        ItemStack stack = new ItemStack(Material.POTION);
+        PotionMeta meta = (PotionMeta) stack.getItemMeta();
+        meta.setDisplayName(ChatColor.RED + "Zombie's Blood");
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.DARK_GRAY + "" + ChatColor.DARK_GRAY + ChatColor.ITALIC + "썩었다.");
+        lore.add(ChatColor.DARK_GRAY + "" + ChatColor.DARK_GRAY + ChatColor.ITALIC + "하지만 되살아날 수 있다.");
+        meta.setColor(Color.fromRGB(120, 7, 7));
+        meta.addCustomEffect(new PotionEffect(PotionEffectType.HUNGER, 2400, 3, false), true);
+        meta.addCustomEffect(new PotionEffect(PotionEffectType.BLINDNESS, 60, 0, false), true);
+        meta.addCustomEffect(new PotionEffect(PotionEffectType.CONFUSION, 2800, 4, false), true);
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+
+        ZombieBlood = stack;
     }
 
 
