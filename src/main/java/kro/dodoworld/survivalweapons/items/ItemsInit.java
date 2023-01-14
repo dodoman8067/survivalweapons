@@ -45,6 +45,8 @@ public class ItemsInit {
     public static ItemStack DiamondFeatherBoots;
     public static ItemStack BloodLust;
     public static ItemStack LightingBottle;
+    public static ItemStack VampireFang;
+    public static ItemStack ZombieBlood;
 
     public static void init(){
         createFireGoldenSword();
@@ -64,6 +66,8 @@ public class ItemsInit {
         createIronFeatherBoots();
         createBloodLust();
         createLightingBottle();
+        createZombieBlood();
+        createVampireFang();
     }
 
     private static void createFireGoldenSword(){
@@ -417,6 +421,35 @@ public class ItemsInit {
         meta4.setLore(lore4);
         stack4.setItemMeta(meta4);
         BeginnerHoe = stack4;
+    }
+
+    private static void createZombieBlood(){
+        ItemStack stack = new ItemStack(Material.POTION);
+        PotionMeta meta = (PotionMeta) stack.getItemMeta();
+        meta.setDisplayName(ChatColor.RED + "Zombie's Blood");
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.DARK_GRAY + "" + ChatColor.DARK_GRAY + ChatColor.ITALIC + "썩었다.");
+        lore.add(ChatColor.DARK_GRAY + "" + ChatColor.DARK_GRAY + ChatColor.ITALIC + "하지만 되살아날 수 있다.");
+        meta.setColor(Color.fromRGB(120, 7, 7));
+        meta.addCustomEffect(new PotionEffect(PotionEffectType.HUNGER, 2400, 3, false), true);
+        meta.addCustomEffect(new PotionEffect(PotionEffectType.BLINDNESS, 60, 0, false), true);
+        meta.addCustomEffect(new PotionEffect(PotionEffectType.CONFUSION, 2800, 4, false), true);
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+
+        ZombieBlood = stack;
+    }
+
+    private static void createVampireFang(){
+        ItemStack stack = new ItemStack(Material.GHAST_TEAR);
+        ItemMeta meta = stack.getItemMeta();
+        meta.setDisplayName(ChatColor.DARK_RED + "Vampire Fang");
+        meta.addEnchant(Enchantment.DAMAGE_ALL, 4, false);
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.DARK_GRAY + "" + ChatColor.DARK_GRAY + ChatColor.ITALIC + "피와 제대로 결합된다면 그 어떤 것보다 날카로워진다.");
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+        VampireFang = stack;
     }
 
     public static boolean hasLore(String lore, Player player){
