@@ -15,6 +15,7 @@ public class ItemStackCraft implements Listener {
     public void itemCraft(PrepareItemCraftEvent event){
         if(event.getInventory().getMatrix().length < 9) return;
         checkItem(new ItemStack(ItemsInit.LightingSword), event.getInventory(), getLightingAxeRecipe());
+        checkItem(new ItemStack(ItemsInit.ZombieBlood), event.getInventory(), getZombieBlood());
     }
 
     private HashMap<Integer, ItemStack> getLightingAxeRecipe(){
@@ -34,6 +35,19 @@ public class ItemStackCraft implements Listener {
 
         return lightingAxeRecipe;
     }
+
+    private HashMap<Integer, ItemStack> getZombieBlood(){
+        HashMap<Integer, ItemStack> zombieBloodRecipe = new HashMap<>();
+
+        zombieBloodRecipe.put(1, new ItemStack(Material.ZOMBIE_HEAD));
+        zombieBloodRecipe.put(3, new ItemStack(Material.ROTTEN_FLESH));
+        zombieBloodRecipe.put(4, new ItemStack(Material.GLASS_BOTTLE));
+        zombieBloodRecipe.put(5, new ItemStack(Material.ROTTEN_FLESH));
+        zombieBloodRecipe.put(7, new ItemStack(Material.FERMENTED_SPIDER_EYE));
+
+        return zombieBloodRecipe;
+    }
+
 
     private void checkItem(ItemStack result, CraftingInventory inv, HashMap<Integer, ItemStack> ingredients){
         ItemStack[] matrix = inv.getMatrix();
