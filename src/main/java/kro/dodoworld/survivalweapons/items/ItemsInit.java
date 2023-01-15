@@ -263,7 +263,7 @@ public class ItemsInit {
         stack.setItemMeta(meta);
         Exodus = stack;
         ItemStack ExodusRecipe = new ItemStack(ItemsInit.Exodus);
-        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("exodus_recipe"), ExodusRecipe);
+        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("exodus"), ExodusRecipe);
         recipe.shape("NEN", "DAD", "   ");
         recipe.setIngredient('N', Material.NETHERITE_BLOCK);
         recipe.setIngredient('E', Material.EMERALD_BLOCK);
@@ -304,7 +304,7 @@ public class ItemsInit {
         IronPack = stack;
 
         ItemStack IronPackRecipe = new ItemStack(ItemsInit.IronPack);
-        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("iron_pack_recipe"), IronPackRecipe);
+        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("iron_pack"), IronPackRecipe);
         recipe.shape("III", "ICI", "III");
         recipe.setIngredient('C', Material.COAL);
         recipe.setIngredient('I', Material.RAW_IRON);
@@ -325,7 +325,7 @@ public class ItemsInit {
         MysteryBeginnerTool = stack;
 
         ItemStack MysteryBeginnerToolRecipe = new ItemStack(ItemsInit.MysteryBeginnerTool);
-        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("mystery_beginner_tool_recipe"), MysteryBeginnerToolRecipe);
+        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("mystery_beginner_tool"), MysteryBeginnerToolRecipe);
         recipe.shape("SSS", "SCS", "SSS");
         recipe.setIngredient('S', Material.COBBLESTONE);
         recipe.setIngredient('C', Material.CHEST);
