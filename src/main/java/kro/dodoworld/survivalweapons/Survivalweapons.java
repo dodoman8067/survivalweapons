@@ -14,7 +14,7 @@ import kro.dodoworld.survivalweapons.features.ObtainThunderBottleMethod;
 import kro.dodoworld.survivalweapons.features.ObtainVampireFangMethod;
 import kro.dodoworld.survivalweapons.items.ItemsInit;
 import kro.dodoworld.survivalweapons.items.custom.*;
-import kro.dodoworld.survivalweapons.util.Cooldown;
+import kro.dodoworld.survivalweapons.util.CoolDown;
 import kro.dodoworld.survivalweapons.util.ItemStackCraft;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -30,7 +30,7 @@ public final class Survivalweapons extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         ItemsInit.init();
-        Cooldown.setUpCooldown();
+        CoolDown.setUpCooldown();
         Anduril.registerAnduril(this);
         ExodusConfig.init();
         ExodusConfig.getExodusConfig().options().copyDefaults(true);

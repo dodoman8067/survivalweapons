@@ -5,7 +5,7 @@ import org.bukkit.entity.Player;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class Cooldown {
+public class CoolDown {
     public static HashMap<UUID, Double> cooldowns;
 
     public static void setUpCooldown(){

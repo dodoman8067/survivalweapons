@@ -2,7 +2,7 @@ package kro.dodoworld.survivalweapons.items.custom;
 
 import kro.dodoworld.survivalweapons.Survivalweapons;
 import kro.dodoworld.survivalweapons.items.ItemsInit;
-import kro.dodoworld.survivalweapons.util.Cooldown;
+import kro.dodoworld.survivalweapons.util.CoolDown;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -32,7 +32,7 @@ public class GiantSword implements Listener {
 
             // Checks player's item is Giant's Sword
 
-                if(Cooldown.checkCooldown(event.getPlayer())){
+                if(CoolDown.checkCooldown(event.getPlayer())){
                     Player player = event.getPlayer();
 
                     // Summons giant
@@ -70,7 +70,7 @@ public class GiantSword implements Listener {
 
                     // Removes giant after 100 ticks (5 seconds)
                     Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, giant::remove, 100L);
-                    Cooldown.setCooldown(player, 30);
+                    CoolDown.setCooldown(player, 30);
                 }else{
                     event.getPlayer().sendMessage(ChatColor.RED + "이 아이템의 능력은 아직 쿨다운에 있습니다!");
                 }
