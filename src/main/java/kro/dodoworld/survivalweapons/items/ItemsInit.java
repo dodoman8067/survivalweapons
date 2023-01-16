@@ -51,6 +51,7 @@ public class ItemsInit {
     public static ItemStack LightingBottle;
     public static ItemStack VampireFang;
     public static ItemStack ZombieBlood;
+    public static ItemStack PandoraBox;
 
     public static void init(){
         createFireGoldenSword();
@@ -72,6 +73,7 @@ public class ItemsInit {
         createLightingBottle();
         createZombieBlood();
         createVampireFang();
+        createPandoraBox();
     }
 
     private static void createFireGoldenSword(){
@@ -455,6 +457,28 @@ public class ItemsInit {
         stack.setItemMeta(meta);
         VampireFang = stack;
     }
+
+    private static void createPandoraBox(){
+        ItemStack stack = new ItemStack(CustomSkulls.getSkull("http://textures.minecraft.net/texture/844498a0fe278956e3d04135ef4b1343d0548a7e208c61b1fb6f3b4dbc240da8"));
+        ItemMeta meta = stack.getItemMeta();
+        meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.MAGIC + ChatColor.BOLD + "A" + ChatColor.RESET + ChatColor.GOLD + "Pandora's Box" + ChatColor.GOLD + "" + ChatColor.MAGIC + ChatColor.BOLD + "A");
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.AQUA + "상자를 열 시 : ");
+        lore.add(" ");
+        lore.add(ChatColor.GOLD + "" + ChatColor.MAGIC + "이걸 발견하시다니!");
+        lore.add(ChatColor.AQUA + "" + ChatColor.MAGIC + "저도 이 텍스트를 보는 방법을 모르는데..");
+        lore.add(ChatColor.AQUA + "" + ChatColor.MAGIC + "아마 설명란에 이 상자를 열면 어떤 일이 일어날지");
+        lore.add(ChatColor.AQUA + "" + ChatColor.MAGIC + "적혀 있을 것이라고 기대했었죠?");
+        lore.add(ChatColor.GREEN + "" + ChatColor.MAGIC + "하지만 이 상자는 흔한 랜덤박스가 아닙니다!");
+        lore.add(ChatColor.DARK_GREEN + "" + ChatColor.MAGIC + "결국 위험을 감수하고 직접 상자를 열어야겠죠?");
+        lore.add(" ");
+        lore.add(ChatColor.YELLOW + "" + ChatColor.MAGIC + "- 개발자");
+
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+        PandoraBox = stack;
+    }
+
 
     public static boolean hasLore(String lore, Player player){
         return player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null
