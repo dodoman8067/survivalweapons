@@ -13,6 +13,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.potion.PotionEffect;
@@ -52,6 +53,7 @@ public class ItemsInit {
     public static ItemStack VampireFang;
     public static ItemStack ZombieBlood;
     public static ItemStack PandoraBox;
+    public static ItemStack MagicPickaxe;
 
     public static void init(){
         createFireGoldenSword();
@@ -74,6 +76,7 @@ public class ItemsInit {
         createZombieBlood();
         createVampireFang();
         createPandoraBox();
+        createMagicPickaxe();
     }
 
     private static void createFireGoldenSword(){
@@ -444,6 +447,20 @@ public class ItemsInit {
         stack.setItemMeta(meta);
 
         ZombieBlood = stack;
+    }
+
+    private static void createMagicPickaxe(){
+        ItemStack stack = new ItemStack(Material.DIAMOND_PICKAXE);
+        Damageable meta = (Damageable) stack.getItemMeta();
+        meta.setDisplayName(ChatColor.GREEN  + "");
+        meta.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 5, true);
+        meta.setDamage(1551);
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.GRAY + "이 아이템은 마법 부여가 불가능합니다!");
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+
+        MagicPickaxe = stack;
     }
 
     private static void createVampireFang(){
