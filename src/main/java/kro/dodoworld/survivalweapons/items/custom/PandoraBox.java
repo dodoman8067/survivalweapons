@@ -63,6 +63,7 @@ public class PandoraBox implements Listener {
         }
         if(a == 4){
             player.getWorld().createExplosion(player.getLocation(), 12f, true, true);
+            player.sendMessage(ChatColor.GOLD + "상자를 열었으므로 거대한 폭발이 일어났습니다!");
         }
         if(a == 5){
             for(Player player1 : Bukkit.getOnlinePlayers()){
@@ -125,6 +126,7 @@ public class PandoraBox implements Listener {
         int a = rnd.nextInt(0, 11);
         if(a == 1){
             player.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE, 2));
+            player.sendMessage(ChatColor.GOLD + "상자에는 황금 사과 2개가 들어있었습니다!");
         }
         if(a == 2){
             ItemStack stack = new ItemStack(Material.ENCHANTED_BOOK);
@@ -135,35 +137,47 @@ public class PandoraBox implements Listener {
             meta.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 3, false);
             stack.setItemMeta(meta);
             player.getInventory().addItem(stack);
+            player.sendMessage(ChatColor.GOLD + "상자에는 선택의 책이 들어있었습니다!");
         }
         if(a == 3){
             player.giveExpLevels(50);
+            player.sendMessage(ChatColor.GOLD + "상자에는 50레벨의 경험치가 들어있었습니다!");
         }
         if(a == 4){
             player.getInventory().addItem(new ItemStack(ItemsInit.MagicPickaxe));
+            player.sendMessage(ChatColor.GOLD + "상자에는 마법의 곡괭이가 들어있었습니다!");
         }
         if(a == 5){
             player.getInventory().addItem(new ItemStack(Material.ENDER_EYE));
+            player.sendMessage(ChatColor.GOLD + "상자에는 엔더의 눈이 들어있었습니다!");
         }
         if(a == 6){
             //TODO : Add Time Warp Pearl
             player.getInventory().addItem(new ItemStack(Material.ENDER_PEARL));
+            player.sendMessage(ChatColor.GOLD + "상자에는 엔더 진주가 들어있었습니다!");
+            player.sendMessage(ChatColor.GOLD + "...그냥 흔한 엔더 진주였네요?");
         }
         if(a == 7){
             player.getInventory().addItem(new ItemStack(Material.GOLD_INGOT, 10));
+            player.sendMessage(ChatColor.GOLD + "상자에는 금괴가 10개가 들어있었습니다!");
         }
         if(a == 8){
             player.getInventory().addItem(new ItemStack(Material.IRON_INGOT, 10));
+            player.sendMessage(ChatColor.GOLD + "상자에는 철괴 10개가 들어있었습니다!");
         }
         if(a == 9){
             player.getInventory().addItem(new ItemStack(ItemsInit.GoldenHead));
+            player.sendMessage(ChatColor.GOLD + "상자에는 황금 머리가 들어있었습니다!");
         }
         if(a == 10){
             double q = Math.random() * 100;
-            if(q < 1){
+            if(q <= 1){
                 player.getInventory().addItem(new ItemStack(ItemsInit.Anduril));
+                player.sendMessage(ChatColor.GOLD + "상자에는 안두릴이 들어있었습니다!");
+                player.sendMessage(ChatColor.GOLD + "이걸 얻네..?");
             }else{
                 player.getInventory().addItem(new ItemStack(ItemsInit.LightingBottle));
+                player.sendMessage(ChatColor.GOLD + "상자에는 번개가 들어 있는 유리병이 들어있었습니다!");
             }
         }
     }
