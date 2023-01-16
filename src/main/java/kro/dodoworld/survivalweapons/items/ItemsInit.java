@@ -452,7 +452,7 @@ public class ItemsInit {
     private static void createMagicPickaxe(){
         ItemStack stack = new ItemStack(Material.DIAMOND_PICKAXE);
         Damageable meta = (Damageable) stack.getItemMeta();
-        meta.setDisplayName(ChatColor.GREEN  + "");
+        meta.setDisplayName(ChatColor.GREEN  + "Magic Pickaxe");
         meta.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 5, true);
         meta.setDamage(1551);
         List<String> lore = new ArrayList<>();

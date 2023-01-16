@@ -1,20 +1,28 @@
 package kro.dodoworld.survivalweapons.items.custom;
 
 import kro.dodoworld.survivalweapons.items.ItemsInit;
-import org.apache.commons.lang.StringUtils;
-import org.bukkit.*;
+import org.bukkit.entity.Player;
+import org.bukkit.entity.Wither;
+import org.bukkit.entity.Zombie;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.entity.IronGolem;
+import org.bukkit.entity.TNTPrimed;
+import org.bukkit.ChatColor;
+import org.bukkit.entity.LivingEntity;
+import org.bukkit.BanList;
+import org.bukkit.entity.Entity;
+import org.bukkit.GameMode;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.enchantments.Enchantment;
-import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
-import org.bukkit.util.StringUtil;
 import org.bukkit.util.Vector;
 
 import java.util.Date;
@@ -29,7 +37,7 @@ public class PandoraBox implements Listener {
         if(event.getAction().equals(Action.RIGHT_CLICK_BLOCK) || event.getAction().equals(Action.RIGHT_CLICK_AIR)){
             if(!ItemsInit.hasLore(ChatColor.DARK_GREEN + "" + ChatColor.MAGIC + "결국 위험을 감수하고 직접 상자를 열어야겠죠?", event.getPlayer())) return;
             Player player = event.getPlayer();
-            if(Math.random() < 0.4){
+            if(Math.random() < 0.25){
                 doGoodEffect(player);
             }else{
                 doBadEffect(player);
@@ -39,13 +47,11 @@ public class PandoraBox implements Listener {
     }
 
     private static void doBadEffect(Player player){
-        int a = rnd.nextInt(0, 11);
+        int a = rnd.nextInt(1, 11);
         if(a == 1){
             for(int i = 0; i < 3; i++){
                 Wither wither = player.getLocation().getWorld().spawn(player.getLocation(), Wither.class);
-                wither.setTarget(Wither.Head.CENTER, player);
-                wither.setTarget(Wither.Head.LEFT, player);
-                wither.setTarget(Wither.Head.RIGHT, player);
+                wither.setTarget(player);
             }
             player.sendMessage(ChatColor.GOLD + "상자에 봉인되어있던 세 마리의 위더가 풀려났습니다!");
         }
@@ -74,7 +80,7 @@ public class PandoraBox implements Listener {
                     player1.setHealth(0);
                 }
             }
-            player.sendMessage(ChatColor.GOLD + "상자를 열었으므로 모든 인간들은 죽었습니다!");
+            player.sendMessage(ChatColor.GOLD + "상자를 열었으므로 모든 인간들을 죽었습니다!");
         }
         if(a == 6){
             for(int i = 0; i<15; i++){
@@ -109,7 +115,7 @@ public class PandoraBox implements Listener {
                 Zombie zombie = player.getLocation().getWorld().spawn(player.getLocation().add((Math.random() * 10), 0, (Math.random() * 10)), Zombie.class);
                 zombie.setTarget(player);
                 zombie.setPersistent(true);
-                zombie.setAge(0);
+                zombie.setBaby();
                 zombie.getEquipment().setHelmet(new ItemStack(Material.DIAMOND_HELMET));
                 zombie.getEquipment().setHelmetDropChance(0f);
                 zombie.getEquipment().setChestplate(new ItemStack(Material.DIAMOND_CHESTPLATE));
@@ -126,7 +132,7 @@ public class PandoraBox implements Listener {
     }
 
     private static void doGoodEffect(Player player){
-        int a = rnd.nextInt(0, 11);
+        int a = rnd.nextInt(1, 11);
         if(a == 1){
             player.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE, 2));
             player.sendMessage(ChatColor.GOLD + "상자에는 황금 사과 2개가 들어있었습니다!");
@@ -134,7 +140,6 @@ public class PandoraBox implements Listener {
         if(a == 2){
             ItemStack stack = new ItemStack(Material.ENCHANTED_BOOK);
             ItemMeta meta = stack.getItemMeta();
-            meta.setDisplayName(ChatColor.GREEN + "선택의 책");
             meta.addEnchant(Enchantment.DAMAGE_ALL, 4, false);
             meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, false);
             meta.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 3, false);
@@ -179,8 +184,8 @@ public class PandoraBox implements Listener {
                 player.sendMessage(ChatColor.GOLD + "상자에는 안두릴이 들어있었습니다!");
                 player.sendMessage(ChatColor.GOLD + "이걸 얻네..?");
             }else{
-                player.getInventory().addItem(new ItemStack(ItemsInit.LightingBottle));
-                player.sendMessage(ChatColor.GOLD + "상자에는 번개가 들어 있는 유리병이 들어있었습니다!");
+                player.getInventory().addItem(new ItemStack(Material.BLAZE_ROD));
+                player.sendMessage(ChatColor.GOLD + "상자에는 블레이즈 막대가 들어있었습니다!");
             }
         }
     }
