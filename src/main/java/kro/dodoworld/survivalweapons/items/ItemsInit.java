@@ -490,7 +490,8 @@ public class ItemsInit {
         lore.add(ChatColor.DARK_GREEN + "" + ChatColor.MAGIC + "결국 위험을 감수하고 직접 상자를 열어야겠죠?");
         lore.add(" ");
         lore.add(ChatColor.YELLOW + "" + ChatColor.MAGIC + "- 개발자");
-
+        lore.add(" ");
+        lore.add(ChatColor.GRAY + "이 아이템은 설치가 불가능합니다.");
         meta.setLore(lore);
         stack.setItemMeta(meta);
         PandoraBox = stack;

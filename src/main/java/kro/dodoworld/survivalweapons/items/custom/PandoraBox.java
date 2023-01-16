@@ -8,6 +8,7 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -25,14 +26,16 @@ public class PandoraBox implements Listener {
 
     @EventHandler
     public void onInteract(PlayerInteractEvent event){
-        if(!ItemsInit.hasLore(ChatColor.DARK_GREEN + "" + ChatColor.MAGIC + "결국 위험을 감수하고 직접 상자를 열어야겠죠?", event.getPlayer())) return;
-        Player player = event.getPlayer();
-        if(Math.random() < 0.4){
-            doGoodEffect(player);
-        }else{
-            doBadEffect(player);
+        if(event.getAction().equals(Action.RIGHT_CLICK_BLOCK) || event.getAction().equals(Action.RIGHT_CLICK_AIR)){
+            if(!ItemsInit.hasLore(ChatColor.DARK_GREEN + "" + ChatColor.MAGIC + "결국 위험을 감수하고 직접 상자를 열어야겠죠?", event.getPlayer())) return;
+            Player player = event.getPlayer();
+            if(Math.random() < 0.4){
+                doGoodEffect(player);
+            }else{
+                doBadEffect(player);
+            }
+            event.getItem().setAmount(event.getItem().getAmount() - 1);
         }
-        event.getItem().setAmount(event.getItem().getAmount() - 1);
     }
 
     private static void doBadEffect(Player player){
