@@ -28,6 +28,9 @@ import org.bukkit.util.Vector;
 import java.util.Date;
 import java.util.Random;
 
+/**
+ * Class for item PandoraBox
+ */
 public class PandoraBox implements Listener {
 
     private static final Random rnd = new Random();

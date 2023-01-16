@@ -6,8 +6,14 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-
+/**
+ * Class for item SelfAttackSword
+ */
 public class SelfAttackSword implements Listener {
+
+    /**
+     * Make item attack attacker instead of target
+     */
     @EventHandler
     public void onDamage(EntityDamageByEntityEvent event){
         if(!(event.getDamager() instanceof Player player)) return;

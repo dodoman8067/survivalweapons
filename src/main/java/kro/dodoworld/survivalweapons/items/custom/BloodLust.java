@@ -14,7 +14,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Listener for item Bloodlust
+ */
 public class BloodLust implements Listener {
+
+    /**
+     * When Player kills another Player with Bloodlust
+     */
     @EventHandler
     public void onKill(EntityDeathEvent event){
         if(!(event.getEntity() instanceof Player)) return;
@@ -33,6 +40,9 @@ public class BloodLust implements Listener {
         stack.setItemMeta(meta);
     }
 
+    /**
+     * Get kill count from lore
+     */
     private static int getDamage(ItemMeta meta){
         String dmgLore = meta.getLore().get(8);
         List<String> loreSplit = new ArrayList<>(Arrays.asList(dmgLore.split(" ")));
@@ -42,6 +52,9 @@ public class BloodLust implements Listener {
         return (Integer.parseInt(finalKills));
     }
 
+    /**
+     * Get applied Sharpness level based on kill count
+     */
     private static int getSharpLevel(ItemMeta meta){
         int returnValue = 1;
         int killCount = getDamage(meta) + 1;

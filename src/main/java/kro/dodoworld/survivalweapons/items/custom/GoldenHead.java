@@ -10,7 +10,14 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+/**
+ * Listener for item GoldenHead
+ */
 public class GoldenHead implements Listener {
+
+    /**
+     * Apply item's ability
+     */
     @EventHandler
     public void onInteract(PlayerInteractEvent event){
         if(event.getAction().equals(Action.RIGHT_CLICK_BLOCK) && ItemsInit.hasLore(ChatColor.BLUE + "재생 IV +20초", event.getPlayer())){

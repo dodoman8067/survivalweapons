@@ -6,7 +6,14 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
+/**
+ * Make item unplaceable
+ */
 public class UnPlaceableBlocks implements Listener {
+
+    /**
+     * Cancel block placing when item has specific lore
+     */
     @EventHandler
     public void onPlace(PlayerInteractEvent event){
         if(!event.isBlockInHand()) return;

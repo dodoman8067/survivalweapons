@@ -10,7 +10,14 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
+/**
+ * Listener for item LightingSword
+ */
 public class LightingSword implements Listener {
+
+    /**
+     * Strike lighting at target
+     */
     @EventHandler
     public void onDamage(EntityDamageByEntityEvent event){
         if(!(event.getDamager() instanceof Player)) return;

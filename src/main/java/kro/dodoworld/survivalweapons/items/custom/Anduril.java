@@ -9,7 +9,13 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 
+/**
+ * Class for Anduril item
+ */
 public class Anduril {
+    /**
+     * Check if Player is holding Anduril every 1 tick
+     */
     public static void registerAnduril(Survivalweapons plugin){
         new BukkitRunnable(){
 

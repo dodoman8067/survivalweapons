@@ -8,8 +8,14 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
-
+/**
+ * Listener for item Exodus
+ */
 public class Exodus implements Listener {
+
+    /**
+     * Apply item's ability
+     */
     @EventHandler
     public void onDamage(EntityDamageByEntityEvent event){
         if(!(event.getDamager() instanceof Player)) return;
@@ -18,6 +24,9 @@ public class Exodus implements Listener {
         player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 90, 1, false));
     }
 
+    /**
+     * Returns true when player has Exodus on head
+     */
     private static boolean hasLoreOnHelmet(String lore, Player player){
         try{
             return player.getInventory().getItem(EquipmentSlot.HEAD).getItemMeta() != null && player.getInventory().getItem(EquipmentSlot.HEAD).getItemMeta().getLore() != null

@@ -13,15 +13,23 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-
+/**
+ * Listener for item DragonSword
+ */
 public class DragonSword implements Listener {
 
     private static Survivalweapons plugin;
 
+    /**
+     * Constructor for DragonSword
+     */
     public DragonSword(Survivalweapons plugin){
         DragonSword.plugin = plugin;
     }
 
+    /**
+     * Apply DragonSword's effect
+     */
     @EventHandler
     public void onDamage(EntityDamageByEntityEvent event){
         if(!(event.getDamager() instanceof Player)) return;

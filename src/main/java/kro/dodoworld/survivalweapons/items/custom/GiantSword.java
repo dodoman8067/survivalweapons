@@ -18,6 +18,9 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
 
+/**
+ * Listener for item GiantSword
+ */
 public class GiantSword implements Listener {
     private static Survivalweapons plugin;
 

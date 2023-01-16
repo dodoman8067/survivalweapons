@@ -8,8 +8,14 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
-
+/**
+ * Listener for item FeatherBoots
+ */
 public class FeatherBoots implements Listener {
+
+    /**
+     * Apply item's ability
+     */
     @EventHandler
     public void onFallDamage(EntityDamageEvent event){
         if(!event.getCause().equals(EntityDamageEvent.DamageCause.FALL)) return;

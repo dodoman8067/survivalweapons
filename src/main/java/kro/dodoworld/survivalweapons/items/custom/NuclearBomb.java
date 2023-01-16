@@ -16,6 +16,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 
 import java.util.concurrent.ThreadLocalRandom;
 
+@Deprecated
 public class NuclearBomb implements Listener {
 
     private static Survivalweapons plugin;
