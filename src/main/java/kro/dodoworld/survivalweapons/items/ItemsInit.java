@@ -6,6 +6,7 @@ import org.bukkit.Material;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.Color;
+import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.enchantments.Enchantment;
@@ -52,6 +53,7 @@ public class ItemsInit {
     public static ItemStack VampireFang;
     public static ItemStack ZombieBlood;
     public static ItemStack PandoraBox;
+    public static ItemStack MagicPickaxe;
 
 
     public static void init(){
@@ -75,6 +77,7 @@ public class ItemsInit {
         createVampireFang();
         createZombieBlood();
         createPandoraBox();
+        createMagicPickaxe();
     }
 
     private static void createFireGoldenSword(){
@@ -118,7 +121,19 @@ public class ItemsInit {
         BloodLust = stack;
     }
 
+    private static void createMagicPickaxe(){
+        ItemStack stack = new ItemStack(Material.DIAMOND_PICKAXE);
+        Damageable meta = (Damageable) stack.getItemMeta();
+        meta.setDisplayName(ChatColor.GREEN  + "Magic Pickaxe");
+        meta.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 5, true);
+        meta.setDamage(1551);
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.GRAY + "이 아이템은 마법 부여가 불가능합니다!");
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
 
+        MagicPickaxe = stack;
+    }
     private static void createIronFeatherBoots(){
         ItemStack stack = new ItemStack(Material.IRON_BOOTS);
         ItemMeta meta = stack.getItemMeta();
@@ -475,6 +490,8 @@ public class ItemsInit {
         lore.add(ChatColor.DARK_GREEN + "" + ChatColor.MAGIC + "결국 위험을 감수하고 직접 상자를 열어야겠죠?");
         lore.add(" ");
         lore.add(ChatColor.YELLOW + "" + ChatColor.MAGIC + "- 개발자");
+        lore.add("  ");
+        lore.add(ChatColor.GRAY + "이 아이템은 설치가 불가능합니다.");
 
         meta.setLore(lore);
         stack.setItemMeta(meta);

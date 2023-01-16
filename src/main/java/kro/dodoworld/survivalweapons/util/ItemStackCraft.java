@@ -16,6 +16,7 @@ public class ItemStackCraft implements Listener {
         if(event.getInventory().getMatrix().length < 9) return;
         checkItem(new ItemStack(ItemsInit.LightingSword), event.getInventory(), getLightingAxeRecipe());
         checkItem(new ItemStack(ItemsInit.ZombieBlood), event.getInventory(), getZombieBlood());
+        checkItem(new ItemStack(ItemsInit.PandoraBox), event.getInventory(), getPandoraBox());
     }
 
     private HashMap<Integer, ItemStack> getLightingAxeRecipe(){
@@ -48,6 +49,21 @@ public class ItemStackCraft implements Listener {
         return zombieBloodRecipe;
     }
 
+    private HashMap<Integer, ItemStack> getPandoraBox(){
+        HashMap<Integer, ItemStack> pandoraBoxRecipe = new HashMap<>();
+
+        pandoraBoxRecipe.put(0, new ItemStack(Material.DIAMOND_BLOCK));
+        pandoraBoxRecipe.put(1, new ItemStack(Material.TOTEM_OF_UNDYING));
+        pandoraBoxRecipe.put(2, new ItemStack(Material.DIAMOND_BLOCK));
+        pandoraBoxRecipe.put(3, new ItemStack(Material.GOLD_BLOCK));
+        pandoraBoxRecipe.put(4, new ItemStack(Material.CHEST));
+        pandoraBoxRecipe.put(5, new ItemStack(Material.GOLD_BLOCK));
+        pandoraBoxRecipe.put(6, new ItemStack(Material.EMERALD_BLOCK));
+        pandoraBoxRecipe.put(7, new ItemStack(Material.TOTEM_OF_UNDYING));
+        pandoraBoxRecipe.put(8, new ItemStack(Material.EMERALD_BLOCK));
+
+        return pandoraBoxRecipe;
+    }
 
     private void checkItem(ItemStack result, CraftingInventory inv, HashMap<Integer, ItemStack> ingredients){
         ItemStack[] matrix = inv.getMatrix();

@@ -64,6 +64,7 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ObtainThunderBottleMethod(), this);
         getServer().getPluginManager().registerEvents(new ItemStackCraft(), this);
         getServer().getPluginManager().registerEvents(new ObtainVampireFangMethod(), this);
+        getServer().getPluginManager().registerEvents(new PandoraBox(), this);
         logger.info("Loading Listeners Took " + (System.currentTimeMillis() - eventMs) + "ms");
 
         getCommand("switem").setExecutor(new SwItem());
