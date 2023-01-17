@@ -9,7 +9,7 @@ import java.util.List;
 
 public class SurvivalweaponsTabCompleter implements TabCompleter {
 
-    List<String> commandArgs = new ArrayList<>();
+    private final List<String> commandArgs = new ArrayList<>();
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
         if(sender.isOp()){
