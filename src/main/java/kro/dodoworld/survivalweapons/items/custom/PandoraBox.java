@@ -7,7 +7,7 @@ import org.bukkit.entity.Zombie;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.EnchantmentStorageMeta;
 import org.bukkit.entity.IronGolem;
 import org.bukkit.entity.TNTPrimed;
 import org.bukkit.ChatColor;
@@ -139,10 +139,11 @@ public class PandoraBox implements Listener {
         }
         if(a == 2){
             ItemStack stack = new ItemStack(Material.ENCHANTED_BOOK);
-            ItemMeta meta = stack.getItemMeta();
-            meta.addEnchant(Enchantment.DAMAGE_ALL, 4, false);
-            meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, false);
-            meta.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 3, false);
+            EnchantmentStorageMeta meta = (EnchantmentStorageMeta) stack.getItemMeta();
+            meta.setDisplayName(ChatColor.GREEN + "선택의 책");
+            meta.addStoredEnchant(Enchantment.DAMAGE_ALL, 4, false);
+            meta.addStoredEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, false);
+            meta.addStoredEnchant(Enchantment.LOOT_BONUS_BLOCKS, 3, false);
             stack.setItemMeta(meta);
             player.getInventory().addItem(stack);
             player.sendMessage(ChatColor.GOLD + "상자에는 선택의 책이 들어있었습니다!");
