@@ -54,6 +54,7 @@ public class ItemsInit {
     public static ItemStack ZombieBlood;
     public static ItemStack PandoraBox;
     public static ItemStack MagicPickaxe;
+    public static ItemStack TimeWarpPearl;
 
     public static void init(){
         createFireGoldenSword();
@@ -77,6 +78,7 @@ public class ItemsInit {
         createVampireFang();
         createPandoraBox();
         createMagicPickaxe();
+        createTimeWarpPearl();
     }
 
     private static void createFireGoldenSword(){
@@ -497,6 +499,16 @@ public class ItemsInit {
         PandoraBox = stack;
     }
 
+    private static void createTimeWarpPearl(){
+        ItemStack stack = new ItemStack(Material.ENDER_PEARL);
+        ItemMeta meta = stack.getItemMeta();
+        meta.setDisplayName(ChatColor.LIGHT_PURPLE + "Time Warp Pearl");
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.LIGHT_PURPLE + "5초 뒤 이 진주를 던진 장소로 돌아온다.");
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+        TimeWarpPearl = stack;
+    }
 
     public static boolean hasLore(String lore, Player player){
         return player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null

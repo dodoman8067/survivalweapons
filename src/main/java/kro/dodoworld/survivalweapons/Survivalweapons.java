@@ -60,6 +60,7 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ItemStackCraft(), this);
         getServer().getPluginManager().registerEvents(new ObtainVampireFangMethod(), this);
         getServer().getPluginManager().registerEvents(new PandoraBox(), this);
+        getServer().getPluginManager().registerEvents(new TimeWarpPearl(this), this);
 
         getCommand("switem").setExecutor(new SwItem());
         getCommand("switem").setTabCompleter(new SurvivalweaponsTabCompleter());
