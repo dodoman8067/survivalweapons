@@ -99,8 +99,8 @@ public class PandoraBox implements Listener {
             player.sendMessage(ChatColor.GOLD + "상자에 봉인되어있던 골렘이 풀려났습니다!");
         }
         if(a == 8){
-            Bukkit.getServer().getPlayer(player.getUniqueId()).kickPlayer(ChatColor.GOLD + "판도라의 상자를 열었으므로 1시간 차단되었습니다.");
-            Bukkit.getBanList(BanList.Type.NAME).addBan(player.getName(), ChatColor.GOLD + "판도라의 상자를 열었으므로 1시간 차단되었습니다.", new Date(System.currentTimeMillis()+60*60*1000), null);
+            Bukkit.getServer().getPlayer(player.getUniqueId()).kickPlayer(ChatColor.GOLD + "판도라의 상자를 열었으므로 서버에서 추방되었습니다.");
+            Bukkit.getBanList(BanList.Type.NAME).addBan(player.getName(), ChatColor.GOLD + "판도라의 상자를 열었습니다.", new Date(System.currentTimeMillis()+60*60*1000), null);
         }
         if(a == 9){
             for(Entity entity : player.getNearbyEntities(45, 45, 45)){
@@ -161,7 +161,7 @@ public class PandoraBox implements Listener {
             player.sendMessage(ChatColor.GOLD + "상자에는 엔더의 눈이 들어있었습니다!");
         }
         if(a == 6){
-            for(int i = 0; i<=4; i++){
+            for(int i = 0; i<4; i++){
                 player.getInventory().addItem(new ItemStack(ItemsInit.TimeWarpPearl));
             }
             player.sendMessage(ChatColor.GOLD + "상자에는 특별한 엔더 진주가 들어있었습니다!");
