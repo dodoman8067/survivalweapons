@@ -7,7 +7,6 @@ import org.bukkit.entity.Zombie;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.EnchantmentStorageMeta;
 import org.bukkit.entity.IronGolem;
 import org.bukkit.entity.TNTPrimed;
@@ -165,7 +164,7 @@ public class PandoraBox implements Listener {
             player.sendMessage(ChatColor.GOLD + "상자에는 엔더의 눈이 들어있었습니다!");
         }
         if(a == 6){
-            for(int i = 0; i<=4; i++){
+            for(int i = 0; i<4; i++){
                 player.getInventory().addItem(new ItemStack(ItemsInit.TimeWarpPearl));
             }
             player.sendMessage(ChatColor.GOLD + "상자에는 특별한 엔더 진주가 들어있었습니다!");
