@@ -161,10 +161,10 @@ public class PandoraBox implements Listener {
             player.sendMessage(ChatColor.GOLD + "상자에는 엔더의 눈이 들어있었습니다!");
         }
         if(a == 6){
-            //TODO : Add Time Warp Pearl
-            player.getInventory().addItem(new ItemStack(Material.ENDER_PEARL));
-            player.sendMessage(ChatColor.GOLD + "상자에는 엔더 진주가 들어있었습니다!");
-            player.sendMessage(ChatColor.GOLD + "...그냥 흔한 엔더 진주였네요?");
+            for(int i = 0; i<=4; i++){
+                player.getInventory().addItem(new ItemStack(ItemsInit.TimeWarpPearl));
+            }
+            player.sendMessage(ChatColor.GOLD + "상자에는 특별한 엔더 진주가 들어있었습니다!");
         }
         if(a == 7){
             player.getInventory().addItem(new ItemStack(Material.GOLD_INGOT, 10));
