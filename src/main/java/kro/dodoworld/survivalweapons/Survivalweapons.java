@@ -2,6 +2,7 @@ package kro.dodoworld.survivalweapons;
 
 import kro.dodoworld.survivalweapons.commands.SwItem;
 import kro.dodoworld.survivalweapons.commands.tab.SurvivalweaponsTabCompleter;
+import kro.dodoworld.survivalweapons.config.BloodLustConfig;
 import kro.dodoworld.survivalweapons.config.ExodusConfig;
 import kro.dodoworld.survivalweapons.config.IronPackConfig;
 import kro.dodoworld.survivalweapons.craft.*;
@@ -37,6 +38,9 @@ public final class Survivalweapons extends JavaPlugin {
         ExodusConfig.init();
         ExodusConfig.getExodusConfig().options().copyDefaults(true);
         ExodusConfig.saveConfig();
+        BloodLustConfig.init();
+        BloodLustConfig.getBloodLustConfig().options().copyDefaults(true);
+        BloodLustConfig.saveConfig();
         IronPackConfig.init();
         IronPackConfig.getIronPackConfig().options().copyDefaults(true);
         IronPackConfig.saveConfig();

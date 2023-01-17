@@ -134,6 +134,7 @@ public class ItemsInit {
 
         MagicPickaxe = stack;
     }
+
     private static void createIronFeatherBoots(){
         ItemStack stack = new ItemStack(Material.IRON_BOOTS);
         ItemMeta meta = stack.getItemMeta();
@@ -151,9 +152,6 @@ public class ItemsInit {
 
         Bukkit.addRecipe(recipe);
     }
-
-
-
 
     private static void createLightingBottle(){
         ItemStack stack = new ItemStack(Material.POTION);
@@ -188,7 +186,6 @@ public class ItemsInit {
         ZombieBlood = stack;
     }
 
-
     private static void createDiamondFeatherBoots(){
         ItemStack stack = new ItemStack(Material.DIAMOND_BOOTS);
         ItemMeta meta = stack.getItemMeta();
@@ -206,6 +203,7 @@ public class ItemsInit {
 
         Bukkit.addRecipe(recipe);
     }
+
     private static void createLightingSword(){
         ItemStack stack = new ItemStack(Material.DIAMOND_AXE);
         ItemMeta meta = stack.getItemMeta();
@@ -302,7 +300,6 @@ public class ItemsInit {
         SelfAttackSword = stack;
     }
 
-
     private static void createNuclearBomb(){
         ItemStack stack = new ItemStack(Material.GUNPOWDER);
         ItemMeta meta = stack.getItemMeta();
@@ -313,8 +310,6 @@ public class ItemsInit {
         stack.setItemMeta(meta);
         NuclearBomb = stack;
     }
-
-
 
     private static void createIronPack(){
         ItemStack stack = new ItemStack(Material.IRON_INGOT, 10);
@@ -328,7 +323,6 @@ public class ItemsInit {
 
         Bukkit.addRecipe(recipe);
     }
-
 
     private static void createMysteryBeginnerTool(){
         ItemStack stack = new ItemStack(Material.COAL_BLOCK);
@@ -364,7 +358,6 @@ public class ItemsInit {
 
         Anduril = stack;
     }
-
 
     private static void createGoldenHead(){
         ItemStack stack = new ItemStack(CustomSkulls.getSkull("http://textures.minecraft.net/texture/4e5b308a1eb5caa97e5fb257b2d9e1861fdef15161d50a1f46f22315f4929"));
@@ -497,8 +490,6 @@ public class ItemsInit {
         stack.setItemMeta(meta);
         PandoraBox = stack;
     }
-
-
 
     public static boolean hasLore(String lore, Player player){
         return player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null

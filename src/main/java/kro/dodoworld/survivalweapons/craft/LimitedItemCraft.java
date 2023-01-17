@@ -1,5 +1,6 @@
 package kro.dodoworld.survivalweapons.craft;
 
+import kro.dodoworld.survivalweapons.config.BloodLustConfig;
 import kro.dodoworld.survivalweapons.config.ExodusConfig;
 import kro.dodoworld.survivalweapons.config.IronPackConfig;
 import kro.dodoworld.survivalweapons.items.ItemsInit;
@@ -37,6 +38,19 @@ public class LimitedItemCraft implements Listener {
                 config.set(String.valueOf(event.getWhoClicked().getUniqueId()), (config.getInt(String.valueOf(event.getWhoClicked().getUniqueId())) + 1));
                 IronPackConfig.saveConfig();
                 IronPackConfig.reloadConfig();
+            }
+        }
+
+        if(event.getCurrentItem().equals(ItemsInit.BloodLust)){
+            FileConfiguration config = BloodLustConfig.getBloodLustConfig();
+            if(config.getInt(String.valueOf(event.getWhoClicked().getUniqueId())) >= 1){
+                event.getWhoClicked().sendMessage(ChatColor.RED + "이 아이템은 더 이상 제작이 불가능합니다!");
+                event.setCurrentItem(new ItemStack(Material.AIR));
+                event.setCancelled(true);
+            }else{
+                config.set(String.valueOf(event.getWhoClicked().getUniqueId()), (config.getInt(String.valueOf(event.getWhoClicked().getUniqueId())) + 1));
+                BloodLustConfig.saveConfig();
+                BloodLustConfig.reloadConfig();
             }
         }
     }
