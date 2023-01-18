@@ -83,11 +83,11 @@ public class PandoraBox implements Listener {
             player.sendMessage(ChatColor.GOLD + "상자를 열었으므로 모든 인간들을 죽었습니다!");
         }
         if(a == 6){
-            for(int i = 0; i<15; i++){
+            for(int i = 0; i<25; i++){
                 TNTPrimed tnt = player.getLocation().getWorld().spawn(player.getLocation(), TNTPrimed.class);
                 tnt.setSource(player);
                 tnt.setFuseTicks(100);
-                tnt.setVelocity(new Vector(Math.random(), 2, Math.random()));
+                tnt.setVelocity(new Vector(0, 3, 0));
             }
             player.sendMessage(ChatColor.GOLD + "상자 안에는 15개의 TNT가 들어있었습니다!");
         }
