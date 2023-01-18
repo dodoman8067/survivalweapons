@@ -92,7 +92,7 @@ public class PandoraBox implements Listener {
                 tnt.setFuseTicks(100);
                 tnt.setVelocity(new Vector(0, 2, 0));
             }
-            player.sendMessage(ChatColor.GOLD + "상자 안에는 15개의 TNT가 들어있었습니다!");
+            player.sendMessage(ChatColor.GOLD + "상자 안에는 25개의 TNT가 들어있었습니다!");
         }
         if(a == 7){
             IronGolem golem = player.getLocation().getWorld().spawn(player.getLocation(), IronGolem.class);
