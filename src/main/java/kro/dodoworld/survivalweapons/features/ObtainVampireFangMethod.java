@@ -15,16 +15,12 @@ import org.bukkit.inventory.ItemStack;
 public class ObtainVampireFangMethod implements Listener {
     @EventHandler
     public void onDeath(EntityDeathEvent event){
-        Bukkit.getLogger().info("1");
         if(event.getEntity().getKiller() != null && event.getEntity() instanceof Bat) {
-            Bukkit.getLogger().info("2");
             Bat bat = (Bat) event.getEntity();
             if (!(bat.getLastDamageCause().getCause().equals(EntityDamageEvent.DamageCause.PROJECTILE))) return;
-            Bukkit.getLogger().info("3");
             if (!(bat.getKiller().getInventory().getItemInMainHand().equals(new ItemStack(Material.BOW)))) return;
-            Bukkit.getLogger().info("4");
             double chance = Math.random() * 100;
-            if (chance <= 80) {
+            if (chance <= 8) {
                 event.getEntity().getWorld().dropItemNaturally(event.getEntity().getLocation(), new ItemStack(ItemsInit.VampireFang));
                 event.getEntity().getKiller().sendMessage(ChatColor.GOLD + "" + ChatColor.GOLD + ChatColor.BOLD + "희귀 드랍!" + ChatColor.RED + " Vampire Fang" + ChatColor.GRAY + " x1");
             }
