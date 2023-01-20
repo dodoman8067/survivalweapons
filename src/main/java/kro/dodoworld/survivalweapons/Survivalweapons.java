@@ -67,6 +67,7 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new UnPlaceableBlocks(), this);
         getServer().getPluginManager().registerEvents(new ObtainThunderBottleMethod(), this);
         getServer().getPluginManager().registerEvents(new ItemStackCraft(), this);
+        getServer().getPluginManager().registerEvents(new LimitedItemCraftForHashMap(), this);
         getServer().getPluginManager().registerEvents(new ObtainVampireFangMethod(), this);
         getServer().getPluginManager().registerEvents(new PandoraBox(), this);
         getServer().getPluginManager().registerEvents(new TimeWarpPearl(this), this);

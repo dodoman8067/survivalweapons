@@ -18,6 +18,7 @@ public class ItemStackCraft implements Listener {
         checkItem(new ItemStack(ItemsInit.ZombieBlood), event.getInventory(), getZombieBlood());
         checkItem(new ItemStack(ItemsInit.PandoraBox), event.getInventory(), getPandoraBox());
         checkItem(new ItemStack(ItemsInit.PureBlood), event.getInventory(), getPureBlood());
+        checkItem(new ItemStack(ItemsInit.BloodLust), event.getInventory(), getBloodLust());
     }
 
     private HashMap<Integer, ItemStack> getLightingAxeRecipe(){
@@ -60,6 +61,22 @@ public class ItemStackCraft implements Listener {
         pureBloodRecipe.put(7, new ItemStack(Material.GOLDEN_APPLE));
 
         return pureBloodRecipe;
+    }
+
+    private HashMap<Integer, ItemStack> getBloodLust(){
+        HashMap<Integer, ItemStack> bloodLustRecipe = new HashMap<>();
+
+        bloodLustRecipe.put(0, new ItemStack(ItemsInit.VampireFang));
+        bloodLustRecipe.put(1, new ItemStack(ItemsInit.PureBlood));
+        bloodLustRecipe.put(2, new ItemStack(ItemsInit.VampireFang));
+        bloodLustRecipe.put(3, new ItemStack(ItemsInit.VampireFang));
+        bloodLustRecipe.put(4, new ItemStack(ItemsInit.PureBlood));
+        bloodLustRecipe.put(5, new ItemStack(ItemsInit.VampireFang));
+        bloodLustRecipe.put(6, new ItemStack(ItemsInit.VampireFang));
+        bloodLustRecipe.put(7, new ItemStack(Material.DIAMOND_SWORD));
+        bloodLustRecipe.put(8, new ItemStack(ItemsInit.VampireFang));
+
+        return bloodLustRecipe;
     }
 
     private HashMap<Integer, ItemStack> getPandoraBox(){
