@@ -26,7 +26,6 @@ public class LimitedItemCraftForHashMap implements Listener {
                 event.setCurrentItem(new ItemStack(Material.AIR));
                 event.setCancelled(true);
             }else{
-                event.getWhoClicked().sendMessage(ChatColor.DARK_RED + "Bloodlust " + ChatColor.GREEN + "를 제작했습니다. (1/1)");
                 config.set(String.valueOf(event.getWhoClicked().getUniqueId()), (config.getInt(String.valueOf(event.getWhoClicked().getUniqueId())) + 1));
                 BloodLustConfig.saveConfig();
                 BloodLustConfig.reloadConfig();
