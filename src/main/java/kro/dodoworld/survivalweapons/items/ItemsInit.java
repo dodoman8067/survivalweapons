@@ -55,6 +55,7 @@ public class ItemsInit {
     public static ItemStack PandoraBox;
     public static ItemStack MagicPickaxe;
     public static ItemStack TimeWarpPearl;
+    public static ItemStack PureBlood;
 
 
     public static void init(){
@@ -80,6 +81,7 @@ public class ItemsInit {
         createPandoraBox();
         createMagicPickaxe();
         createTimeWarpPearl();
+        createPureBlood();
     }
 
     private static void createFireGoldenSword(){
@@ -174,7 +176,7 @@ public class ItemsInit {
     private static void createZombieBlood(){
         ItemStack stack = new ItemStack(Material.POTION);
         PotionMeta meta = (PotionMeta) stack.getItemMeta();
-        meta.setDisplayName(ChatColor.RED + "Zombie's Blood");
+        meta.setDisplayName(ChatColor.DARK_RED + "Zombie's Blood");
         List<String> lore = new ArrayList<>();
         lore.add(ChatColor.DARK_GRAY + "" + ChatColor.DARK_GRAY + ChatColor.ITALIC + "썩었다.");
         lore.add(ChatColor.DARK_GRAY + "" + ChatColor.DARK_GRAY + ChatColor.ITALIC + "하지만 되살아날 수 있다.");
@@ -186,6 +188,19 @@ public class ItemsInit {
         stack.setItemMeta(meta);
 
         ZombieBlood = stack;
+    }
+
+    private static void createPureBlood(){
+        ItemStack stack = new ItemStack(Material.POTION);
+        PotionMeta meta = (PotionMeta) stack.getItemMeta();
+        meta.setDisplayName(ChatColor.RED + "Pure Blood");
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.GRAY + "그냥 피....일까?");
+        meta.setColor(Color.fromRGB(120, 7, 7));
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+
+        PureBlood = stack;
     }
 
     private static void createDiamondFeatherBoots(){
