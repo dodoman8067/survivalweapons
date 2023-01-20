@@ -87,7 +87,7 @@ public class PandoraBox implements Listener {
                 TNTPrimed tnt = player.getLocation().getWorld().spawn(player.getLocation(), TNTPrimed.class);
                 tnt.setSource(player);
                 tnt.setFuseTicks(100);
-                tnt.setVelocity(new Vector(0, 3, 0));
+                tnt.setVelocity(new Vector(Math.random(), 2, Math.random()));
             }
             player.sendMessage(ChatColor.GOLD + "상자 안에는 25개의 TNT가 들어있었습니다!");
         }
