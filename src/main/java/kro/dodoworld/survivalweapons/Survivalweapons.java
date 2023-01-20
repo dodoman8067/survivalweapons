@@ -2,12 +2,10 @@ package kro.dodoworld.survivalweapons;
 
 import kro.dodoworld.survivalweapons.commands.SwItem;
 import kro.dodoworld.survivalweapons.commands.tab.SurvivalweaponsTabCompleter;
+import kro.dodoworld.survivalweapons.config.BloodLustConfig;
 import kro.dodoworld.survivalweapons.config.ExodusConfig;
 import kro.dodoworld.survivalweapons.config.IronPackConfig;
-import kro.dodoworld.survivalweapons.craft.BeginnerToolsCraft;
-import kro.dodoworld.survivalweapons.craft.FeatherBootsBugFix;
-import kro.dodoworld.survivalweapons.craft.LimitedItemCraft;
-import kro.dodoworld.survivalweapons.craft.UnEnchantableItems;
+import kro.dodoworld.survivalweapons.craft.*;
 import kro.dodoworld.survivalweapons.event.UpdateConfig;
 import kro.dodoworld.survivalweapons.features.AgroEnderman;
 import kro.dodoworld.survivalweapons.features.ObtainThunderBottleMethod;
@@ -35,6 +33,9 @@ public final class Survivalweapons extends JavaPlugin {
         ExodusConfig.init();
         ExodusConfig.getExodusConfig().options().copyDefaults(true);
         ExodusConfig.saveConfig();
+        BloodLustConfig.init();
+        BloodLustConfig.getBloodLustConfig().options().copyDefaults(true);
+        BloodLustConfig.saveConfig();
         IronPackConfig.init();
         IronPackConfig.getIronPackConfig().options().copyDefaults(true);
         IronPackConfig.saveConfig();
@@ -58,6 +59,7 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new BloodLust(), this);
         getServer().getPluginManager().registerEvents(new ObtainThunderBottleMethod(), this);
         getServer().getPluginManager().registerEvents(new ItemStackCraft(), this);
+        getServer().getPluginManager().registerEvents(new LimitedItemCraftForHashMap(), this);
         getServer().getPluginManager().registerEvents(new ObtainVampireFangMethod(), this);
         getServer().getPluginManager().registerEvents(new PandoraBox(), this);
         getServer().getPluginManager().registerEvents(new TimeWarpPearl(this), this);

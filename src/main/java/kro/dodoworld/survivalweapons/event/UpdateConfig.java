@@ -1,5 +1,6 @@
 package kro.dodoworld.survivalweapons.event;
 
+import kro.dodoworld.survivalweapons.config.BloodLustConfig;
 import kro.dodoworld.survivalweapons.config.ExodusConfig;
 import kro.dodoworld.survivalweapons.config.IronPackConfig;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -22,6 +23,13 @@ public class UpdateConfig implements Listener {
             config.addDefault(String.valueOf(event.getPlayer().getUniqueId()), 0);
             IronPackConfig.saveConfig();
             IronPackConfig.reloadConfig();
+        }
+
+        if(!BloodLustConfig.getBloodLustConfig().contains(String.valueOf(event.getPlayer().getUniqueId()))){
+            FileConfiguration config = BloodLustConfig.getBloodLustConfig();
+            config.addDefault(String.valueOf(event.getPlayer().getUniqueId()), 0);
+            BloodLustConfig.saveConfig();
+            BloodLustConfig.reloadConfig();
         }
     }
 }
