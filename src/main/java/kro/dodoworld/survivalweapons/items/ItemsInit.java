@@ -228,7 +228,7 @@ public class ItemsInit {
         ItemStack stack = new ItemStack(Material.SNOWBALL);
         ItemMeta meta = stack.getItemMeta();
         List<String> lore = new ArrayList<>();
-        lore.add(ChatColor.RED + "눈덩이 대미지 + 1");
+        lore.add(ChatColor.RED + "눈덩이 대미지 + 2");
         meta.setLore(lore);
         stack.setItemMeta(meta);
         StoneSnowBall = stack;

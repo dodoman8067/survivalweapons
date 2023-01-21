@@ -16,13 +16,13 @@ public class StoneSnowBall implements Listener {
         if(event.getHitEntity() == null) return;
         if(!(event.getHitEntity() instanceof LivingEntity)) return;
         if(!(event.getEntity().getShooter() instanceof Player)) return;
-        if(event.getEntity() instanceof Snowball) return;
+        if(!(event.getEntity() instanceof Snowball)) return;
         if(!event.getEntity().getScoreboardTags().contains("sw_stonesnowball")) return;
 
         LivingEntity entity = (LivingEntity) event.getHitEntity();
         Player player = (Player) event.getEntity().getShooter();
 
-        entity.damage(1, player);
+        entity.damage(2, player);
     }
 
     @EventHandler
@@ -30,7 +30,7 @@ public class StoneSnowBall implements Listener {
         if(!(event.getEntity().getShooter() instanceof Player)) return;
         if(!(event.getEntity() instanceof Snowball)) return;
         Player player = (Player) event.getEntity().getShooter();
-        if(!ItemsInit.hasLore(ChatColor.RED + "눈덩이 대미지 + 1", player)) return;
+        if(!ItemsInit.hasLore(ChatColor.RED + "눈덩이 대미지 + 2", player)) return;
         event.getEntity().addScoreboardTag("sw_stonesnowball");
     }
 }
