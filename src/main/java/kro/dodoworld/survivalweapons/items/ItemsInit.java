@@ -13,6 +13,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.ShapelessRecipe;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.PotionMeta;
@@ -56,6 +57,7 @@ public class ItemsInit {
     public static ItemStack MagicPickaxe;
     public static ItemStack TimeWarpPearl;
     public static ItemStack PureBlood;
+    public static ItemStack StoneSnowBall;
 
     public static void init(){
         createFireGoldenSword();
@@ -81,6 +83,7 @@ public class ItemsInit {
         createMagicPickaxe();
         createTimeWarpPearl();
         createPureBlood();
+        createStoneSnowBall();
     }
 
     private static void createFireGoldenSword(){
@@ -114,6 +117,23 @@ public class ItemsInit {
         recipe.shape("AFA", "FIF", "AFA");
         recipe.setIngredient('F', Material.FEATHER);
         recipe.setIngredient('I', Material.IRON_BOOTS);
+
+        Bukkit.addRecipe(recipe);
+    }
+
+    private static void createStoneSnowBall(){
+        ItemStack stack = new ItemStack(Material.SNOWBALL);
+        ItemMeta meta = stack.getItemMeta();
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.RED + "눈덩이 대미지 + 2");
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+        StoneSnowBall = stack;
+
+        ItemStack StoneSnowBallRecipe = new ItemStack(ItemsInit.StoneSnowBall);
+        ShapelessRecipe recipe = new ShapelessRecipe(NamespacedKey.minecraft("stone_snowball"), StoneSnowBallRecipe);
+        recipe.addIngredient(Material.SNOWBALL);
+        recipe.addIngredient(Material.STONE);
 
         Bukkit.addRecipe(recipe);
     }
