@@ -58,6 +58,7 @@ public class ItemsInit {
     public static ItemStack TimeWarpPearl;
     public static ItemStack PureBlood;
     public static ItemStack StoneSnowBall;
+    public static ItemStack Excalibur;
 
     public static void init(){
         createFireGoldenSword();
@@ -84,6 +85,7 @@ public class ItemsInit {
         createTimeWarpPearl();
         createPureBlood();
         createStoneSnowBall();
+        createExcalibur();
     }
 
     private static void createFireGoldenSword(){
@@ -218,6 +220,21 @@ public class ItemsInit {
         meta.setLore(lore);
         stack.setItemMeta(meta);
         DragonSword = stack;
+    }
+
+    private static void createExcalibur(){
+        ItemStack stack = new ItemStack(Material.DIAMOND_SWORD);
+        ItemMeta meta = stack.getItemMeta();
+        meta.setDisplayName(ChatColor.DARK_GREEN  + "Excalibur");
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.RED + "대미지 - 20%");
+        lore.add(ChatColor.DARK_BLUE + "무기의 최종 대미지 + 1");
+        lore.add(" ");
+        lore.add(ChatColor.DARK_GRAY + "" + ChatColor.DARK_GRAY + ChatColor.ITALIC + "이 검을 뽑는 자만이 왕이 될 자격이 있다.");
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+
+        Excalibur = stack;
     }
 
     private static void createExodus(){
