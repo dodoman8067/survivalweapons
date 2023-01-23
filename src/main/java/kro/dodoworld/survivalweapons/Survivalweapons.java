@@ -27,9 +27,14 @@ public final class Survivalweapons extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
+        long itemMs = System.currentTimeMillis();
+        logger.info("Loading Items...");
         ItemsInit.init();
-        CoolDown.setUpCooldown();
         Anduril.registerAnduril(this);
+        logger.info("Loading Items Took " + (System.currentTimeMillis() - itemMs) + "ms");
+        long configMs = System.currentTimeMillis();
+        logger.info("Loading Configs...");
+        CoolDown.setUpCooldown();
         ExodusConfig.init();
         ExodusConfig.getExodusConfig().options().copyDefaults(true);
         ExodusConfig.saveConfig();
@@ -39,7 +44,10 @@ public final class Survivalweapons extends JavaPlugin {
         IronPackConfig.init();
         IronPackConfig.getIronPackConfig().options().copyDefaults(true);
         IronPackConfig.saveConfig();
+        logger.info("Loading Config Took " + (System.currentTimeMillis() - configMs) + "ms");
 
+        logger.info("Loading Listeners...");
+        long eventMs = System.currentTimeMillis();
         getServer().getPluginManager().registerEvents(new FireGoldenSword(), this);
         getServer().getPluginManager().registerEvents(new SelfAttackSword(), this);
         getServer().getPluginManager().registerEvents(new LightingSword(), this);
@@ -55,8 +63,8 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new FeatherBoots(), this);
         getServer().getPluginManager().registerEvents(new FeatherBootsBugFix(), this);
         getServer().getPluginManager().registerEvents(new UnEnchantableItems(), this);
-        getServer().getPluginManager().registerEvents(new UnPlaceableBlocks(), this);
         getServer().getPluginManager().registerEvents(new BloodLust(), this);
+        getServer().getPluginManager().registerEvents(new UnPlaceableBlocks(), this);
         getServer().getPluginManager().registerEvents(new ObtainThunderBottleMethod(), this);
         getServer().getPluginManager().registerEvents(new ItemStackCraft(), this);
         getServer().getPluginManager().registerEvents(new LimitedItemCraftForHashMap(), this);
@@ -64,9 +72,13 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PandoraBox(), this);
         getServer().getPluginManager().registerEvents(new TimeWarpPearl(this), this);
         getServer().getPluginManager().registerEvents(new StoneSnowBall(), this);
+        logger.info("Loading Listeners Took " + (System.currentTimeMillis() - eventMs) + "ms");
 
+        long commandMs = System.currentTimeMillis();
+        logger.info("Loading Commands...");
         getCommand("switem").setExecutor(new SwItem());
         getCommand("switem").setTabCompleter(new SurvivalweaponsTabCompleter());
+        logger.info("Loading Commands Took " + (System.currentTimeMillis() - commandMs) + "ms");
 
         logger.info("Successfully Registered Events, Items and Commands.");
     }
