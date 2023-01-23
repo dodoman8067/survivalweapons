@@ -5,8 +5,8 @@ import javax.swing.JFrame;
 import java.awt.FlowLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.awt.GraphicsEnvironment;
 import java.awt.Font;
+
 /**
  * Wait, How did You found this class?
  */
