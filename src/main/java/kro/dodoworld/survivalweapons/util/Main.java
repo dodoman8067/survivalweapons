@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import java.awt.FlowLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.GraphicsEnvironment;
 
 /**
  * Wait, How did You found this class?
@@ -26,5 +27,12 @@ public class Main extends JFrame {
     }
     public static void main(String[] args){
         new Main();
+        String fonts[]
+                = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+
+        for (int i = 0; i < fonts.length; i++) {
+            System.out.println(fonts[i]);
+        }
+
     }
 }
