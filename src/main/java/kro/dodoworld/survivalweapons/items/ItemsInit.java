@@ -149,7 +149,7 @@ public class ItemsInit {
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.DARK_GREEN  + "Excalibur");
         List<String> lore = new ArrayList<>();
-        lore.add(ChatColor.RED + "대미지 - 20%");
+        lore.add(ChatColor.DARK_BLUE + "받는 대미지 - 20%");
         lore.add(ChatColor.DARK_BLUE + "무기의 최종 대미지 + 1");
         lore.add(" ");
         lore.add(ChatColor.DARK_GRAY + "" + ChatColor.DARK_GRAY + ChatColor.ITALIC + "이 검을 뽑는 자만이 왕이 될 자격이 있다.");
