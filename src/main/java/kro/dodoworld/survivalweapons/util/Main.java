@@ -1,7 +1,7 @@
 package kro.dodoworld.survivalweapons.util;
 
-import javax.swing.JFrame;
-import javax.swing.JTextField;
+import javax.swing.*;
+import javax.swing.text.JTextComponent;
 import java.awt.FlowLayout;
 /**
  * Wait, How did You found this class?
@@ -14,9 +14,9 @@ public class Main extends JFrame {
         setTitle("플러그인 적용 방법");
 
         setLayout(new FlowLayout());
-        JTextField field = new JTextField("그냥 서버 폴더 안에 plugins 폴더에 이 파일을 넣고 서버를 키시면 됩니다!");
+        JLabel label = new JLabel("이 파일을 plugins 폴더에 넣으세요!");
 
-        this.add(field);
+        this.add(label);
         setVisible(true);
     }
     public static void main(String[] args){
