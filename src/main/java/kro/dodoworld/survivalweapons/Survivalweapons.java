@@ -74,8 +74,11 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new StoneSnowBall(), this);
         logger.info("Loading Listeners Took " + (System.currentTimeMillis() - eventMs) + "ms");
 
+        long commandMs = System.currentTimeMillis();
+        logger.info("Loading Commands...");
         getCommand("switem").setExecutor(new SwItem());
         getCommand("switem").setTabCompleter(new SurvivalweaponsTabCompleter());
+        logger.info("Loading Commands Took " + (System.currentTimeMillis() - commandMs) + "ms");
 
         logger.info("Successfully Registered Events, Items and Commands.");
     }
