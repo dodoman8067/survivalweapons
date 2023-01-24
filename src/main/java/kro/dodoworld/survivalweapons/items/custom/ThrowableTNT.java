@@ -18,8 +18,8 @@ public class ThrowableTNT implements Listener {
             Player player = event.getPlayer();
             TNTPrimed tnt = player.getWorld().spawn(player.getLocation(), TNTPrimed.class);
             tnt.setSource(player);
-            tnt.setFuseTicks(120);
-            tnt.setVelocity(player.getLocation().getDirection().multiply(1.5));
+            tnt.setFuseTicks(60);
+            tnt.setVelocity(player.getLocation().getDirection().multiply(2));
             event.getItem().setAmount(event.getItem().getAmount() - 1);
         }
     }
