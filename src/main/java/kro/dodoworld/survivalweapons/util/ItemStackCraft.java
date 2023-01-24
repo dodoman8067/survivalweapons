@@ -19,6 +19,7 @@ public class ItemStackCraft implements Listener {
         checkItem(new ItemStack(ItemsInit.PandoraBox), event.getInventory(), getPandoraBox());
         checkItem(new ItemStack(ItemsInit.PureBlood), event.getInventory(), getPureBlood());
         checkItem(new ItemStack(ItemsInit.BloodLust), event.getInventory(), getBloodLust());
+        checkItem(new ItemStack(ItemsInit.ThrowableTNT), event.getInventory(), getThrowableTNT());
     }
 
     private HashMap<Integer, ItemStack> getLightingAxeRecipe(){
@@ -93,6 +94,19 @@ public class ItemStackCraft implements Listener {
         pandoraBoxRecipe.put(8, new ItemStack(Material.EMERALD_BLOCK));
 
         return pandoraBoxRecipe;
+    }
+
+
+    private HashMap<Integer, ItemStack> getThrowableTNT(){
+        HashMap<Integer, ItemStack> throwableTNTRecipe = new HashMap<>();
+
+        throwableTNTRecipe.put(1, new ItemStack(Material.BLAZE_POWDER));
+        throwableTNTRecipe.put(3, new ItemStack(Material.ARROW));
+        throwableTNTRecipe.put(4, new ItemStack(Material.TNT));
+        throwableTNTRecipe.put(5, new ItemStack(Material.ARROW));
+        throwableTNTRecipe.put(7, new ItemStack(Material.BLAZE_POWDER));
+
+        return throwableTNTRecipe;
     }
 
     private void checkItem(ItemStack result, CraftingInventory inv, HashMap<Integer, ItemStack> ingredients){
