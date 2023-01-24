@@ -20,6 +20,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -581,7 +582,7 @@ public class ItemsInit {
         TimeWarpPearl = stack;
     }
 
-    public static boolean hasLore(String lore, Player player){
+    public static boolean hasLore(String lore, @NotNull Player player){
         return player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null
                 && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains(lore);
     }
