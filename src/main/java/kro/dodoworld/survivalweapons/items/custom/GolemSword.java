@@ -16,7 +16,7 @@ public class GolemSword implements Listener {
         for(Entity entity : event.getPlayer().getNearbyEntities(10, 10, 10)){
             if(entity instanceof LivingEntity){
                 LivingEntity entity1 = (LivingEntity) entity;
-                FallingBlock anvil = event.getPlayer().getWorld().spawnFallingBlock(entity1.getLocation(), Material.ANVIL, (byte) 0);
+                FallingBlock anvil = event.getPlayer().getWorld().spawnFallingBlock(entity1.getLocation().add(0, 16, 0), Material.ANVIL, (byte) 0);
                 anvil.setDropItem(false);
                 anvil.setHurtEntities(true);
                 anvil.addScoreboardTag("sw_golem_anvil");
