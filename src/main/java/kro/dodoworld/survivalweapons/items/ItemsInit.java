@@ -8,6 +8,7 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.Color;
 import org.bukkit.inventory.ShapelessRecipe;
 import org.bukkit.inventory.meta.Damageable;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.enchantments.Enchantment;
@@ -59,6 +60,7 @@ public class ItemsInit {
     public static ItemStack PureBlood;
     public static ItemStack StoneSnowBall;
     public static ItemStack Excalibur;
+    public static ItemStack ThrowableTNT;
 
 
     public static void init(){
@@ -87,6 +89,7 @@ public class ItemsInit {
         createPureBlood();
         createStoneSnowBall();
         createExcalibur();
+        createThrowableTNT();
     }
 
     private static void createFireGoldenSword(){
@@ -543,6 +546,22 @@ public class ItemsInit {
         meta.setLore(lore);
         stack.setItemMeta(meta);
         PandoraBox = stack;
+    }
+
+    private static void createThrowableTNT(){
+        ItemStack stack = new ItemStack(Material.TNT);
+        ItemMeta meta = stack.getItemMeta();
+        meta.setDisplayName(ChatColor.RED + "투척용 TNT");
+        meta.addEnchant(Enchantment.DURABILITY, 1, false);
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.RED + "우클릭으로 TNT를 던질 수 있다.");
+        lore.add(" ");
+        lore.add(ChatColor.GRAY + "이 아이템은 설치가 불가능합니다.");
+        meta.setLore(lore);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        stack.setItemMeta(meta);
+
+        ThrowableTNT = stack;
     }
 
     private static void createTimeWarpPearl(){

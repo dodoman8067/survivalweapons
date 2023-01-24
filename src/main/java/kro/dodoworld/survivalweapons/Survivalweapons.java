@@ -72,6 +72,7 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PandoraBox(), this);
         getServer().getPluginManager().registerEvents(new TimeWarpPearl(this), this);
         getServer().getPluginManager().registerEvents(new StoneSnowBall(), this);
+        getServer().getPluginManager().registerEvents(new ThrowableTNT(), this);
         logger.info("Loading Listeners Took " + (System.currentTimeMillis() - eventMs) + "ms");
 
         long commandMs = System.currentTimeMillis();

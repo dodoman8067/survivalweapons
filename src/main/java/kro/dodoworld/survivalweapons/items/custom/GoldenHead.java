@@ -29,10 +29,7 @@ public class GoldenHead implements Listener {
                 e.printStackTrace();
             }
 
-            player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 400, 3, true));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 400, 1, true));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 60, 2, true));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 3600, 0, true));
+            addEffect(player);
         }
 
         if(event.getAction().equals(Action.RIGHT_CLICK_AIR) && ItemsInit.hasLore(ChatColor.BLUE + "재생 IV +20초", event.getPlayer())){
@@ -43,10 +40,14 @@ public class GoldenHead implements Listener {
                 e.printStackTrace();
             }
 
-            player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 400, 3, true));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 400, 1, true));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 60, 2, true));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 3600, 0, true));
+            addEffect(player);
         }
+    }
+
+    private static void addEffect(Player player){
+        player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 400, 3, true));
+        player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 400, 1, true));
+        player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 60, 2, true));
+        player.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 3600, 0, true));
     }
 }
