@@ -22,6 +22,11 @@ public class SurvivalweaponsTabCompleter implements TabCompleter {
                 commandArgs.add("lighting_axe");
                 commandArgs.add("anduril");
                 commandArgs.add("bloodlust");
+                commandArgs.add("golem_sword");
+                commandArgs.add("golden_head");
+                commandArgs.add("excalibur");
+                commandArgs.add("magic_pickaxe");
+                commandArgs.add("pandora_box");
             }
 
             return commandArgs;
