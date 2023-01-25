@@ -42,10 +42,27 @@ public class SwItem implements CommandExecutor {
                         if(arg.equals("bloodlust")){
                             player.getInventory().addItem(new ItemStack(ItemsInit.BloodLust));
                         }
+                        if(arg.equals("golem_sword")){
+                            player.getInventory().addItem(new ItemStack(ItemsInit.GolemSword));
+                        }
+                        if(arg.equals("golden_head")){
+                            player.getInventory().addItem(new ItemStack(ItemsInit.GoldenHead));
+                        }
+                        if(arg.equals("excalibur")){
+                            player.getInventory().addItem(new ItemStack(ItemsInit.Excalibur));
+                        }
+                        if(arg.equals("magic_pickaxe")){
+                            player.getInventory().addItem(new ItemStack(ItemsInit.MagicPickaxe));
+                        }
+                        if(arg.equals("pandora_box")){
+                            player.getInventory().addItem(new ItemStack(ItemsInit.PandoraBox));
+                        }
                     }else{
                         player.sendMessage("Usage : /switem <item_name>");
                     }
                 }
+            }else{
+                sender.sendMessage("You Are Not Player.");
             }
         }
         return true;

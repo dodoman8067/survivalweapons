@@ -62,6 +62,7 @@ public class ItemsInit {
     public static ItemStack StoneSnowBall;
     public static ItemStack Excalibur;
     public static ItemStack ThrowableTNT;
+    public static ItemStack GolemSword;
 
     public static void init(){
         createFireGoldenSword();
@@ -90,6 +91,7 @@ public class ItemsInit {
         createStoneSnowBall();
         createExcalibur();
         createThrowableTNT();
+        createGolemSword();
     }
 
     private static void createFireGoldenSword(){
@@ -351,6 +353,29 @@ public class ItemsInit {
         stack.setItemMeta(meta);
 
         Anduril = stack;
+    }
+
+    private static void createGolemSword(){
+        ItemStack stack = new ItemStack(Material.IRON_SWORD);
+        ItemMeta meta = stack.getItemMeta();
+        meta.setDisplayName(ChatColor.GOLD + "Golem Sword");
+        meta.addEnchant(Enchantment.DAMAGE_ALL, 4, true);
+        meta.addEnchant(Enchantment.DURABILITY, 5, true);
+        meta.addEnchant(Enchantment.MENDING, 1, false);
+        AttributeModifier modifier = new AttributeModifier(UUID.randomUUID(), "generic.attackDamage", 12, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HAND);
+        AttributeModifier modifier1 = new AttributeModifier(UUID.randomUUID(), "generic.attackSpeed", -3.4, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HAND);
+        AttributeModifier modifier2 = new AttributeModifier(UUID.randomUUID(), "generic.movementSpeed", -0.15, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HAND);
+        meta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, modifier);
+        meta.addAttributeModifier(Attribute.GENERIC_ATTACK_SPEED, modifier1);
+        meta.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED, modifier2);
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.GREEN + "우클릭 시 떨어지는 모루가 스폰된다.");
+        lore.add(" ");
+        lore.add(ChatColor.GRAY + "이 아이템은 마법 부여가 불가능합니다!");
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+
+        GolemSword = stack;
     }
 
     private static void createBloodLust(){
