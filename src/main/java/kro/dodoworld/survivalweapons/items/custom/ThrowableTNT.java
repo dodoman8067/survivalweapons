@@ -20,7 +20,7 @@ public class ThrowableTNT implements Listener {
             tnt.setSource(player);
             tnt.setFuseTicks(60);
             tnt.setVelocity(player.getLocation().getDirection().multiply(2));
-            event.getItem().setAmount(event.getItem().getAmount() - 1);
+            player.getInventory().getItemInMainHand().setAmount(event.getItem().getAmount() - 1);
         }
     }
 }
