@@ -170,7 +170,6 @@ public class ItemsInit {
         ItemStack stack = new ItemStack(Material.DIAMOND_AXE);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Lighting Axe");
-        meta.addEnchant(Enchantment.FIRE_ASPECT, 2, false);
         AttributeModifier modifier = new AttributeModifier(UUID.randomUUID(), "generic.attackDamage", 8, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HAND);
         AttributeModifier modifier1 = new AttributeModifier(UUID.randomUUID(), "generic.attackSpeed", -2.5, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HAND);
         meta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, modifier);
