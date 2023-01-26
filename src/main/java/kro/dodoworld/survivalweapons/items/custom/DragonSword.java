@@ -29,7 +29,7 @@ public class DragonSword implements Listener {
         LivingEntity target = (LivingEntity) event.getEntity();
         World world = target.getWorld();
 
-        if(!ItemsInit.hasLore(ChatColor.GREEN + "상대를 때릴 시 50% 확률로 기존 대미지의 50%만큼의 추가 대미지를 준다.", player)) return;
+        if(!ItemsInit.hasLore(ChatColor.GRAY + "- 상대를 때릴 시 50% 확률로 기존 대미지의 50%만큼의 추가 대미지를 준다.", player)) return;
 
         ThreadLocalRandom rnd = ThreadLocalRandom.current();
         int chance = rnd.nextInt(0,2);

@@ -2,26 +2,20 @@ package kro.dodoworld.survivalweapons;
 
 import kro.dodoworld.survivalweapons.commands.SwItem;
 import kro.dodoworld.survivalweapons.commands.tab.SurvivalweaponsTabCompleter;
-import kro.dodoworld.survivalweapons.config.BloodLustConfig;
-import kro.dodoworld.survivalweapons.config.ExodusConfig;
 import kro.dodoworld.survivalweapons.config.IronPackConfig;
 import kro.dodoworld.survivalweapons.craft.*;
 import kro.dodoworld.survivalweapons.event.UpdateConfig;
 import kro.dodoworld.survivalweapons.features.AgroEnderman;
-import kro.dodoworld.survivalweapons.features.ObtainDragonSoulMethod;
-import kro.dodoworld.survivalweapons.features.ObtainThunderBottleMethod;
-import kro.dodoworld.survivalweapons.features.ObtainVampireFangMethod;
 import kro.dodoworld.survivalweapons.items.ItemsInit;
 import kro.dodoworld.survivalweapons.items.custom.*;
 import kro.dodoworld.survivalweapons.util.CoolDown;
-import kro.dodoworld.survivalweapons.util.ItemStackCraft;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Logger;
 
 public final class Survivalweapons extends JavaPlugin {
 
-    //Current branch is 1.18
+    //Current branch is 1.18 (Sbe Edition)
 
     private final Logger logger = getLogger();
 
@@ -36,12 +30,6 @@ public final class Survivalweapons extends JavaPlugin {
         long configMs = System.currentTimeMillis();
         logger.info("Loading Configs...");
         CoolDown.setUpCooldown();
-        ExodusConfig.init();
-        ExodusConfig.getExodusConfig().options().copyDefaults(true);
-        ExodusConfig.saveConfig();
-        BloodLustConfig.init();
-        BloodLustConfig.getBloodLustConfig().options().copyDefaults(true);
-        BloodLustConfig.saveConfig();
         IronPackConfig.init();
         IronPackConfig.getIronPackConfig().options().copyDefaults(true);
         IronPackConfig.saveConfig();
@@ -66,11 +54,6 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new UnEnchantableItems(), this);
         getServer().getPluginManager().registerEvents(new BloodLust(), this);
         getServer().getPluginManager().registerEvents(new UnPlaceableBlocks(), this);
-        getServer().getPluginManager().registerEvents(new ObtainThunderBottleMethod(), this);
-        getServer().getPluginManager().registerEvents(new ObtainDragonSoulMethod(), this);
-        getServer().getPluginManager().registerEvents(new ItemStackCraft(), this);
-        getServer().getPluginManager().registerEvents(new LimitedItemCraftForHashMap(), this);
-        getServer().getPluginManager().registerEvents(new ObtainVampireFangMethod(), this);
         getServer().getPluginManager().registerEvents(new PandoraBox(), this);
         getServer().getPluginManager().registerEvents(new TimeWarpPearl(this), this);
         getServer().getPluginManager().registerEvents(new StoneSnowBall(), this);
@@ -80,8 +63,8 @@ public final class Survivalweapons extends JavaPlugin {
 
         long commandMs = System.currentTimeMillis();
         logger.info("Loading Commands...");
-        getCommand("switem").setExecutor(new SwItem());
-        getCommand("switem").setTabCompleter(new SurvivalweaponsTabCompleter());
+        getCommand("sbwitem").setExecutor(new SwItem());
+        getCommand("sbwitem").setTabCompleter(new SurvivalweaponsTabCompleter());
         logger.info("Loading Commands Took " + (System.currentTimeMillis() - commandMs) + "ms");
 
         logger.info("Successfully Registered Events, Items and Commands.");

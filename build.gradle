@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'kro.dodoworld'
-version = '1.18.2-1.8.5'
+version = 'sbe-edition-1.18.2-1.0'
 
 repositories {
     mavenLocal()
@@ -23,7 +23,7 @@ jar {
                 'Main-Class': 'kro.dodoworld.survivalweapons.util.Main'
         )
     }
-    destinationDirectory.set(file("C:\\Users\\HP\\Desktop\\dodoserver\\plugins"))
+    destinationDirectory.set(file("C:\\Users\\HP\\Desktop\\testserver\\plugins"))
 }
 
 dependencies {

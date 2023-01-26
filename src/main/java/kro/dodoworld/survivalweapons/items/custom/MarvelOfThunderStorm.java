@@ -16,7 +16,7 @@ public class MarvelOfThunderStorm implements Listener {
     @EventHandler
     public void onInteract(PlayerInteractEvent event){
         if(event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK){
-            if(!ItemsInit.hasLore(ChatColor.GREEN + "우클릭 할 시 뇌우를 부른다.", event.getPlayer())) return;
+            if(!ItemsInit.hasLore(ChatColor.GRAY + "- 우클릭 할시 뇌우를 불러 공포에 빠지게 한다", event.getPlayer())) return;
             if(!event.getPlayer().getWorld().hasStorm()){
                 event.getPlayer().sendMessage("§7§o구슬은 뇌우를 부르며 천천히 사라집니다...");
                 event.getPlayer().getWorld().setStorm(true);

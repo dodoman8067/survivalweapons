@@ -10,7 +10,7 @@ import org.bukkit.inventory.ItemStack;
 public class SwItem implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(command.getName().equals("switem")){
+        if(command.getName().equals("sbwitem")){
             if(sender instanceof Player player){
                 if(player.isOp()){
                     if(args.length > 0) {
@@ -58,7 +58,7 @@ public class SwItem implements CommandExecutor {
                             player.getInventory().addItem(new ItemStack(ItemsInit.PandoraBox));
                         }
                     }else{
-                        player.sendMessage("Usage : /switem <item_name>");
+                        player.sendMessage("Usage : /sbwitem <item_name>");
                     }
                 }
             }else{

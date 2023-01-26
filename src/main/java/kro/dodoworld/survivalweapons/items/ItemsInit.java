@@ -4,7 +4,6 @@ import kro.dodoworld.survivalweapons.util.CustomSkulls;
 import org.bukkit.Material;
 import org.bukkit.ChatColor;
 import org.bukkit.NamespacedKey;
-import org.bukkit.Color;
 import org.bukkit.Bukkit;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
@@ -17,9 +16,6 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.meta.PotionMeta;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -52,18 +48,13 @@ public class ItemsInit {
     public static ItemStack IronFeatherBoots;
     public static ItemStack DiamondFeatherBoots;
     public static ItemStack BloodLust;
-    public static ItemStack LightingBottle;
-    public static ItemStack VampireFang;
-    public static ItemStack ZombieBlood;
     public static ItemStack PandoraBox;
     public static ItemStack MagicPickaxe;
     public static ItemStack TimeWarpPearl;
-    public static ItemStack PureBlood;
     public static ItemStack StoneSnowBall;
     public static ItemStack Excalibur;
     public static ItemStack ThrowableTNT;
     public static ItemStack GolemSword;
-    public static ItemStack DragonSoul;
 
     public static void init(){
         createFireGoldenSword();
@@ -82,18 +73,13 @@ public class ItemsInit {
         createDiamondFeatherBoots();
         createIronFeatherBoots();
         createBloodLust();
-        createLightingBottle();
-        createZombieBlood();
-        createVampireFang();
         createPandoraBox();
         createMagicPickaxe();
         createTimeWarpPearl();
-        createPureBlood();
         createStoneSnowBall();
         createExcalibur();
         createThrowableTNT();
         createGolemSword();
-        createDragonSoul();
     }
 
     private static void createFireGoldenSword(){
@@ -121,14 +107,6 @@ public class ItemsInit {
         meta.setLore(lore);
         stack.setItemMeta(meta);
         IronFeatherBoots = stack;
-
-        ItemStack IronFeatherBoots = new ItemStack(ItemsInit.IronFeatherBoots);
-        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("feather_falling_iron_boots"), IronFeatherBoots);
-        recipe.shape("AFA", "FIF", "AFA");
-        recipe.setIngredient('F', Material.FEATHER);
-        recipe.setIngredient('I', Material.IRON_BOOTS);
-
-        Bukkit.addRecipe(recipe);
     }
 
     private static void createStoneSnowBall(){
@@ -156,28 +134,14 @@ public class ItemsInit {
         meta.setLore(lore);
         stack.setItemMeta(meta);
         DiamondFeatherBoots = stack;
-
-        ItemStack DiamondFeatherBoots = new ItemStack(ItemsInit.DiamondFeatherBoots);
-        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("feather_falling_diamond_boots"), DiamondFeatherBoots);
-        recipe.shape("AFA", "FDF", "AFA");
-        recipe.setIngredient('F', Material.FEATHER);
-        recipe.setIngredient('D', Material.DIAMOND_BOOTS);
-
-        Bukkit.addRecipe(recipe);
     }
 
     private static void createLightingSword(){
         ItemStack stack = new ItemStack(Material.DIAMOND_AXE);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Lighting Axe");
-        meta.addEnchant(Enchantment.FIRE_ASPECT, 2, false);
-        AttributeModifier modifier = new AttributeModifier(UUID.randomUUID(), "generic.attackDamage", 8, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HAND);
-        AttributeModifier modifier1 = new AttributeModifier(UUID.randomUUID(), "generic.attackSpeed", -2.5, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HAND);
-        meta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, modifier);
-        meta.addAttributeModifier(Attribute.GENERIC_ATTACK_SPEED, modifier1);
         List<String> lore = new ArrayList<>();
-        lore.add(ChatColor.AQUA + "상대를 때릴 시 천둥이 친다.");
-        lore.add(ChatColor.AQUA + "비가 올때 천둥으로 준 대미지 2배");
+        lore.add(ChatColor.GRAY + "- 상대를 타격할 시 천둥이 친다.");
         meta.setLore(lore);
         stack.setItemMeta(meta);
         LightingSword = stack;
@@ -187,16 +151,8 @@ public class ItemsInit {
         ItemStack stack = new ItemStack(Material.IRON_SWORD);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Giant's Sword");
-        meta.addEnchant(Enchantment.DURABILITY, 4, true);
-        AttributeModifier modifier = new AttributeModifier(UUID.randomUUID(), "generic.attackDamage", 9, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HAND);
-        AttributeModifier modifier1 = new AttributeModifier(UUID.randomUUID(), "generic.attackSpeed", -3.2, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HAND);
-        meta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, modifier);
-        meta.addAttributeModifier(Attribute.GENERIC_ATTACK_SPEED, modifier1);
         List<String> lore = new ArrayList<>();
-        lore.add(ChatColor.AQUA + "능력 :" + ChatColor.BOLD + " " + ChatColor.YELLOW + "내리꽂기");
-        lore.add(ChatColor.GREEN + "검을 내리꽂으면서 주위 6블럭 적에게 8 + (적의 최대 체력 * 0.4) 만큼의");
-        lore.add(ChatColor.GREEN + "대미지를 주며 하늘로 날린다.");
-        lore.add(ChatColor.YELLOW + "쿨다운 :" + ChatColor.AQUA +" 30초");
+        lore.add(ChatColor.GRAY + "- 강력한 합금으로 제작된 거대한 대검이다");
         meta.setLore(lore);
         stack.setItemMeta(meta);
         GiantSword = stack;
@@ -207,9 +163,7 @@ public class ItemsInit {
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.AQUA + "뇌우를 부르는 구슬");
         List<String> lore = new ArrayList<>();
-        lore.add(ChatColor.AQUA + "능력 :" + ChatColor.BOLD + " " + ChatColor.YELLOW + "뇌우");
-        lore.add(ChatColor.GREEN + "우클릭 할 시 뇌우를 부른다.");
-        lore.add(ChatColor.YELLOW + "사용 횟수 :" + ChatColor.AQUA +" 1회");
+        lore.add(ChatColor.GRAY + "- 우클릭 할시 뇌우를 불러 공포에 빠지게 한다");
         meta.setLore(lore);
         stack.setItemMeta(meta);
         MarvelOfThunderStorm = stack;
@@ -219,12 +173,8 @@ public class ItemsInit {
         ItemStack stack = new ItemStack(Material.DIAMOND_SWORD);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Dragon Sword");
-        AttributeModifier modifier = new AttributeModifier(UUID.randomUUID(), "generic.attackDamage", 8, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HAND);
-        AttributeModifier modifier1 = new AttributeModifier(UUID.randomUUID(), "generic.attackSpeed", -2.5, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HAND);
-        meta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, modifier);
-        meta.addAttributeModifier(Attribute.GENERIC_ATTACK_SPEED, modifier1);
         List<String> lore = new ArrayList<>();
-        lore.add(ChatColor.GREEN + "상대를 때릴 시 50% 확률로 기존 대미지의 50%만큼의 추가 대미지를 준다.");
+        lore.add(ChatColor.GRAY + "- 상대를 때릴 시 50% 확률로 기존 대미지의 50%만큼의 추가 대미지를 준다.");
         meta.setLore(lore);
         stack.setItemMeta(meta);
         DragonSword = stack;
@@ -270,15 +220,6 @@ public class ItemsInit {
         meta.setLore(lore);
         stack.setItemMeta(meta);
         Exodus = stack;
-        ItemStack ExodusRecipe = new ItemStack(ItemsInit.Exodus);
-        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("exodus"), ExodusRecipe);
-        recipe.shape("NEN", "DAD", "   ");
-        recipe.setIngredient('N', Material.NETHERITE_BLOCK);
-        recipe.setIngredient('E', Material.EMERALD_BLOCK);
-        recipe.setIngredient('D', Material.DIAMOND_BLOCK);
-        recipe.setIngredient('A', Material.ENCHANTED_GOLDEN_APPLE);
-
-        Bukkit.addRecipe(recipe);
     }
 
     private static void createSelfAttackSword(){
@@ -406,47 +347,6 @@ public class ItemsInit {
         BloodLust = stack;
     }
 
-    private static void createPureBlood(){
-        ItemStack stack = new ItemStack(Material.POTION);
-        PotionMeta meta = (PotionMeta) stack.getItemMeta();
-        meta.setDisplayName(ChatColor.RED + "Pure Blood");
-        List<String> lore = new ArrayList<>();
-        lore.add(ChatColor.GRAY + "그냥 피....일까?");
-        meta.setColor(Color.fromRGB(120, 7, 7));
-        meta.setLore(lore);
-        stack.setItemMeta(meta);
-
-        PureBlood = stack;
-    }
-
-    private static void createDragonSoul(){
-        ItemStack stack = new ItemStack(Material.PURPLE_DYE);
-        ItemMeta meta = stack.getItemMeta();
-        meta.setDisplayName(ChatColor.DARK_PURPLE + "Dragon Soul");
-        List<String> lore = new ArrayList<>();
-        lore.add(ChatColor.LIGHT_PURPLE + "드래곤 처치시 얻는다.");
-        meta.setLore(lore);
-        stack.setItemMeta(meta);
-
-        DragonSoul = stack;
-    }
-
-    private static void createLightingBottle(){
-        ItemStack stack = new ItemStack(Material.POTION);
-        PotionMeta meta = (PotionMeta) stack.getItemMeta();
-        meta.setDisplayName(ChatColor.GOLD + "Thunder Bottle");
-        List<String> lore = new ArrayList<>();
-        lore.add(ChatColor.DARK_GRAY + "" + ChatColor.DARK_GRAY + ChatColor.ITALIC + "이것에 대한 정보는 얼마 없다.");
-        lore.add(ChatColor.DARK_GRAY + "" + ChatColor.DARK_GRAY + ChatColor.ITALIC + "하지만 이것은 강력한 무기를 만들 수 있다는 소문이 있다.");
-        meta.setColor(Color.fromRGB(250, 252, 78));
-        meta.addCustomEffect(new PotionEffect(PotionEffectType.SPEED, 60, 8, false), true);
-        meta.addCustomEffect(new PotionEffect(PotionEffectType.HARM, 1, 5, false), true);
-        meta.setLore(lore);
-        stack.setItemMeta(meta);
-
-        LightingBottle = stack;
-    }
-
 
     private static void createGoldenHead(){
         ItemStack stack = new ItemStack(CustomSkulls.getSkull("http://textures.minecraft.net/texture/4e5b308a1eb5caa97e5fb257b2d9e1861fdef15161d50a1f46f22315f4929"));
@@ -545,23 +445,6 @@ public class ItemsInit {
         BeginnerHoe = stack4;
     }
 
-    private static void createZombieBlood(){
-        ItemStack stack = new ItemStack(Material.POTION);
-        PotionMeta meta = (PotionMeta) stack.getItemMeta();
-        meta.setDisplayName(ChatColor.RED + "Zombie's Blood");
-        List<String> lore = new ArrayList<>();
-        lore.add(ChatColor.DARK_GRAY + "" + ChatColor.DARK_GRAY + ChatColor.ITALIC + "썩었다.");
-        lore.add(ChatColor.DARK_GRAY + "" + ChatColor.DARK_GRAY + ChatColor.ITALIC + "하지만 되살아날 수 있다.");
-        meta.setColor(Color.fromRGB(120, 7, 7));
-        meta.addCustomEffect(new PotionEffect(PotionEffectType.HUNGER, 2400, 3, false), true);
-        meta.addCustomEffect(new PotionEffect(PotionEffectType.BLINDNESS, 60, 0, false), true);
-        meta.addCustomEffect(new PotionEffect(PotionEffectType.CONFUSION, 2800, 4, false), true);
-        meta.setLore(lore);
-        stack.setItemMeta(meta);
-
-        ZombieBlood = stack;
-    }
-
     private static void createMagicPickaxe(){
         ItemStack stack = new ItemStack(Material.DIAMOND_PICKAXE);
         Damageable meta = (Damageable) stack.getItemMeta();
@@ -576,17 +459,6 @@ public class ItemsInit {
         MagicPickaxe = stack;
     }
 
-    private static void createVampireFang(){
-        ItemStack stack = new ItemStack(Material.GHAST_TEAR);
-        ItemMeta meta = stack.getItemMeta();
-        meta.setDisplayName(ChatColor.DARK_RED + "Vampire Fang");
-        meta.addEnchant(Enchantment.DAMAGE_ALL, 4, false);
-        List<String> lore = new ArrayList<>();
-        lore.add(ChatColor.DARK_GRAY + "" + ChatColor.DARK_GRAY + ChatColor.ITALIC + "피와 제대로 결합된다면 그 어떤 것보다 날카로워진다.");
-        meta.setLore(lore);
-        stack.setItemMeta(meta);
-        VampireFang = stack;
-    }
 
     private static void createPandoraBox(){
         ItemStack stack = new ItemStack(CustomSkulls.getSkull("http://textures.minecraft.net/texture/844498a0fe278956e3d04135ef4b1343d0548a7e208c61b1fb6f3b4dbc240da8"));
