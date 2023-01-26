@@ -1,7 +1,9 @@
 package kro.dodoworld.survivalweapons.util;
 
+import kro.dodoworld.survivalweapons.config.BloodLustConfig;
 import kro.dodoworld.survivalweapons.items.ItemsInit;
 import org.bukkit.Material;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.PrepareItemCraftEvent;
@@ -18,8 +20,15 @@ public class ItemStackCraft implements Listener {
         checkItem(new ItemStack(ItemsInit.ZombieBlood), event.getInventory(), getZombieBlood());
         checkItem(new ItemStack(ItemsInit.PandoraBox), event.getInventory(), getPandoraBox());
         checkItem(new ItemStack(ItemsInit.PureBlood), event.getInventory(), getPureBlood());
-        checkItem(new ItemStack(ItemsInit.BloodLust), event.getInventory(), getBloodLust());
         checkItem(new ItemStack(ItemsInit.ThrowableTNT), event.getInventory(), getThrowableTNT());
+        checkBloodLust(event);
+    }
+
+    private void checkBloodLust(PrepareItemCraftEvent event){
+        FileConfiguration config = BloodLustConfig.getBloodLustConfig();
+        if(!(config.getInt(String.valueOf(event.getView().getPlayer().getUniqueId())) >= 1)){
+            checkItem(new ItemStack(ItemsInit.BloodLust), event.getInventory(), getBloodLust());
+        }
     }
 
     private HashMap<Integer, ItemStack> getLightingAxeRecipe(){
@@ -95,7 +104,6 @@ public class ItemStackCraft implements Listener {
 
         return pandoraBoxRecipe;
     }
-
 
     private HashMap<Integer, ItemStack> getThrowableTNT(){
         HashMap<Integer, ItemStack> throwableTNTRecipe = new HashMap<>();

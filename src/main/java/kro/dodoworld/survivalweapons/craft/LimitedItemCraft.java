@@ -21,6 +21,11 @@ public class LimitedItemCraft implements Listener {
                 event.setCurrentItem(new ItemStack(Material.AIR));
                 event.setCancelled(true);
             }else{
+                if(event.isShiftClick()){
+                    event.setCurrentItem(null);
+                    event.setCancelled(true);
+                    return;
+                }
                 config.set(String.valueOf(event.getWhoClicked().getUniqueId()), 1);
                 ExodusConfig.saveConfig();
                 ExodusConfig.reloadConfig();
@@ -30,6 +35,11 @@ public class LimitedItemCraft implements Listener {
         if(event.getCurrentItem().equals(ItemsInit.IronPack)){
             FileConfiguration config = IronPackConfig.getIronPackConfig();
             if(config.getInt(String.valueOf(event.getWhoClicked().getUniqueId())) >= 3){
+                if(event.isShiftClick()){
+                    event.setCurrentItem(null);
+                    event.setCancelled(true);
+                    return;
+                }
                 event.getWhoClicked().sendMessage(ChatColor.RED + "이 아이템은 더 이상 제작이 불가능합니다!");
                 event.setCurrentItem(new ItemStack(Material.AIR));
                 event.setCancelled(true);

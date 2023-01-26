@@ -28,9 +28,6 @@ import org.bukkit.util.Vector;
 import java.util.Date;
 import java.util.Random;
 
-/**
- * Class for item PandoraBox
- */
 public class PandoraBox implements Listener {
 
     private static final Random rnd = new Random();
@@ -137,7 +134,11 @@ public class PandoraBox implements Listener {
     private static void doGoodEffect(Player player){
         int a = rnd.nextInt(1, 11);
         if(a == 1){
-            player.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE, 2));
+            if(player.getInventory().firstEmpty() == -1){
+                player.getWorld().dropItemNaturally(player.getLocation(), new ItemStack(Material.GOLDEN_APPLE, 2));
+            }else{
+                player.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE, 2));
+            }
             player.sendMessage(ChatColor.GOLD + "상자에는 황금 사과 2개가 들어있었습니다!");
         }
         if(a == 2){
@@ -148,7 +149,11 @@ public class PandoraBox implements Listener {
             meta.addStoredEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, false);
             meta.addStoredEnchant(Enchantment.LOOT_BONUS_BLOCKS, 3, false);
             stack.setItemMeta(meta);
-            player.getInventory().addItem(stack);
+            if(player.getInventory().firstEmpty() == -1){
+                player.getWorld().dropItemNaturally(player.getLocation(), new ItemStack(stack));
+            }else{
+                player.getInventory().addItem(new ItemStack(stack));
+            }
             player.sendMessage(ChatColor.GOLD + "상자에는 선택의 책이 들어있었습니다!");
         }
         if(a == 3){
@@ -156,39 +161,74 @@ public class PandoraBox implements Listener {
             player.sendMessage(ChatColor.GOLD + "상자에는 50레벨의 경험치가 들어있었습니다!");
         }
         if(a == 4){
-            player.getInventory().addItem(new ItemStack(ItemsInit.MagicPickaxe));
+            if(player.getInventory().firstEmpty() == -1){
+                player.getWorld().dropItemNaturally(player.getLocation(), new ItemStack(ItemsInit.MagicPickaxe));
+            }else{
+                player.getInventory().addItem(new ItemStack(ItemsInit.MagicPickaxe));
+            }
             player.sendMessage(ChatColor.GOLD + "상자에는 마법의 곡괭이가 들어있었습니다!");
         }
         if(a == 5){
-            player.getInventory().addItem(new ItemStack(Material.ENDER_EYE));
+            if(player.getInventory().firstEmpty() == -1){
+                player.getWorld().dropItemNaturally(player.getLocation(), new ItemStack(Material.ENDER_EYE));
+            }else{
+                player.getInventory().addItem(new ItemStack(Material.ENDER_EYE));
+            }
             player.sendMessage(ChatColor.GOLD + "상자에는 엔더의 눈이 들어있었습니다!");
         }
         if(a == 6){
-            for(int i = 0; i<4; i++){
-                player.getInventory().addItem(new ItemStack(ItemsInit.TimeWarpPearl));
+            if(player.getInventory().firstEmpty() == -1){
+                for(int i = 0; i < 4; i++){
+                    player.getWorld().dropItemNaturally(player.getLocation(), new ItemStack(ItemsInit.TimeWarpPearl));
+                }
+            }else{
+                for(int i = 0; i<4; i++){
+                    player.getInventory().addItem(new ItemStack(ItemsInit.TimeWarpPearl));
+                }
             }
+
             player.sendMessage(ChatColor.GOLD + "상자에는 특별한 엔더 진주가 들어있었습니다!");
         }
         if(a == 7){
-            player.getInventory().addItem(new ItemStack(Material.GOLD_INGOT, 10));
+            if(player.getInventory().firstEmpty() == -1){
+                player.getWorld().dropItemNaturally(player.getLocation(), new ItemStack(Material.GOLD_INGOT, 10));
+            }else{
+                player.getInventory().addItem(new ItemStack(Material.GOLD_INGOT, 10));
+            }
             player.sendMessage(ChatColor.GOLD + "상자에는 금괴가 10개가 들어있었습니다!");
         }
         if(a == 8){
-            player.getInventory().addItem(new ItemStack(Material.IRON_INGOT, 10));
+            if(player.getInventory().firstEmpty() == -1){
+                player.getWorld().dropItemNaturally(player.getLocation(), new ItemStack(Material.IRON_INGOT, 10));
+            }else{
+                player.getInventory().addItem(new ItemStack(Material.IRON_INGOT, 10));
+            }
             player.sendMessage(ChatColor.GOLD + "상자에는 철괴 10개가 들어있었습니다!");
         }
         if(a == 9){
-            player.getInventory().addItem(new ItemStack(ItemsInit.GoldenHead));
+            if(player.getInventory().firstEmpty() == -1){
+                player.getWorld().dropItemNaturally(player.getLocation(), new ItemStack(ItemsInit.GoldenHead));
+            }else{
+                player.getInventory().addItem(new ItemStack(ItemsInit.GoldenHead));
+            }
             player.sendMessage(ChatColor.GOLD + "상자에는 황금 머리가 들어있었습니다!");
         }
         if(a == 10){
             double q = Math.random() * 100;
-            if(q <= 3){
-                player.getInventory().addItem(new ItemStack(ItemsInit.Anduril));
+            if(q <= 1){
+                if(player.getInventory().firstEmpty() == -1){
+                    player.getWorld().dropItemNaturally(player.getLocation(), new ItemStack(ItemsInit.Anduril));
+                }else{
+                    player.getInventory().addItem(new ItemStack(ItemsInit.Anduril));
+                }
                 player.sendMessage(ChatColor.GOLD + "상자에는 안두릴이 들어있었습니다!");
                 player.sendMessage(ChatColor.GOLD + "이걸 얻네..?");
             }else{
-                player.getInventory().addItem(new ItemStack(Material.BLAZE_ROD));
+                if(player.getInventory().firstEmpty() == -1){
+                    player.getWorld().dropItemNaturally(player.getLocation(), new ItemStack(Material.BLAZE_ROD));
+                }else{
+                    player.getInventory().addItem(new ItemStack(Material.BLAZE_ROD));
+                }
                 player.sendMessage(ChatColor.GOLD + "상자에는 블레이즈 막대가 들어있었습니다!");
             }
         }
