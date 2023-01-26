@@ -42,7 +42,7 @@ public class PandoraBox implements Listener {
             }else{
                 doBadEffect(player);
             }
-            event.getItem().setAmount(event.getItem().getAmount() - 1);
+            player.getInventory().getItemInMainHand().setAmount(event.getItem().getAmount() - 1);
         }
     }
 

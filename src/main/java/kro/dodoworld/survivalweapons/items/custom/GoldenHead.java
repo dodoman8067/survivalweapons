@@ -17,7 +17,7 @@ public class GoldenHead implements Listener {
             event.setCancelled(true);
             Player player = event.getPlayer();
             try{
-                event.getItem().setAmount(event.getItem().getAmount() - 1);
+                player.getInventory().getItemInMainHand().setAmount(event.getItem().getAmount() - 1);
             }catch (NullPointerException e){
                 e.printStackTrace();
             }
@@ -28,7 +28,7 @@ public class GoldenHead implements Listener {
         if(event.getAction().equals(Action.RIGHT_CLICK_AIR) && ItemsInit.hasLore(ChatColor.BLUE + "재생 IV +20초", event.getPlayer())){
             Player player = event.getPlayer();
             try{
-                event.getItem().setAmount(event.getItem().getAmount() - 1);
+                player.getInventory().getItemInMainHand().setAmount(event.getItem().getAmount() - 1);
             }catch (NullPointerException e){
                 e.printStackTrace();
             }
