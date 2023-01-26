@@ -21,7 +21,7 @@ public class CoolDown {
         LightingAxeCoolDown = new HashMap<>();
     }
 
-    public static void setCooldown(Player player, int seconds, CoolDownType type){
+    public static void setCooldown(Player player, double seconds, CoolDownType type){
         if(type.equals(CoolDownType.GIANT_SWORD)){
             double delay = System.currentTimeMillis() + (seconds * 1000);
             GiantSwordCoolDown.put(player.getUniqueId(), delay);
