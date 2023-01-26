@@ -8,14 +8,17 @@ import java.util.UUID;
 public class CoolDown {
     public enum CoolDownType{
         GIANT_SWORD,
-        GOLEM_SWORD
+        GOLEM_SWORD,
+        LIGHTING_AXE
     }
     public static HashMap<UUID, Double> GiantSwordCoolDown;
     public static HashMap<UUID, Double> GolemSwordCoolDown;
+    public static HashMap<UUID, Double> LightingAxeCoolDown;
 
     public static void setUpCooldown(){
         GiantSwordCoolDown = new HashMap<>();
         GolemSwordCoolDown = new HashMap<>();
+        LightingAxeCoolDown = new HashMap<>();
     }
 
     public static void setCooldown(Player player, int seconds, CoolDownType type){
@@ -27,6 +30,10 @@ public class CoolDown {
             double delay = System.currentTimeMillis() + (seconds * 1000);
             GolemSwordCoolDown.put(player.getUniqueId(), delay);
         }
+        if(type.equals(CoolDownType.LIGHTING_AXE)){
+            double delay = System.currentTimeMillis() + (seconds * 1000);
+            LightingAxeCoolDown.put(player.getUniqueId(), delay);
+        }
     }
 
     public static boolean checkCooldown(Player player, CoolDownType type){
@@ -35,6 +42,9 @@ public class CoolDown {
         }
         if(type.equals(CoolDownType.GOLEM_SWORD)){
             return !GolemSwordCoolDown.containsKey(player.getUniqueId()) || GolemSwordCoolDown.get(player.getUniqueId()) <= System.currentTimeMillis();
+        }
+        if(type.equals(CoolDownType.LIGHTING_AXE)){
+            return !LightingAxeCoolDown.containsKey(player.getUniqueId()) || LightingAxeCoolDown.get(player.getUniqueId()) <= System.currentTimeMillis();
         }
         return false;
     }
