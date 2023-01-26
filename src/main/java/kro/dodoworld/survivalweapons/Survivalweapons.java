@@ -8,6 +8,7 @@ import kro.dodoworld.survivalweapons.config.IronPackConfig;
 import kro.dodoworld.survivalweapons.craft.*;
 import kro.dodoworld.survivalweapons.event.UpdateConfig;
 import kro.dodoworld.survivalweapons.features.AgroEnderman;
+import kro.dodoworld.survivalweapons.features.ObtainDragonSoulMethod;
 import kro.dodoworld.survivalweapons.features.ObtainThunderBottleMethod;
 import kro.dodoworld.survivalweapons.features.ObtainVampireFangMethod;
 import kro.dodoworld.survivalweapons.items.ItemsInit;
@@ -66,6 +67,7 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new BloodLust(), this);
         getServer().getPluginManager().registerEvents(new UnPlaceableBlocks(), this);
         getServer().getPluginManager().registerEvents(new ObtainThunderBottleMethod(), this);
+        getServer().getPluginManager().registerEvents(new ObtainDragonSoulMethod(), this);
         getServer().getPluginManager().registerEvents(new ItemStackCraft(), this);
         getServer().getPluginManager().registerEvents(new LimitedItemCraftForHashMap(), this);
         getServer().getPluginManager().registerEvents(new ObtainVampireFangMethod(), this);

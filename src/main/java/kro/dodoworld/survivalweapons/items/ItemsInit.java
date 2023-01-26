@@ -63,6 +63,7 @@ public class ItemsInit {
     public static ItemStack Excalibur;
     public static ItemStack ThrowableTNT;
     public static ItemStack GolemSword;
+    public static ItemStack DragonSoul;
 
     public static void init(){
         createFireGoldenSword();
@@ -92,6 +93,7 @@ public class ItemsInit {
         createExcalibur();
         createThrowableTNT();
         createGolemSword();
+        createDragonSoul();
     }
 
     private static void createFireGoldenSword(){
@@ -415,6 +417,18 @@ public class ItemsInit {
         stack.setItemMeta(meta);
 
         PureBlood = stack;
+    }
+
+    private static void createDragonSoul(){
+        ItemStack stack = new ItemStack(Material.PURPLE_DYE);
+        ItemMeta meta = stack.getItemMeta();
+        meta.setDisplayName(ChatColor.DARK_PURPLE + "Dragon Soul");
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.LIGHT_PURPLE + "드래곤 처치시 얻는다.");
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+
+        DragonSoul = stack;
     }
 
     private static void createLightingBottle(){
