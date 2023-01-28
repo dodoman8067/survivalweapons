@@ -21,10 +21,10 @@ public class ItemStackCraft implements Listener {
         checkItem(new ItemStack(ItemsInit.PandoraBox), event.getInventory(), getPandoraBox());
         checkItem(new ItemStack(ItemsInit.PureBlood), event.getInventory(), getPureBlood());
         checkItem(new ItemStack(ItemsInit.ThrowableTNT), event.getInventory(), getThrowableTNT());
-        checkBloodLust(event);
+        checkLimitedItem(event);
     }
 
-    private void checkBloodLust(PrepareItemCraftEvent event){
+    private void checkLimitedItem(PrepareItemCraftEvent event){
         FileConfiguration config = BloodLustConfig.getBloodLustConfig();
         if(!(config.getInt(String.valueOf(event.getView().getPlayer().getUniqueId())) >= 1)){
             checkItem(new ItemStack(ItemsInit.BloodLust), event.getInventory(), getBloodLust());
