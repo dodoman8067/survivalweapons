@@ -27,7 +27,7 @@ public class TimeWarpPearl implements Listener {
         if(!(event.getEntity().getShooter() instanceof Player)) return;
         Player player = (Player) event.getEntity().getShooter();
         if(!ItemsInit.hasLore(ChatColor.LIGHT_PURPLE + "5초 뒤 이 진주를 던진 장소로 돌아온다.", player)) return;
-        event.getEntity().addScoreboardTag("sw_timewarp");
+        event.getEntity().addScoreboardTag("sbw_timewarp");
         location = player.getLocation();
     }
 
@@ -35,7 +35,7 @@ public class TimeWarpPearl implements Listener {
     public void onTeleport(ProjectileHitEvent event){
         if(!(event.getEntity().getShooter() instanceof Player)) return;
         if(!(event.getEntity() instanceof EnderPearl)) return;
-        if(!event.getEntity().getScoreboardTags().contains("sw_timewarp")) return;
+        if(!event.getEntity().getScoreboardTags().contains("sbw_timewarp")) return;
         Player player = (Player) event.getEntity().getShooter();
         player.sendMessage(ChatColor.GREEN + "5초 후 원위치로 돌아옵니다!");
 

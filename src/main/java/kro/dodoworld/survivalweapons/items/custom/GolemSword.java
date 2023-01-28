@@ -28,7 +28,7 @@ public class GolemSword implements Listener {
                         FallingBlock anvil = event.getPlayer().getWorld().spawnFallingBlock(entity1.getLocation().add(0, 16, 0), Material.ANVIL, (byte) 0);
                         anvil.setDropItem(false);
                         anvil.setHurtEntities(true);
-                        anvil.addScoreboardTag("sw_golem_anvil");
+                        anvil.addScoreboardTag("sbw_golem_anvil");
                     }
                 }
                 CoolDown.setCooldown(event.getPlayer(), 240, CoolDown.CoolDownType.GOLEM_SWORD);
@@ -42,7 +42,7 @@ public class GolemSword implements Listener {
     @EventHandler
     public void onLand(EntityChangeBlockEvent event){
         if(!(event.getEntity() instanceof FallingBlock)) return;
-        if(!event.getEntity().getScoreboardTags().contains("sw_golem_anvil")) return;
+        if(!event.getEntity().getScoreboardTags().contains("sbw_golem_anvil")) return;
         event.setCancelled(true);
         event.getEntity().remove();
         event.getEntity().getWorld().spawnParticle(Particle.LAVA, event.getEntity().getLocation(), 4, null);

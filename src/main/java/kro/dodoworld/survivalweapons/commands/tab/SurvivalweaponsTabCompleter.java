@@ -27,6 +27,7 @@ public class SurvivalweaponsTabCompleter implements TabCompleter {
                 commandArgs.add("excalibur");
                 commandArgs.add("magic_pickaxe");
                 commandArgs.add("pandora_box");
+                commandArgs.add("dragon_bow");
             }
 
             return commandArgs;

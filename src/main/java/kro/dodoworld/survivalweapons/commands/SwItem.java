@@ -57,6 +57,9 @@ public class SwItem implements CommandExecutor {
                         if(arg.equals("pandora_box")){
                             player.getInventory().addItem(new ItemStack(ItemsInit.PandoraBox));
                         }
+                        if(arg.equals("dragon_bow")){
+                            player.getInventory().addItem(new ItemStack(ItemsInit.DragonBow));
+                        }
                     }else{
                         player.sendMessage("Usage : /sbwitem <item_name>");
                     }

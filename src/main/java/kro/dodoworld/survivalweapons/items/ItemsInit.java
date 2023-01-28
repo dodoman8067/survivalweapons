@@ -55,6 +55,7 @@ public class ItemsInit {
     public static ItemStack Excalibur;
     public static ItemStack ThrowableTNT;
     public static ItemStack GolemSword;
+    public static ItemStack DragonBow;
 
     public static void init(){
         createFireGoldenSword();
@@ -80,6 +81,7 @@ public class ItemsInit {
         createExcalibur();
         createThrowableTNT();
         createGolemSword();
+        createDragonBow();
     }
 
     private static void createFireGoldenSword(){
@@ -178,6 +180,17 @@ public class ItemsInit {
         meta.setLore(lore);
         stack.setItemMeta(meta);
         DragonSword = stack;
+    }
+
+    private static void createDragonBow(){
+        ItemStack stack = new ItemStack(Material.BOW);
+        ItemMeta meta = stack.getItemMeta();
+        meta.setDisplayName(ChatColor.GOLD + "Dragon Bow");
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.GRAY + "- 드래곤의 영혼이 깃들어 있는 전설적인 활이다");
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+        DragonBow = stack;
     }
 
     private static void createExcalibur(){
