@@ -76,6 +76,7 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ThrowableTNT(), this);
         getServer().getPluginManager().registerEvents(new GolemSword(), this);
         getServer().getPluginManager().registerEvents(new RewardArmorStand(), this);
+        getServer().getPluginManager().registerEvents(new DragonBow(), this);
         logger.info("Loading Listeners Took " + (System.currentTimeMillis() - eventMs) + "ms");
 
         long commandMs = System.currentTimeMillis();

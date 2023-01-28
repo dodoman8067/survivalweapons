@@ -63,6 +63,7 @@ public class ItemsInit {
     public static ItemStack ThrowableTNT;
     public static ItemStack GolemSword;
     public static ItemStack DragonSoul;
+    public static ItemStack DragonBow;
 
 
     public static void init(){
@@ -94,6 +95,7 @@ public class ItemsInit {
         createThrowableTNT();
         createGolemSword();
         createDragonSoul();
+        createDragonBow();
     }
 
     private static void createFireGoldenSword(){
@@ -349,6 +351,23 @@ public class ItemsInit {
         meta.setLore(lore);
         stack.setItemMeta(meta);
         DragonSword = stack;
+    }
+
+    private static void createDragonBow(){
+        ItemStack stack = new ItemStack(Material.BOW);
+        ItemMeta meta = stack.getItemMeta();
+        meta.setDisplayName(ChatColor.GOLD + "Dragon Bow");
+        meta.addEnchant(Enchantment.ARROW_DAMAGE, 3, false);
+        meta.addEnchant(Enchantment.DURABILITY, 3, false);
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.YELLOW + "" + ChatColor.BOLD + "능력 : " + ChatColor.AQUA + "드래곤의 분노");
+        lore.add(ChatColor.LIGHT_PURPLE + "이 활으로 적을 명중할 시 대미지를 3배로 늘리고,");
+        lore.add(ChatColor.LIGHT_PURPLE + "적을 매우 강력하게 밀친다.");
+        lore.add(" ");
+        lore.add(ChatColor.DARK_PURPLE + "이 활은 엔더맨에게 대미지를 줄 수 있습니다!");
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+        DragonBow = stack;
     }
 
     private static void createExodus(){
