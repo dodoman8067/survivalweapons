@@ -6,6 +6,7 @@ import kro.dodoworld.survivalweapons.config.BloodLustConfig;
 import kro.dodoworld.survivalweapons.config.ExodusConfig;
 import kro.dodoworld.survivalweapons.config.IronPackConfig;
 import kro.dodoworld.survivalweapons.craft.*;
+import kro.dodoworld.survivalweapons.entity.RewardArmorStand;
 import kro.dodoworld.survivalweapons.event.UpdateConfig;
 import kro.dodoworld.survivalweapons.features.AgroEnderman;
 import kro.dodoworld.survivalweapons.features.ObtainThunderBottleMethod;
@@ -74,6 +75,7 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new StoneSnowBall(), this);
         getServer().getPluginManager().registerEvents(new ThrowableTNT(), this);
         getServer().getPluginManager().registerEvents(new GolemSword(), this);
+        getServer().getPluginManager().registerEvents(new RewardArmorStand(), this);
         logger.info("Loading Listeners Took " + (System.currentTimeMillis() - eventMs) + "ms");
 
         long commandMs = System.currentTimeMillis();
