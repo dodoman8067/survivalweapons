@@ -23,7 +23,7 @@ jar {
                 'Main-Class': 'kro.dodoworld.survivalweapons.util.Main'
         )
     }
-    destinationDirectory.set(file("C:\\Users\\HP\\Desktop\\dodoserver\\plugins"))
+    destinationDirectory.set(file("C:\\Users\\HP\\Desktop\\testserver\\plugins"))
 }
 
 dependencies {
