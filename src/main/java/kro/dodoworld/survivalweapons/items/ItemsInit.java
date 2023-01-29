@@ -366,6 +366,8 @@ public class ItemsInit {
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Andúril");
         meta.addEnchant(Enchantment.DAMAGE_ALL, 2, false);
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         List<String> lore = new ArrayList<>();
         lore.add(ChatColor.BLUE + "+ 영구 신속 I");
         lore.add(ChatColor.BLUE + "+ 영구 저항 I");
