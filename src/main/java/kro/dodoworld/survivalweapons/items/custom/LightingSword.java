@@ -25,12 +25,12 @@ public class LightingSword implements Listener {
                 LightningStrike strike = world.strikeLightningEffect(entity.getLocation());
                 entity.damage(8, strike);
                 entity.setFireTicks(200);
-                CoolDown.setCooldown(living, 2, CoolDown.CoolDownType.LIGHTING_AXE);
+                CoolDown.setCooldown(living, 7, CoolDown.CoolDownType.LIGHTING_AXE);
             }else{
                 LightningStrike strike = world.strikeLightningEffect(entity.getLocation());
                 entity.damage(4, strike);
                 entity.setFireTicks(100);
-                CoolDown.setCooldown(living, 1.5, CoolDown.CoolDownType.LIGHTING_AXE);
+                CoolDown.setCooldown(living, 4.8, CoolDown.CoolDownType.LIGHTING_AXE);
             }
         }
     }
