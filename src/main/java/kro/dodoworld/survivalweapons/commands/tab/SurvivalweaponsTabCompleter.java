@@ -28,6 +28,7 @@ public class SurvivalweaponsTabCompleter implements TabCompleter {
                 commandArgs.add("magic_pickaxe");
                 commandArgs.add("pandora_box");
                 commandArgs.add("dragon_bow");
+                commandArgs.add("time_warp_pearl");
             }
 
             return commandArgs;
