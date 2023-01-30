@@ -10,6 +10,7 @@ import java.util.List;
 public class SurvivalweaponsTabCompleter implements TabCompleter {
 
     private final List<String> commandArgs = new ArrayList<>();
+
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
         if(sender.isOp()){
@@ -28,6 +29,7 @@ public class SurvivalweaponsTabCompleter implements TabCompleter {
                 commandArgs.add("magic_pickaxe");
                 commandArgs.add("pandora_box");
                 commandArgs.add("dragon_bow");
+                commandArgs.add("time_warp_pearl");
             }
 
             return commandArgs;
