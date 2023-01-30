@@ -21,6 +21,7 @@ public class ItemStackCraft implements Listener {
         checkItem(new ItemStack(ItemsInit.PandoraBox), event.getInventory(), getPandoraBox());
         checkItem(new ItemStack(ItemsInit.PureBlood), event.getInventory(), getPureBlood());
         checkItem(new ItemStack(ItemsInit.ThrowableTNT), event.getInventory(), getThrowableTNT());
+        checkItem(new ItemStack(ItemsInit.ValkyrieChestplate), event.getInventory(), getValkyrieChestplate());
         checkLimitedItem(event);
     }
 
@@ -115,6 +116,21 @@ public class ItemStackCraft implements Listener {
         throwableTNTRecipe.put(7, new ItemStack(Material.BLAZE_POWDER));
 
         return throwableTNTRecipe;
+    }
+
+    private HashMap<Integer, ItemStack> getValkyrieChestplate(){
+        HashMap<Integer, ItemStack> valkyrieChestplate = new HashMap<>();
+
+        valkyrieChestplate.put(0, new ItemStack(Material.NETHERITE_BLOCK));
+        valkyrieChestplate.put(2, new ItemStack(Material.NETHERITE_BLOCK));
+        valkyrieChestplate.put(3, new ItemStack(Material.DIAMOND_BLOCK));
+        valkyrieChestplate.put(4, new ItemStack(Material.ENCHANTED_GOLDEN_APPLE));
+        valkyrieChestplate.put(5, new ItemStack(Material.DIAMOND_BLOCK));
+        valkyrieChestplate.put(6, new ItemStack(Material.BLAZE_ROD));
+        valkyrieChestplate.put(7, new ItemStack(Material.DIAMOND_CHESTPLATE));
+        valkyrieChestplate.put(8, new ItemStack(Material.BLAZE_ROD));
+
+        return valkyrieChestplate;
     }
 
     private void checkItem(ItemStack result, CraftingInventory inv, HashMap<Integer, ItemStack> ingredients){
