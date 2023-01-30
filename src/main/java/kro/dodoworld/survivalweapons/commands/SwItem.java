@@ -60,6 +60,9 @@ public class SwItem implements CommandExecutor {
                         if(arg.equals("dragon_bow")){
                             player.getInventory().addItem(new ItemStack(ItemsInit.DragonBow));
                         }
+                        if(arg.equals("time_warp_pearl")){
+                            player.getInventory().addItem(new ItemStack(ItemsInit.TimeWarpPearl));
+                        }
                     }else{
                         player.sendMessage("Usage : /sbwitem <item_name>");
                     }

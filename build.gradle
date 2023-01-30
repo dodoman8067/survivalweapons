@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'kro.dodoworld'
-version = 'sbe-edition-1.18.2-1.1.1'
+version = 'sbe-edition-1.18.2-1.1.2'
 
 repositories {
     mavenLocal()
