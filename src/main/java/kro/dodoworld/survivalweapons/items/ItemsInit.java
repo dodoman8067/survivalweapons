@@ -65,6 +65,7 @@ public class ItemsInit {
     public static ItemStack GolemSword;
     public static ItemStack DragonSoul;
     public static ItemStack DragonBow;
+    public static ItemStack ValkyrieChestplate;
 
     public static void init(){
         createFireGoldenSword();
@@ -96,6 +97,7 @@ public class ItemsInit {
         createGolemSword();
         createDragonSoul();
         createDragonBow();
+        createValkyrieChestplate();
     }
 
     private static void createFireGoldenSword(){
@@ -298,6 +300,19 @@ public class ItemsInit {
         recipe.setIngredient('A', Material.ENCHANTED_GOLDEN_APPLE);
 
         Bukkit.addRecipe(recipe);
+    }
+
+    private static void createValkyrieChestplate(){
+        ItemStack stack = new ItemStack(Material.DIAMOND_CHESTPLATE);
+        ItemMeta meta = stack.getItemMeta();
+        meta.setDisplayName(ChatColor.LIGHT_PURPLE + "Valkyrie's Chestplate");
+        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 5, true);
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.BLUE + "+ 영구 힘 II");
+        lore.add(ChatColor.BLUE + "+ 영구 저항 II");
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+        ValkyrieChestplate = stack;
     }
 
     private static void createSelfAttackSword(){
