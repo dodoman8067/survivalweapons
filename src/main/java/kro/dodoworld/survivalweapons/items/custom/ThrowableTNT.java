@@ -8,11 +8,13 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.EquipmentSlot;
 
 public class ThrowableTNT implements Listener {
     @EventHandler
     public void onRightClick(PlayerInteractEvent event){
         if(event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK)){
+            if(!event.getHand().equals(EquipmentSlot.HAND)) return;
             if(!ItemsInit.hasLore(ChatColor.RED + "우클릭으로 TNT를 던질 수 있다.", event.getPlayer())) return;
 
             Player player = event.getPlayer();
@@ -20,7 +22,7 @@ public class ThrowableTNT implements Listener {
             tnt.setSource(player);
             tnt.setFuseTicks(60);
             tnt.setVelocity(player.getLocation().getDirection().multiply(2));
-            player.getInventory().getItemInMainHand().setAmount(event.getItem().getAmount() - 1);
+            player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount() - 1);
         }
     }
 }

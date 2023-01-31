@@ -8,6 +8,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.EnchantmentStorageMeta;
+import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.entity.IronGolem;
 import org.bukkit.entity.TNTPrimed;
 import org.bukkit.ChatColor;
@@ -35,6 +36,7 @@ public class PandoraBox implements Listener {
     @EventHandler
     public void onInteract(PlayerInteractEvent event){
         if(event.getAction().equals(Action.RIGHT_CLICK_BLOCK) || event.getAction().equals(Action.RIGHT_CLICK_AIR)){
+            if(!event.getHand().equals(EquipmentSlot.HAND)) return;
             if(!ItemsInit.hasLore(ChatColor.DARK_GREEN + "" + ChatColor.MAGIC + "결국 위험을 감수하고 직접 상자를 열어야겠죠?", event.getPlayer())) return;
             Player player = event.getPlayer();
             if(Math.random() < 0.25){
@@ -42,7 +44,7 @@ public class PandoraBox implements Listener {
             }else{
                 doBadEffect(player);
             }
-            player.getInventory().getItemInMainHand().setAmount(event.getItem().getAmount() - 1);
+            player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount() - 1);
         }
     }
 

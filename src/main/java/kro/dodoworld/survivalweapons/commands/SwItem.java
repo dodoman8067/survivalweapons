@@ -63,6 +63,9 @@ public class SwItem implements CommandExecutor {
                         if(arg.equals("time_warp_pearl")){
                             player.getInventory().addItem(new ItemStack(ItemsInit.TimeWarpPearl));
                         }
+                        if(arg.equals("valkyrie_chestplate")){
+                            player.getInventory().addItem(new ItemStack(ItemsInit.ValkyrieChestplate));
+                        }
                     }else{
                         player.sendMessage("Usage : /sbwitem <item_name>");
                     }
