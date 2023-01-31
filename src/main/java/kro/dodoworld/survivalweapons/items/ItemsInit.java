@@ -65,7 +65,7 @@ public class ItemsInit {
     public static ItemStack DragonSoul;
     public static ItemStack DragonBow;
     public static ItemStack ValkyrieChestplate;
-
+    public static ItemStack QuickPickaxe;
 
     public static void init(){
         createFireGoldenSword();
@@ -98,6 +98,7 @@ public class ItemsInit {
         createDragonSoul();
         createDragonBow();
         createValkyrieChestplate();
+        createQuickPickaxe();
     }
 
     private static void createFireGoldenSword(){
@@ -648,6 +649,26 @@ public class ItemsInit {
         meta.setLore(lore);
         stack.setItemMeta(meta);
         TimeWarpPearl = stack;
+    }
+
+    private static void createQuickPickaxe(){
+        ItemStack stack = new ItemStack(Material.IRON_PICKAXE);
+        ItemMeta meta = stack.getItemMeta();
+        meta.addEnchant(Enchantment.DIG_SPEED, 1, false);
+        meta.setDisplayName(ChatColor.GREEN + "Quick Pickaxe");
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.GRAY + "조금 빠르다.");
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+        QuickPickaxe = stack;
+
+        ItemStack QuickPickaxeRecipe = new ItemStack(ItemsInit.QuickPickaxe);
+        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("quick_pickaxe"), QuickPickaxeRecipe);
+        recipe.shape("III", "CSC", " S ");
+        recipe.setIngredient('C', Material.CHARCOAL);
+        recipe.setIngredient('I', Material.RAW_IRON);
+        recipe.setIngredient('S', Material.STICK);
+        Bukkit.addRecipe(recipe);
     }
 
     public static boolean hasLore(String lore, Player player){
