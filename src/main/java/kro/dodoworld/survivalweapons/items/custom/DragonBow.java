@@ -25,9 +25,9 @@ public class DragonBow implements Listener {
         if(!ItemsInit.hasLore(ChatColor.GRAY + "- 드래곤의 영혼이 깃들어 있는 전설적인 활이다", player)) return;
         Arrow arrow = (Arrow) event.getEntity();
         if(CoolDown.checkCooldown(player, CoolDown.CoolDownType.DRAGON_BOW)){
-            arrow.addScoreboardTag("sbw_arrow_dragon_bow_skill");
+            arrow.addScoreboardTag("sw_arrow_dragon_bow_skill");
         }else{
-            arrow.addScoreboardTag("sbw_arrow_dragon_bow");
+            arrow.addScoreboardTag("sw_arrow_dragon_bow");
         }
     }
 
@@ -39,7 +39,7 @@ public class DragonBow implements Listener {
         Player player = (Player) event.getEntity().getShooter();
         Arrow arrow = (Arrow) event.getEntity();
         if(event.getHitEntity() != null && event.getHitEntity() instanceof Enderman){
-            if(arrow.getScoreboardTags().contains("sbw_arrow_dragon_bow")) {
+            if(arrow.getScoreboardTags().contains("sw_arrow_dragon_bow")) {
                 event.setCancelled(true);
                 Enderman enderman = (Enderman) event.getHitEntity();
                 enderman.damage(arrow.getDamage(), player);
@@ -51,7 +51,7 @@ public class DragonBow implements Listener {
                 arrow.setColor(Color.fromRGB(166, 27, 168));
                 arrow.remove();
             }
-            if(arrow.getScoreboardTags().contains("sbw_arrow_dragon_bow_skill")){
+            if(arrow.getScoreboardTags().contains("sw_arrow_dragon_bow_skill")){
                 event.setCancelled(true);
                 arrow.setDamage(arrow.getDamage() * 3);
                 Enderman enderman = (Enderman) event.getHitEntity();
@@ -59,7 +59,7 @@ public class DragonBow implements Listener {
                 enderman.getWorld().strikeLightningEffect(enderman.getLocation());
                 for(Entity entity : arrow.getNearbyEntities(10, 10, 10)){
                     if(entity instanceof LivingEntity && entity != player){
-                        ((LivingEntity) entity).damage(arrow.getDamage()* 0.75);
+                        ((LivingEntity) entity).damage(arrow.getDamage() / 2);
                     }
                 }
                 arrow.setColor(Color.fromRGB(166, 27, 168));
@@ -78,7 +78,7 @@ public class DragonBow implements Listener {
         Player player = (Player) event.getEntity().getShooter();
         Arrow arrow = (Arrow) event.getEntity();
         if(event.getHitEntity() != null){
-            if(arrow.getScoreboardTags().contains("sbw_arrow_dragon_bow")) {
+            if(arrow.getScoreboardTags().contains("sw_arrow_dragon_bow")) {
                 for(Entity entity : arrow.getNearbyEntities(3, 3, 3)){
                     if(entity instanceof LivingEntity && entity != player){
                         ((LivingEntity) entity).damage(arrow.getDamage() / 2);
@@ -86,12 +86,12 @@ public class DragonBow implements Listener {
                 }
                 arrow.setColor(Color.fromRGB(166, 27, 168));
             }
-            if(arrow.getScoreboardTags().contains("sbw_arrow_dragon_bow_skill")){
+            if(arrow.getScoreboardTags().contains("sw_arrow_dragon_bow_skill")){
                 event.getEntity().getWorld().strikeLightningEffect(event.getHitEntity().getLocation());
                 arrow.setDamage(arrow.getDamage() * 3);
                 for(Entity entity : arrow.getNearbyEntities(10, 10, 10)){
                     if(entity instanceof LivingEntity && entity != player){
-                        ((LivingEntity) entity).damage(arrow.getDamage() * 0.75);
+                        ((LivingEntity) entity).damage(arrow.getDamage() / 2);
                     }
                 }
                 arrow.setColor(Color.fromRGB(166, 27, 168));
@@ -99,7 +99,7 @@ public class DragonBow implements Listener {
             }
         }
         if(event.getHitEntity() == null){
-            if(!(arrow.getScoreboardTags().contains("sbw_arrow_dragon_bow_skill") || arrow.getScoreboardTags().contains("sw_arrow_dragon_bow"))) return;
+            if(!(arrow.getScoreboardTags().contains("sw_arrow_dragon_bow_skill") || arrow.getScoreboardTags().contains("sw_arrow_dragon_bow"))) return;
             arrow.setColor(Color.fromRGB(166, 27, 168));
             for(Entity entity : arrow.getNearbyEntities(3, 3, 3)){
                 if(entity instanceof LivingEntity && entity != player){
