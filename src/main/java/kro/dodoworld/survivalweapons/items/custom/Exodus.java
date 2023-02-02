@@ -1,5 +1,6 @@
 package kro.dodoworld.survivalweapons.items.custom;
 
+import kro.dodoworld.survivalweapons.items.ItemsInit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -20,19 +21,11 @@ public class Exodus implements Listener {
     public void onDamage(EntityDamageByEntityEvent event){
         if(!(event.getDamager() instanceof Player)) return;
         Player player = (Player) event.getDamager();
-        if(!hasLoreOnHelmet(ChatColor.GREEN + "상대를 때릴 시 재생 II 효과 +3초를 준다.", player)) return;
+        if(!ItemsInit.isPluginItem("sw_item_exodus", player, EquipmentSlot.HEAD)) return;
         player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 90, 1, false));
     }
 
     /**
      * Returns true when player has Exodus on head
      */
-    private static boolean hasLoreOnHelmet(String lore, Player player){
-        try{
-            return player.getInventory().getItem(EquipmentSlot.HEAD).getItemMeta() != null && player.getInventory().getItem(EquipmentSlot.HEAD).getItemMeta().getLore() != null
-                    && player.getInventory().getItem(EquipmentSlot.HEAD).getItemMeta().getLore().contains(lore);
-        }catch (NullPointerException e){
-            return false;
-        }
-    }
 }

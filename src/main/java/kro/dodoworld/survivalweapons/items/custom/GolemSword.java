@@ -20,7 +20,7 @@ public class GolemSword implements Listener {
     @EventHandler
     public void onRightClick(PlayerInteractEvent event){
         if(event.getAction().equals(Action.RIGHT_CLICK_BLOCK) || event.getAction().equals(Action.RIGHT_CLICK_AIR)){
-            if(!ItemsInit.hasLore(ChatColor.GREEN + "우클릭 시 떨어지는 모루가 스폰된다.", event.getPlayer())) return;
+            if(!ItemsInit.isPluginItem("sw_item_golem_sword", event.getPlayer())) return;
             if(CoolDown.checkCooldown(event.getPlayer(), CoolDown.CoolDownType.GOLEM_SWORD)){
                 for(Entity entity : event.getPlayer().getNearbyEntities(120, 120, 120)){
                     if(entity instanceof LivingEntity && entity != event.getPlayer()){

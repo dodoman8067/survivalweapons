@@ -27,7 +27,7 @@ public class BloodLust implements Listener {
         if(!(event.getEntity() instanceof Player)) return;
         if(event.getEntity().getKiller() == null) return;
         Player player = event.getEntity().getKiller();
-        if(!ItemsInit.hasLore(ChatColor.RED + "플레이어들을 죽일 수록 이 검은 더 강력해진다.", player)) return;
+        if(!ItemsInit.isPluginItem("sw_item_bloodlust", player)) return;
         ItemStack stack = player.getInventory().getItemInMainHand();
         ItemMeta meta = stack.getItemMeta();
         List<String> newLore = meta.getLore();

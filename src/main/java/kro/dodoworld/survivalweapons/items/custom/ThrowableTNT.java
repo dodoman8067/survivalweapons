@@ -15,7 +15,7 @@ public class ThrowableTNT implements Listener {
     public void onRightClick(PlayerInteractEvent event){
         if(event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK)){
             if(!event.getHand().equals(EquipmentSlot.HAND)) return;
-            if(!ItemsInit.hasLore(ChatColor.RED + "우클릭으로 TNT를 던질 수 있다.", event.getPlayer())) return;
+            if(!ItemsInit.isPluginItem("sw_item_throwable_tnt", event.getPlayer())) return;
 
             Player player = event.getPlayer();
             TNTPrimed tnt = player.getWorld().spawn(player.getLocation(), TNTPrimed.class);

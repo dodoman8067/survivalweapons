@@ -30,7 +30,7 @@ public class StoneSnowBall implements Listener {
         if(!(event.getEntity().getShooter() instanceof Player)) return;
         if(!(event.getEntity() instanceof Snowball)) return;
         Player player = (Player) event.getEntity().getShooter();
-        if(!ItemsInit.hasLore(ChatColor.RED + "눈덩이 대미지 + 2", player)) return;
+        if(!ItemsInit.isPluginItem("sw_item_stone_snowball", player)) return;
         event.getEntity().addScoreboardTag("sw_stonesnowball");
     }
 }

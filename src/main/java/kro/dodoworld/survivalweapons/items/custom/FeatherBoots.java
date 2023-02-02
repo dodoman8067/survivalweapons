@@ -1,5 +1,6 @@
 package kro.dodoworld.survivalweapons.items.custom;
 
+import kro.dodoworld.survivalweapons.items.ItemsInit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -23,7 +24,7 @@ public class FeatherBoots implements Listener {
 
         Player player = (Player) event.getEntity();
 
-        if(hasLoreOnBoots(ChatColor.AQUA + "낙사를 방지해 주지만 내구도가 깨진다.", player)) {
+        if(ItemsInit.isPluginItem("sw_item_feather_boots", player, EquipmentSlot.FEET)) {
             ItemStack stack = player.getInventory().getItem(EquipmentSlot.FEET);
             Damageable meta = (Damageable) stack.getItemMeta();
             if (!(stack.getType().getMaxDurability() < meta.getDamage())) {
@@ -34,15 +35,6 @@ public class FeatherBoots implements Listener {
                 stack.setItemMeta(meta);
                 stack.setAmount(stack.getAmount() - 1);
             }
-        }
-    }
-
-    private static boolean hasLoreOnBoots(String lore, Player player){
-        try{
-            return player.getInventory().getItem(EquipmentSlot.FEET).getItemMeta() != null && player.getInventory().getItem(EquipmentSlot.FEET).getItemMeta().getLore() != null
-                    && player.getInventory().getItem(EquipmentSlot.FEET).getItemMeta().getLore().contains(lore);
-        }catch (NullPointerException e){
-            return false;
         }
     }
 }

@@ -17,7 +17,7 @@ public class SelfAttackSword implements Listener {
     @EventHandler
     public void onDamage(EntityDamageByEntityEvent event){
         if(!(event.getDamager() instanceof Player player)) return;
-        if(ItemsInit.hasLore(ChatColor.DARK_GRAY + "§o- dodoman", player)){
+        if(ItemsInit.isPluginItem("sw_item_self_attack_sword", player)){
             event.setCancelled(true);
             player.damage(event.getFinalDamage());
         }

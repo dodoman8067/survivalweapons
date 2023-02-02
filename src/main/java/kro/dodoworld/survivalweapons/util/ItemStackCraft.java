@@ -22,6 +22,7 @@ public class ItemStackCraft implements Listener {
         checkItem(new ItemStack(ItemsInit.PureBlood), event.getInventory(), getPureBlood());
         checkItem(new ItemStack(ItemsInit.ThrowableTNT), event.getInventory(), getThrowableTNT());
         checkItem(new ItemStack(ItemsInit.ValkyrieChestplate), event.getInventory(), getValkyrieChestplate());
+        checkItem(new ItemStack(ItemsInit.FarmerBoots), event.getInventory(), getFarmerBoots());
         checkLimitedItem(event);
     }
 
@@ -60,6 +61,21 @@ public class ItemStackCraft implements Listener {
         zombieBloodRecipe.put(7, new ItemStack(Material.FERMENTED_SPIDER_EYE));
 
         return zombieBloodRecipe;
+    }
+
+    private HashMap<Integer, ItemStack> getFarmerBoots(){
+        HashMap<Integer, ItemStack> farmerBootsRecipe = new HashMap<>();
+        farmerBootsRecipe.put(0, new ItemStack(Material.PUMPKIN));
+        farmerBootsRecipe.put(1, new ItemStack(Material.PUMPKIN));
+        farmerBootsRecipe.put(2, new ItemStack(Material.PUMPKIN));
+        farmerBootsRecipe.put(3, new ItemStack(Material.PUMPKIN));
+        farmerBootsRecipe.put(4, new ItemStack(Material.DIAMOND_BOOTS));
+        farmerBootsRecipe.put(5, new ItemStack(Material.PUMPKIN));
+        farmerBootsRecipe.put(6, new ItemStack(Material.PUMPKIN));
+        farmerBootsRecipe.put(7, new ItemStack(Material.PUMPKIN));
+        farmerBootsRecipe.put(8, new ItemStack(Material.PUMPKIN));
+
+        return farmerBootsRecipe;
     }
 
     private HashMap<Integer, ItemStack> getPureBlood(){

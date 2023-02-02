@@ -14,7 +14,7 @@ import org.bukkit.potion.PotionEffectType;
 public class GoldenHead implements Listener {
     @EventHandler
     public void onInteract(PlayerInteractEvent event){
-        if(event.getAction().equals(Action.RIGHT_CLICK_BLOCK) && ItemsInit.hasLore(ChatColor.BLUE + "재생 IV +20초", event.getPlayer())){
+        if(event.getAction().equals(Action.RIGHT_CLICK_BLOCK) && ItemsInit.isPluginItem("sw_item_golden_head", event.getPlayer())){
             event.setCancelled(true);
             Player player = event.getPlayer();
             try{
@@ -26,7 +26,7 @@ public class GoldenHead implements Listener {
             addEffect(player);
         }
 
-        if(event.getAction().equals(Action.RIGHT_CLICK_AIR) && ItemsInit.hasLore(ChatColor.BLUE + "재생 IV +20초", event.getPlayer())){
+        if(event.getAction().equals(Action.RIGHT_CLICK_AIR) && ItemsInit.isPluginItem("sw_item_golden_head", event.getPlayer())){
             if(!event.getHand().equals(EquipmentSlot.HAND)) return;
             Player player = event.getPlayer();
             try{
