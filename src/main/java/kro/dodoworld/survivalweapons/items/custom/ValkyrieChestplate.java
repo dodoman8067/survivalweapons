@@ -3,7 +3,6 @@ package kro.dodoworld.survivalweapons.items.custom;
 import kro.dodoworld.survivalweapons.Survivalweapons;
 import kro.dodoworld.survivalweapons.items.ItemsInit;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.potion.PotionEffect;
