@@ -31,7 +31,8 @@ public final class Survivalweapons extends JavaPlugin {
         // Plugin startup logic
         long itemMs = System.currentTimeMillis();
         logger.info("Loading Items...");
-        ItemsInit.init();
+        ItemsInit items = new ItemsInit(this);
+        items.init();
         Anduril.registerAnduril(this);
         ValkyrieChestplate.registerValkyrieChestplate(this);
         logger.info("Loading Items Took " + (System.currentTimeMillis() - itemMs) + "ms");
