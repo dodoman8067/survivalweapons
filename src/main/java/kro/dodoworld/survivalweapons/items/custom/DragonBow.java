@@ -22,7 +22,7 @@ public class DragonBow implements Listener {
         if(!(event.getEntity().getShooter() instanceof Player)) return;
         if(!(event.getEntity() instanceof Arrow)) return;
         Player player = (Player) event.getEntity().getShooter();
-        if(!ItemsInit.hasLore(ChatColor.YELLOW + "" + ChatColor.BOLD + "능력 : " + ChatColor.AQUA + "드래곤의 분노", player)) return;
+        if(!ItemsInit.isPluginItem("sw_item_dragon_bow", player)) return;
         Arrow arrow = (Arrow) event.getEntity();
         if(CoolDown.checkCooldown(player, CoolDown.CoolDownType.DRAGON_BOW)){
             arrow.addScoreboardTag("sw_arrow_dragon_bow_skill");

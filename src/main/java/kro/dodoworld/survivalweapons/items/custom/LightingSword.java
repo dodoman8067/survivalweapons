@@ -17,7 +17,7 @@ public class LightingSword implements Listener {
         if(!(event.getDamager() instanceof Player)) return;
         if(event.getEntity() instanceof LivingEntity){
             Player living = (Player) event.getDamager();
-            if(!ItemsInit.hasLore(ChatColor.AQUA + "상대를 때릴 시 천둥이 친다.", living)) return;
+            if(!ItemsInit.isPluginItem("sw_item_lighting_axe", living)) return;
             if(!CoolDown.checkCooldown(living, CoolDown.CoolDownType.LIGHTING_AXE)) return;
             LivingEntity entity = (LivingEntity) event.getEntity();
             World world = entity.getWorld();

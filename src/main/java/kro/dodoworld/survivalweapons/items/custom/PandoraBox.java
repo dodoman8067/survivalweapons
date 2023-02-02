@@ -37,7 +37,7 @@ public class PandoraBox implements Listener {
     public void onInteract(PlayerInteractEvent event){
         if(event.getAction().equals(Action.RIGHT_CLICK_BLOCK) || event.getAction().equals(Action.RIGHT_CLICK_AIR)){
             if(!event.getHand().equals(EquipmentSlot.HAND)) return;
-            if(!ItemsInit.hasLore(ChatColor.DARK_GREEN + "" + ChatColor.MAGIC + "결국 위험을 감수하고 직접 상자를 열어야겠죠?", event.getPlayer())) return;
+            if(!ItemsInit.isPluginItem("sw_item_pandora_box", event.getPlayer())) return;
             Player player = event.getPlayer();
             if(Math.random() < 0.25){
                 doGoodEffect(player);

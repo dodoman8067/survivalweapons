@@ -15,7 +15,7 @@ public class Anduril {
             @Override
             public void run() {
                 for(Player player : Bukkit.getOnlinePlayers()){
-                    if(ItemsInit.hasLore(ChatColor.BLUE + "+ 영구 신속 I", player)){
+                    if(ItemsInit.isPluginItem("sw_item_anduril", player)){
                         player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 2, 0, true));
                         player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 2, 0, true));
                         player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 2, 0, true));

@@ -27,7 +27,7 @@ public class GiantSword implements Listener {
 
     @EventHandler
     public void onInteract(PlayerInteractEvent event){
-        if(ItemsInit.hasLore(ChatColor.GREEN + "대미지를 주며 하늘로 날린다.", event.getPlayer())){
+        if(ItemsInit.isPluginItem("sw_item_giant_sword", event.getPlayer())){
             if(event.getAction().equals(Action.RIGHT_CLICK_BLOCK) || event.getAction().equals(Action.RIGHT_CLICK_AIR)){
 
             // Checks player's item is Giant's Sword
