@@ -71,6 +71,7 @@ public class ItemsInit {
     public static ItemStack MinerPickaxe;
     public static ItemStack LapisPickaxe;
     public static ItemStack FarmerBoots;
+    public static ItemStack DelicateHoe;
 
     private static Survivalweapons plugin;
 
@@ -113,6 +114,7 @@ public class ItemsInit {
         createMinerPickaxe();
         createLapisPickaxe();
         createFarmerBoots();
+        createDelicateHoe();
     }
 
     private static void createFireGoldenSword(){
@@ -761,6 +763,29 @@ public class ItemsInit {
         recipe.shape("III", "CSC", " S ");
         recipe.setIngredient('C', Material.CHARCOAL);
         recipe.setIngredient('I', Material.RAW_IRON);
+        recipe.setIngredient('S', Material.STICK);
+        Bukkit.addRecipe(recipe);
+    }
+
+    private static void createDelicateHoe(){
+        ItemStack stack = new ItemStack(Material.DIAMOND_HOE);
+        ItemMeta meta = stack.getItemMeta();
+        meta.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 2, false);
+        meta.setDisplayName(ChatColor.BLUE + "Delicate Hoe");
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.GREEN + "다 자란 식물 외에는 수확하지 못한다.");
+        meta.getPersistentDataContainer().set(new NamespacedKey(plugin, "sw_item_delicate_hoe"), PersistentDataType.STRING, "sw_plugin_item_delicate_hoe");
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+        DelicateHoe = stack;
+
+        ItemStack DelicateHoeRecipe = new ItemStack(ItemsInit.DelicateHoe);
+        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("delicate_hoe"), DelicateHoeRecipe);
+        recipe.shape("DDO", "RSC", " S ");
+        recipe.setIngredient('D', Material.DIAMOND);
+        recipe.setIngredient('O', Material.OBSERVER);
+        recipe.setIngredient('C', Material.CLOCK);
+        recipe.setIngredient('R', Material.REDSTONE);
         recipe.setIngredient('S', Material.STICK);
         Bukkit.addRecipe(recipe);
     }
