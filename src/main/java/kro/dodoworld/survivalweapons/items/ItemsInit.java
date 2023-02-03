@@ -1,5 +1,6 @@
 package kro.dodoworld.survivalweapons.items;
 
+import kro.dodoworld.survivalweapons.Survivalweapons;
 import kro.dodoworld.survivalweapons.util.CustomSkulls;
 import org.bukkit.Material;
 import org.bukkit.ChatColor;
@@ -16,6 +17,7 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataType;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -57,8 +59,20 @@ public class ItemsInit {
     public static ItemStack GolemSword;
     public static ItemStack DragonBow;
     public static ItemStack ValkyrieChestplate;
+    public static ItemStack QuickPickaxe;
+    public static ItemStack MinerPickaxe;
+    public static ItemStack LapisPickaxe;
+    public static ItemStack FarmerBoots;
+    public static ItemStack DelicateHoe;
 
-    public static void init(){
+    private static Survivalweapons plugin;
+
+    public ItemsInit(Survivalweapons plugin){
+        ItemsInit.plugin = plugin;
+    }
+
+
+    public void init(){
         createFireGoldenSword();
         createLightingSword();
         createGiantSword();
@@ -84,6 +98,11 @@ public class ItemsInit {
         createGolemSword();
         createDragonBow();
         createValkyrieChestplate();
+        createDelicateHoe();
+        createLapisPickaxe();
+        createMinerPickaxe();
+        createQuickPickaxe();
+        createMinerPickaxe();
     }
 
     private static void createFireGoldenSword(){
@@ -475,6 +494,113 @@ public class ItemsInit {
         stack4.setItemMeta(meta4);
         BeginnerHoe = stack4;
     }
+
+    private static void createQuickPickaxe(){
+        ItemStack stack = new ItemStack(Material.IRON_PICKAXE);
+        ItemMeta meta = stack.getItemMeta();
+        meta.addEnchant(Enchantment.DIG_SPEED, 1, false);
+        meta.setDisplayName(ChatColor.GREEN + "Quick Pickaxe");
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.GRAY + "조금 빠르다.");
+        meta.getPersistentDataContainer().set(new NamespacedKey(plugin, "sw_item_quick_pickaxe"), PersistentDataType.STRING, "sw_plugin_item_quick_pickaxe");
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+        QuickPickaxe = stack;
+
+        ItemStack QuickPickaxeRecipe = new ItemStack(ItemsInit.QuickPickaxe);
+        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("quick_pickaxe"), QuickPickaxeRecipe);
+        recipe.shape("III", "CSC", " S ");
+        recipe.setIngredient('C', Material.CHARCOAL);
+        recipe.setIngredient('I', Material.RAW_IRON);
+        recipe.setIngredient('S', Material.STICK);
+        Bukkit.addRecipe(recipe);
+    }
+
+    private static void createDelicateHoe(){
+        ItemStack stack = new ItemStack(Material.DIAMOND_HOE);
+        ItemMeta meta = stack.getItemMeta();
+        meta.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 2, false);
+        meta.setDisplayName(ChatColor.BLUE + "Delicate Hoe");
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.GREEN + "다 자란 식물 외에는 수확하지 못한다.");
+        meta.getPersistentDataContainer().set(new NamespacedKey(plugin, "sw_item_delicate_hoe"), PersistentDataType.STRING, "sw_plugin_item_delicate_hoe");
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+        DelicateHoe = stack;
+
+        ItemStack DelicateHoeRecipe = new ItemStack(ItemsInit.DelicateHoe);
+        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("delicate_hoe"), DelicateHoeRecipe);
+        recipe.shape("DDO", "RSC", " S ");
+        recipe.setIngredient('D', Material.DIAMOND);
+        recipe.setIngredient('O', Material.OBSERVER);
+        recipe.setIngredient('C', Material.CLOCK);
+        recipe.setIngredient('R', Material.REDSTONE);
+        recipe.setIngredient('S', Material.STICK);
+        Bukkit.addRecipe(recipe);
+    }
+
+    private static void createMinerPickaxe(){
+        ItemStack stack = new ItemStack(Material.IRON_PICKAXE);
+        Damageable meta = (Damageable) stack.getItemMeta();
+        meta.setDisplayName(ChatColor.GREEN  + "Miner Pickaxe");
+        meta.addEnchant(Enchantment.DIG_SPEED, 2, false);
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.GREEN + "블록 캘 시 성급함 I + 3초");
+        meta.getPersistentDataContainer().set(new NamespacedKey(plugin, "sw_item_miner_pickaxe"), PersistentDataType.STRING, "sw_plugin_item_miner_pickaxe");
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+
+        MinerPickaxe = stack;
+
+        ItemStack MinerPickaxe = new ItemStack(ItemsInit.MinerPickaxe);
+        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("miner_pickaxe"), MinerPickaxe);
+        recipe.shape("GGG", "ISI", " S ");
+        recipe.setIngredient('G', Material.GOLD_INGOT);
+        recipe.setIngredient('I', Material.IRON_INGOT);
+        recipe.setIngredient('S', Material.STICK);
+
+        Bukkit.addRecipe(recipe);
+    }
+
+
+    private static void createLapisPickaxe(){
+        ItemStack stack = new ItemStack(Material.DIAMOND_PICKAXE);
+        Damageable meta = (Damageable) stack.getItemMeta();
+        meta.setDisplayName(ChatColor.BLUE  + "Lapis Pickaxe");
+        meta.addEnchant(Enchantment.DIG_SPEED, 2, false);
+        meta.addEnchant(Enchantment.DURABILITY, 1, false);
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.GREEN + "광물 경험치 x2배 확률 +50%");
+        meta.setLore(lore);
+        meta.getPersistentDataContainer().set(new NamespacedKey(plugin, "sw_item_lapis_pickaxe"), PersistentDataType.STRING, "sw_plugin_item_lapis_pickaxe");
+        stack.setItemMeta(meta);
+
+        LapisPickaxe = stack;
+
+        ItemStack LapisPickaxe = new ItemStack(ItemsInit.LapisPickaxe);
+        ShapedRecipe recipe = new ShapedRecipe(NamespacedKey.minecraft("lapis_pickaxe"), LapisPickaxe);
+        recipe.shape("LLL", "DSD", " S ");
+        recipe.setIngredient('L', Material.LAPIS_BLOCK);
+        recipe.setIngredient('D', Material.DIAMOND);
+        recipe.setIngredient('S', Material.STICK);
+
+        Bukkit.addRecipe(recipe);
+    }
+
+    private static void createFarmerBoots(){
+        ItemStack stack = new ItemStack(Material.DIAMOND_BOOTS);
+        Damageable meta = (Damageable) stack.getItemMeta();
+        meta.setDisplayName(ChatColor.BLUE + "Farmer's Boots");
+        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1, false);
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.GREEN + "경작지를 부수지 못한다.");
+        meta.setLore(lore);
+        meta.getPersistentDataContainer().set(new NamespacedKey(plugin, "sw_item_farmer_boots"), PersistentDataType.STRING, "sw_plugin_item_farmer_boots");
+        stack.setItemMeta(meta);
+
+        FarmerBoots = stack;
+    }
+
 
     private static void createMagicPickaxe(){
         ItemStack stack = new ItemStack(Material.DIAMOND_PICKAXE);
