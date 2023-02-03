@@ -654,4 +654,20 @@ public class ItemsInit {
         return player.getInventory().getItemInMainHand().getItemMeta() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore() != null
                 && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains(lore);
     }
+
+    public static boolean isPluginItem(String key, Player player){
+        if(player.getInventory().getItemInMainHand().getItemMeta() == null){
+            return true;
+        }else{
+            return player.getInventory().getItemInMainHand().getItemMeta().getPersistentDataContainer().has(new NamespacedKey(plugin, key), PersistentDataType.STRING);
+        }
+    }
+
+    public static boolean isPluginItem(String key, Player player, EquipmentSlot slot) {
+        try {
+            return player.getInventory().getItem(slot).getItemMeta().getPersistentDataContainer().has(new NamespacedKey(plugin, key), PersistentDataType.STRING);
+        } catch (NullPointerException e) {
+            return false;
+        }
+    }
 }

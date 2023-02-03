@@ -10,7 +10,7 @@ public class DelicateHoe implements Listener {
     @EventHandler
     public void onBreak(BlockBreakEvent event){
         if(!(event.getBlock().getBlockData() instanceof Ageable plant)) return;
-        if(!ItemsInit.isPluginItem("sw_item_delicate_hoe", event.getPlayer())) return;
+        if(ItemsInit.isPluginItem("sw_item_delicate_hoe", event.getPlayer())) return;
 
         if(plant.getAge() != plant.getMaximumAge()){
             event.setCancelled(true);

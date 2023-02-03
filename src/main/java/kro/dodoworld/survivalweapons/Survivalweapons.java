@@ -9,6 +9,7 @@ import kro.dodoworld.survivalweapons.features.AgroEnderman;
 import kro.dodoworld.survivalweapons.items.ItemsInit;
 import kro.dodoworld.survivalweapons.items.custom.*;
 import kro.dodoworld.survivalweapons.util.CoolDown;
+import kro.dodoworld.survivalweapons.util.ItemStackCraft;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Logger;
@@ -63,6 +64,10 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new GolemSword(), this);
         getServer().getPluginManager().registerEvents(new DragonBow(), this);
         getServer().getPluginManager().registerEvents(new WaterMelonAxe(), this);
+        getServer().getPluginManager().registerEvents(new AbilityPickaxe(), this);
+        getServer().getPluginManager().registerEvents(new DelicateHoe(), this);
+        getServer().getPluginManager().registerEvents(new FarmerBoots(), this);
+        getServer().getPluginManager().registerEvents(new ItemStackCraft(), this);
         logger.info("Loading Listeners Took " + (System.currentTimeMillis() - eventMs) + "ms");
 
         long commandMs = System.currentTimeMillis();
