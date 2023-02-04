@@ -2,7 +2,6 @@ package kro.dodoworld.survivalweapons.items.custom;
 
 import kro.dodoworld.survivalweapons.items.ItemsInit;
 import kro.dodoworld.survivalweapons.util.CoolDown;
-import org.bukkit.ChatColor;
 import org.bukkit.World;
 import org.bukkit.entity.LightningStrike;
 import org.bukkit.entity.LivingEntity;

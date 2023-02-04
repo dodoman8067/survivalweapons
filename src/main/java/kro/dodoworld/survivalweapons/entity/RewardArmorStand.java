@@ -1,6 +1,5 @@
 package kro.dodoworld.survivalweapons.entity;
 
-import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
