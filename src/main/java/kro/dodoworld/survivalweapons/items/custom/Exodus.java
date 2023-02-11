@@ -23,8 +23,4 @@ public class Exodus implements Listener {
         if(!ItemsInit.isPluginItem("sw_item_exodus", player, EquipmentSlot.HEAD)) return;
         player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 90, 1, false));
     }
-
-    /**
-     * Returns true when player has Exodus on head
-     */
 }

@@ -72,6 +72,7 @@ public class ItemsInit {
     public static ItemStack LapisPickaxe;
     public static ItemStack FarmerBoots;
     public static ItemStack DelicateHoe;
+    public static ItemStack VampireHelmet;
 
     private static Survivalweapons plugin;
 
@@ -115,6 +116,7 @@ public class ItemsInit {
         createLapisPickaxe();
         createFarmerBoots();
         createDelicateHoe();
+        createVampireHelmet();
     }
 
     private static void createFireGoldenSword(){
@@ -173,6 +175,21 @@ public class ItemsInit {
 
         MagicPickaxe = stack;
     }
+
+    private static void createVampireHelmet(){
+        ItemStack stack = new ItemStack(Material.NETHERITE_HELMET);
+        Damageable meta = (Damageable) stack.getItemMeta();
+        meta.setDisplayName(ChatColor.LIGHT_PURPLE + "Vampire Helmet");
+        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 5, true);
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.GREEN + "주변 엔티티의 피를 빨아들인다.");
+        meta.getPersistentDataContainer().set(new NamespacedKey(plugin, "sw_item_vampire_helmet"), PersistentDataType.STRING, "sw_plugin_item_vampire_helmet");
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+
+        VampireHelmet = stack;
+    }
+
 
     private static void createMinerPickaxe(){
         ItemStack stack = new ItemStack(Material.IRON_PICKAXE);
