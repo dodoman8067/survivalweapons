@@ -26,7 +26,7 @@ public class GoldenHead implements Listener {
             addEffect(player);
         }
 
-        if(event.getAction().equals(Action.RIGHT_CLICK_BLOCK) && ItemsInit.isPluginItem("sw_item_golden_head", event.getPlayer())){
+        if(event.getAction().equals(Action.RIGHT_CLICK_AIR) && ItemsInit.isPluginItem("sw_item_golden_head", event.getPlayer())){
             if(!event.getHand().equals(EquipmentSlot.HAND)) return;
             Player player = event.getPlayer();
             try{
