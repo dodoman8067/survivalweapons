@@ -1,7 +1,6 @@
 package kro.dodoworld.survivalweapons.items.custom;
 
 import kro.dodoworld.survivalweapons.items.ItemsInit;
-import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;

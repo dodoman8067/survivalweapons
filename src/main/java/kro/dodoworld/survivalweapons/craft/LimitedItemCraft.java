@@ -1,6 +1,5 @@
 package kro.dodoworld.survivalweapons.craft;
 
-import kro.dodoworld.survivalweapons.config.BloodLustConfig;
 import kro.dodoworld.survivalweapons.config.ExodusConfig;
 import kro.dodoworld.survivalweapons.config.IronPackConfig;
 import kro.dodoworld.survivalweapons.items.ItemsInit;

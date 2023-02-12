@@ -1,14 +1,12 @@
 package kro.dodoworld.survivalweapons.features;
 
 import kro.dodoworld.survivalweapons.items.ItemsInit;
-import net.minecraft.world.entity.monster.EntityWitch;
 import org.bukkit.craftbukkit.v1_18_R2.entity.CraftWitch;
 
 import org.bukkit.entity.Witch;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
-import org.bukkit.event.entity.EntityPotionEffectEvent;
 import org.bukkit.inventory.ItemStack;
 
 public class ObtainThunderBottleMethod implements Listener {
