@@ -66,6 +66,9 @@ public class SwItem implements CommandExecutor {
                         if(arg.equals("valkyrie_chestplate")){
                             player.getInventory().addItem(new ItemStack(ItemsInit.ValkyrieChestplate));
                         }
+                        if(arg.equals("vampire_helmet")){
+                            player.getInventory().addItem(new ItemStack(ItemsInit.VampireHelmet));
+                        }
                     }else{
                         player.sendMessage("Usage : /sbwitem <item_name>");
                     }
