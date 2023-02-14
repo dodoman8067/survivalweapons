@@ -2,7 +2,7 @@ package kro.dodoworld.survivalweapons.items.custom;
 
 import kro.dodoworld.survivalweapons.Survivalweapons;
 import kro.dodoworld.survivalweapons.items.ItemsInit;
-import kro.dodoworld.survivalweapons.util.CoolDown;
+import kro.dodoworld.survivalweapons.util.item.CoolDown;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
