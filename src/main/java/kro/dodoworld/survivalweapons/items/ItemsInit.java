@@ -103,7 +103,6 @@ public class ItemsInit {
         createLapisPickaxe();
         createMinerPickaxe();
         createQuickPickaxe();
-        createMinerPickaxe();
         createVampireHelmet();
     }
 
@@ -673,7 +672,7 @@ public class ItemsInit {
 
     public static boolean isPluginItem(String key, Player player){
         if(player.getInventory().getItemInMainHand().getItemMeta() == null){
-            return true;
+            return false;
         }else{
             return player.getInventory().getItemInMainHand().getItemMeta().getPersistentDataContainer().has(new NamespacedKey(plugin, key), PersistentDataType.STRING);
         }
