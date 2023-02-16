@@ -35,6 +35,8 @@ public final class Survivalweapons extends JavaPlugin {
         Anduril.registerAnduril(this);
         ValkyrieChestplate.registerValkyrieChestplate(this);
         VampireHelmet.registerVampireHelmet(this);
+        new PoseidonTrident(this);
+        PoseidonTrident.registerPoseidonTrident();
         logger.info("Loading Items Took " + (System.currentTimeMillis() - itemMs) + "ms");
         long configMs = System.currentTimeMillis();
         logger.info("Loading Configs...");
@@ -83,6 +85,7 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new AbilityPickaxe(), this);
         getServer().getPluginManager().registerEvents(new FarmerBoots(), this);
         getServer().getPluginManager().registerEvents(new DelicateHoe(), this);
+        getServer().getPluginManager().registerEvents(new PoseidonTrident(this), this);
         logger.info("Loading Listeners Took " + (System.currentTimeMillis() - eventMs) + "ms");
 
         long commandMs = System.currentTimeMillis();

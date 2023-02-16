@@ -73,6 +73,7 @@ public class ItemsInit {
     public static ItemStack FarmerBoots;
     public static ItemStack DelicateHoe;
     public static ItemStack VampireHelmet;
+    public static ItemStack PoseidonTrident;
 
     private static Survivalweapons plugin;
 
@@ -117,6 +118,7 @@ public class ItemsInit {
         createFarmerBoots();
         createDelicateHoe();
         createVampireHelmet();
+        createPoseidonTrident();
     }
 
     private static void createFireGoldenSword(){
@@ -536,6 +538,22 @@ public class ItemsInit {
         meta.setLore(lore);
         stack.setItemMeta(meta);
         NuclearBomb = stack;
+    }
+
+    private static void createPoseidonTrident(){
+        ItemStack stack = new ItemStack(Material.TRIDENT);
+        ItemMeta meta = stack.getItemMeta();
+        meta.setDisplayName(ChatColor.LIGHT_PURPLE + "Poseidon's Trident");
+        List<String> lore = new ArrayList<>();
+        lore.add(net.md_5.bungee.api.ChatColor.of(new java.awt.Color(8, 158, 199)) + "+ 영구 돌고래의 가호 I");
+        lore.add(net.md_5.bungee.api.ChatColor.of(new java.awt.Color(8, 158, 199)) + "+ 영구 수중 호흡 I");
+        meta.setLore(lore);
+        meta.getPersistentDataContainer().set(new NamespacedKey(plugin, "sw_item_poseidon_trident"), PersistentDataType.STRING, "sw_plugin_item_poseidon_trident");
+        meta.addEnchant(Enchantment.LOYALTY, 3, false);
+        meta.addEnchant(Enchantment.CHANNELING, 1, false);
+        meta.addEnchant(Enchantment.IMPALING, 5, false);
+        stack.setItemMeta(meta);
+        PoseidonTrident = stack;
     }
 
     private static void createIronPack(){
