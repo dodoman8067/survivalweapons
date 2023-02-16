@@ -1,4 +1,4 @@
-package kro.dodoworld.survivalweapons.util;
+package kro.dodoworld.survivalweapons.util.code;
 
 import org.bukkit.entity.Player;
 

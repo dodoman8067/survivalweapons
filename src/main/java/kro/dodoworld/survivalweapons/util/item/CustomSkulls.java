@@ -1,4 +1,4 @@
-package kro.dodoworld.survivalweapons.util;
+package kro.dodoworld.survivalweapons.util.item;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;

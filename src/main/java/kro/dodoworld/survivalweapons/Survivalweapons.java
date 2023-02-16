@@ -14,8 +14,8 @@ import kro.dodoworld.survivalweapons.features.ObtainThunderBottleMethod;
 import kro.dodoworld.survivalweapons.features.ObtainVampireFangMethod;
 import kro.dodoworld.survivalweapons.items.ItemsInit;
 import kro.dodoworld.survivalweapons.items.custom.*;
-import kro.dodoworld.survivalweapons.util.CoolDown;
-import kro.dodoworld.survivalweapons.util.ItemStackCraft;
+import kro.dodoworld.survivalweapons.util.code.CoolDown;
+import kro.dodoworld.survivalweapons.util.item.ItemStackCraft;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Logger;

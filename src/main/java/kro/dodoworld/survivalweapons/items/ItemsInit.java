@@ -1,7 +1,7 @@
 package kro.dodoworld.survivalweapons.items;
 
 import kro.dodoworld.survivalweapons.Survivalweapons;
-import kro.dodoworld.survivalweapons.util.CustomSkulls;
+import kro.dodoworld.survivalweapons.util.item.CustomSkulls;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Bukkit;

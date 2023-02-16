@@ -1,4 +1,4 @@
-package kro.dodoworld.survivalweapons.util;
+package kro.dodoworld.survivalweapons.util.item;
 
 import kro.dodoworld.survivalweapons.config.BloodLustConfig;
 import kro.dodoworld.survivalweapons.items.ItemsInit;

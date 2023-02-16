@@ -1,4 +1,4 @@
-package kro.dodoworld.survivalweapons.util;
+package kro.dodoworld.survivalweapons.util.code;
 
 import org.apache.commons.lang.Validate;
 import org.bukkit.Color;
