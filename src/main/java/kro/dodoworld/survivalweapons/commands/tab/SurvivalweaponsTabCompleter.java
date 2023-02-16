@@ -31,6 +31,7 @@ public class SurvivalweaponsTabCompleter implements TabCompleter {
                 commandArgs.add("dragon_bow");
                 commandArgs.add("time_warp_pearl");
                 commandArgs.add("vampire_helmet");
+                commandArgs.add("poseidon_trident");
             }
 
             return commandArgs;
