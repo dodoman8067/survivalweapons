@@ -23,6 +23,8 @@ public class ItemStackCraft implements Listener {
         checkItem(new ItemStack(ItemsInit.ThrowableTNT), event.getInventory(), getThrowableTNT());
         checkItem(new ItemStack(ItemsInit.ValkyrieChestplate), event.getInventory(), getValkyrieChestplate());
         checkItem(new ItemStack(ItemsInit.FarmerBoots), event.getInventory(), getFarmerBoots());
+        checkItem(new ItemStack(ItemsInit.DragonSword), event.getInventory(), getDragonSword());
+        checkItem(new ItemStack(ItemsInit.DragonBow), event.getInventory(), getDragonBow());
         checkLimitedItem(event);
     }
 
@@ -78,6 +80,34 @@ public class ItemStackCraft implements Listener {
         return farmerBootsRecipe;
     }
 
+
+    private HashMap<Integer, ItemStack> getDragonSword(){
+        HashMap<Integer, ItemStack> dragonSwordRecipe = new HashMap<>();
+
+        dragonSwordRecipe.put(0, new ItemStack(Material.BLAZE_POWDER));
+        dragonSwordRecipe.put(1, new ItemStack(ItemsInit.DragonSoul));
+        dragonSwordRecipe.put(2, new ItemStack(Material.BLAZE_POWDER));
+        dragonSwordRecipe.put(3, new ItemStack(Material.END_CRYSTAL));
+        dragonSwordRecipe.put(4, new ItemStack(ItemsInit.DragonSoul));
+        dragonSwordRecipe.put(5, new ItemStack(Material.END_CRYSTAL));
+        dragonSwordRecipe.put(6, new ItemStack(Material.OBSIDIAN));
+        dragonSwordRecipe.put(7, new ItemStack(Material.DIAMOND_SWORD));
+        dragonSwordRecipe.put(8, new ItemStack(Material.OBSIDIAN));
+
+        return dragonSwordRecipe;
+    }
+
+    private HashMap<Integer, ItemStack> getDragonBow(){
+        HashMap<Integer, ItemStack> dragonBowRecipe = new HashMap<>();
+        dragonBowRecipe.put(1, new ItemStack(Material.END_CRYSTAL));
+        dragonBowRecipe.put(2, new ItemStack(Material.STRING));
+        dragonBowRecipe.put(3, new ItemStack(ItemsInit.DragonSoul));
+        dragonBowRecipe.put(5, new ItemStack(Material.STRING));
+        dragonBowRecipe.put(7, new ItemStack(Material.END_CRYSTAL));
+        dragonBowRecipe.put(8, new ItemStack(Material.STRING));
+
+        return dragonBowRecipe;
+    }
     private HashMap<Integer, ItemStack> getPureBlood(){
         HashMap<Integer, ItemStack> pureBloodRecipe = new HashMap<>();
 
