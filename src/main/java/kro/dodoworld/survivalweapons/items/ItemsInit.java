@@ -119,7 +119,7 @@ public class ItemsInit {
         createPoseidonTrident();
     }
 
-    private static void createFireGoldenSword(){
+    private void createFireGoldenSword(){
         ItemStack stack = new ItemStack(Material.GOLDEN_SWORD);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Zombie Piglin's Sword");
@@ -136,7 +136,7 @@ public class ItemsInit {
         FireGoldenSword = stack;
     }
 
-    private static void createBloodLust(){
+    private void createBloodLust(){
         ItemStack stack = new ItemStack(Material.DIAMOND_SWORD);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.RED + "Bloodlust");
@@ -161,7 +161,7 @@ public class ItemsInit {
         BloodLust = stack;
     }
 
-    private static void createMagicPickaxe(){
+    private void createMagicPickaxe(){
         ItemStack stack = new ItemStack(Material.DIAMOND_PICKAXE);
         Damageable meta = (Damageable) stack.getItemMeta();
         meta.setDisplayName(ChatColor.GREEN  + "Magic Pickaxe");
@@ -176,7 +176,7 @@ public class ItemsInit {
         MagicPickaxe = stack;
     }
 
-    private static void createMinerPickaxe(){
+    private void createMinerPickaxe(){
         ItemStack stack = new ItemStack(Material.IRON_PICKAXE);
         Damageable meta = (Damageable) stack.getItemMeta();
         meta.setDisplayName(ChatColor.GREEN  + "Miner Pickaxe");
@@ -199,7 +199,7 @@ public class ItemsInit {
         Bukkit.addRecipe(recipe);
     }
 
-    private static void createLapisPickaxe(){
+    private void createLapisPickaxe(){
         ItemStack stack = new ItemStack(Material.DIAMOND_PICKAXE);
         Damageable meta = (Damageable) stack.getItemMeta();
         meta.setDisplayName(ChatColor.BLUE  + "Lapis Pickaxe");
@@ -223,7 +223,7 @@ public class ItemsInit {
         Bukkit.addRecipe(recipe);
     }
 
-    private static void createFarmerBoots(){
+    private void createFarmerBoots(){
         ItemStack stack = new ItemStack(Material.DIAMOND_BOOTS);
         Damageable meta = (Damageable) stack.getItemMeta();
         meta.setDisplayName(ChatColor.BLUE + "Farmer's Boots");
@@ -237,7 +237,7 @@ public class ItemsInit {
         FarmerBoots = stack;
     }
 
-    private static void createExcalibur(){
+    private void createExcalibur(){
         ItemStack stack = new ItemStack(Material.DIAMOND_SWORD);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.DARK_GREEN  + "Excalibur");
@@ -253,7 +253,7 @@ public class ItemsInit {
         Excalibur = stack;
     }
 
-    private static void createIronFeatherBoots(){
+    private void createIronFeatherBoots(){
         ItemStack stack = new ItemStack(Material.IRON_BOOTS);
         ItemMeta meta = stack.getItemMeta();
         List<String> lore = new ArrayList<>();
@@ -272,7 +272,7 @@ public class ItemsInit {
         Bukkit.addRecipe(recipe);
     }
 
-    private static void createVampireHelmet(){
+    private void createVampireHelmet(){
         ItemStack stack = new ItemStack(Material.NETHERITE_HELMET);
         Damageable meta = (Damageable) stack.getItemMeta();
         meta.setDisplayName(ChatColor.LIGHT_PURPLE + "Vampire Helmet");
@@ -286,7 +286,7 @@ public class ItemsInit {
         VampireHelmet = stack;
     }
 
-    private static void createLightingBottle(){
+    private void createLightingBottle(){
         ItemStack stack = new ItemStack(Material.POTION);
         PotionMeta meta = (PotionMeta) stack.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Thunder Bottle");
@@ -302,7 +302,7 @@ public class ItemsInit {
         LightingBottle = stack;
     }
 
-    private static void createZombieBlood(){
+    private void createZombieBlood(){
         ItemStack stack = new ItemStack(Material.POTION);
         PotionMeta meta = (PotionMeta) stack.getItemMeta();
         meta.setDisplayName(ChatColor.DARK_RED + "Zombie's Blood");
@@ -319,7 +319,7 @@ public class ItemsInit {
         ZombieBlood = stack;
     }
 
-    private static void createPureBlood(){
+    private void createPureBlood(){
         ItemStack stack = new ItemStack(Material.POTION);
         PotionMeta meta = (PotionMeta) stack.getItemMeta();
         meta.setDisplayName(ChatColor.RED + "Pure Blood");
@@ -332,7 +332,7 @@ public class ItemsInit {
         PureBlood = stack;
     }
 
-    private static void createDiamondFeatherBoots(){
+    private void createDiamondFeatherBoots(){
         ItemStack stack = new ItemStack(Material.DIAMOND_BOOTS);
         ItemMeta meta = stack.getItemMeta();
         List<String> lore = new ArrayList<>();
@@ -351,7 +351,7 @@ public class ItemsInit {
         Bukkit.addRecipe(recipe);
     }
 
-    private static void createPoseidonTrident(){
+    private void createPoseidonTrident(){
         ItemStack stack = new ItemStack(Material.TRIDENT);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.LIGHT_PURPLE + "Poseidon's Trident");
@@ -367,7 +367,7 @@ public class ItemsInit {
         PoseidonTrident = stack;
     }
 
-    private static void createGolemSword(){
+    private void createGolemSword(){
         ItemStack stack = new ItemStack(Material.IRON_SWORD);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Golem Sword");
@@ -391,7 +391,7 @@ public class ItemsInit {
         GolemSword = stack;
     }
 
-    private static void createStoneSnowBall(){
+    private void createStoneSnowBall(){
         ItemStack stack = new ItemStack(Material.SNOWBALL);
         ItemMeta meta = stack.getItemMeta();
         List<String> lore = new ArrayList<>();
@@ -409,7 +409,7 @@ public class ItemsInit {
         Bukkit.addRecipe(recipe);
     }
 
-    private static void createLightingSword(){
+    private void createLightingSword(){
         ItemStack stack = new ItemStack(Material.DIAMOND_AXE);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Lighting Axe");
@@ -426,7 +426,7 @@ public class ItemsInit {
         LightingSword = stack;
     }
 
-    private static void createGiantSword(){
+    private void createGiantSword(){
         ItemStack stack = new ItemStack(Material.IRON_SWORD);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Giant's Sword");
@@ -446,7 +446,7 @@ public class ItemsInit {
         GiantSword = stack;
     }
 
-    private static void createMarvelOfThunderStorm(){
+    private void createMarvelOfThunderStorm(){
         ItemStack stack = new ItemStack(Material.HEART_OF_THE_SEA);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.AQUA + "뇌우를 부르는 구슬");
@@ -460,7 +460,7 @@ public class ItemsInit {
         MarvelOfThunderStorm = stack;
     }
 
-    private static void createDragonSword(){
+    private void createDragonSword(){
         ItemStack stack = new ItemStack(Material.DIAMOND_SWORD);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Dragon Sword");
@@ -476,7 +476,7 @@ public class ItemsInit {
         DragonSword = stack;
     }
 
-    private static void createDragonBow(){
+    private void createDragonBow(){
         ItemStack stack = new ItemStack(Material.BOW);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Dragon Bow");
@@ -494,7 +494,7 @@ public class ItemsInit {
         DragonBow = stack;
     }
 
-    private static void createExodus(){
+    private void createExodus(){
         ItemStack stack = new ItemStack(Material.DIAMOND_HELMET);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Exodus");
@@ -515,7 +515,7 @@ public class ItemsInit {
         Bukkit.addRecipe(recipe);
     }
 
-    private static void createValkyrieChestplate(){
+    private void createValkyrieChestplate(){
         ItemStack stack = new ItemStack(Material.DIAMOND_CHESTPLATE);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.LIGHT_PURPLE + "Valkyrie's Chestplate");
@@ -529,7 +529,7 @@ public class ItemsInit {
         ValkyrieChestplate = stack;
     }
 
-    private static void createSelfAttackSword(){
+    private void createSelfAttackSword(){
         ItemStack stack = new ItemStack(Material.IRON_SWORD);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.GRAY + "Self Attacking Sword");
@@ -542,7 +542,7 @@ public class ItemsInit {
         SelfAttackSword = stack;
     }
 
-    private static void createNuclearBomb(){
+    private void createNuclearBomb(){
         ItemStack stack = new ItemStack(Material.GUNPOWDER);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.DARK_PURPLE + "Nuclear Bomb");
@@ -553,7 +553,7 @@ public class ItemsInit {
         NuclearBomb = stack;
     }
 
-    private static void createIronPack(){
+    private void createIronPack(){
         ItemStack stack = new ItemStack(Material.IRON_INGOT, 10);
         IronPack = stack;
 
@@ -566,7 +566,7 @@ public class ItemsInit {
         Bukkit.addRecipe(recipe);
     }
 
-    private static void createMysteryBeginnerTool(){
+    private void createMysteryBeginnerTool(){
         ItemStack stack = new ItemStack(Material.COAL_BLOCK);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "숨겨진 아이템");
@@ -586,7 +586,7 @@ public class ItemsInit {
         Bukkit.addRecipe(recipe);
     }
 
-    private static void createAnduril(){
+    private void createAnduril(){
         ItemStack stack = new ItemStack(Material.IRON_SWORD);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Andúril");
@@ -605,7 +605,7 @@ public class ItemsInit {
         Anduril = stack;
     }
 
-    private static void createGoldenHead(){
+    private void createGoldenHead(){
         ItemStack stack = new ItemStack(CustomSkulls.getSkull("http://textures.minecraft.net/texture/4e5b308a1eb5caa97e5fb257b2d9e1861fdef15161d50a1f46f22315f4929"));
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Golden Head");
@@ -646,7 +646,7 @@ public class ItemsInit {
         Bukkit.addRecipe(recipe2);
     }
 
-    private static void createBeginnerTools(){
+    private void createBeginnerTools(){
         ItemStack stack = new ItemStack(Material.STONE_SWORD);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.WHITE + "Beginner's Sword");
@@ -703,7 +703,7 @@ public class ItemsInit {
         BeginnerHoe = stack4;
     }
 
-    private static void createDragonSoul(){
+    private void createDragonSoul(){
         ItemStack stack = new ItemStack(Material.PURPLE_DYE);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.DARK_PURPLE + "Dragon Soul");
@@ -714,7 +714,7 @@ public class ItemsInit {
         DragonSoul = stack;
     }
 
-    private static void createVampireFang(){
+    private void createVampireFang(){
         ItemStack stack = new ItemStack(Material.GHAST_TEAR);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.DARK_RED + "Vampire Fang");
@@ -726,7 +726,7 @@ public class ItemsInit {
         VampireFang = stack;
     }
 
-    private static void createPandoraBox(){
+    private void createPandoraBox(){
         ItemStack stack = new ItemStack(CustomSkulls.getSkull("http://textures.minecraft.net/texture/844498a0fe278956e3d04135ef4b1343d0548a7e208c61b1fb6f3b4dbc240da8"));
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.MAGIC + ChatColor.BOLD + "A" + ChatColor.RESET + ChatColor.GOLD + "Pandora's Box" + ChatColor.GOLD + "" + ChatColor.MAGIC + ChatColor.BOLD + "A");
@@ -749,7 +749,7 @@ public class ItemsInit {
         PandoraBox = stack;
     }
 
-    private static void createThrowableTNT(){
+    private void createThrowableTNT(){
         ItemStack stack = new ItemStack(Material.TNT);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.RED + "투척용 TNT");
@@ -766,7 +766,7 @@ public class ItemsInit {
         ThrowableTNT = stack;
     }
 
-    private static void createTimeWarpPearl(){
+    private void createTimeWarpPearl(){
         ItemStack stack = new ItemStack(Material.ENDER_PEARL);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.LIGHT_PURPLE + "Time Warp Pearl");
@@ -778,7 +778,7 @@ public class ItemsInit {
         TimeWarpPearl = stack;
     }
 
-    private static void createQuickPickaxe(){
+    private void createQuickPickaxe(){
         ItemStack stack = new ItemStack(Material.IRON_PICKAXE);
         ItemMeta meta = stack.getItemMeta();
         meta.addEnchant(Enchantment.DIG_SPEED, 1, false);
