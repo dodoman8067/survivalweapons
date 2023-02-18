@@ -78,12 +78,7 @@ public class PoseidonTrident implements Listener {
             }
         }
         if(event.getEntity().getScoreboardTags().contains("sw_entity_poseidon_sub_trident")){
-            Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
-                @Override
-                public void run() {
-                    event.getEntity().remove();
-                }
-            },20L);
+            Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> event.getEntity().remove(),20L);
         }
     }
 }
