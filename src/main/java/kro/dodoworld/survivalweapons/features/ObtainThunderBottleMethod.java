@@ -15,7 +15,7 @@ public class ObtainThunderBottleMethod implements Listener {
         if(event.getEntity().getKiller() != null && event.getEntity() instanceof Witch){
             if(!event.getEntity().getWorld().hasStorm()) return;
             CraftWitch witch = (CraftWitch) event.getEntity();
-            if(!witch.getHandle().n()) return;
+            if(!witch.getHandle().isDrinkingPotion()) return;
 
             double chance = Math.random();
             if(chance <= 0.15){
