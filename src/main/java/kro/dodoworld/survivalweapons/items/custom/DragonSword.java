@@ -1,6 +1,7 @@
 package kro.dodoworld.survivalweapons.items.custom;
 
 import kro.dodoworld.survivalweapons.Survivalweapons;
+import kro.dodoworld.survivalweapons.event.PlayerDragonSwordEffectEvent;
 import kro.dodoworld.survivalweapons.items.ItemsInit;
 import org.bukkit.World;
 import org.bukkit.Particle;
@@ -39,11 +40,19 @@ public class DragonSword implements Listener {
         int chance = rnd.nextInt(0,2);
 
         if(chance == 1){
-            Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () ->
-                    target.damage(event.getFinalDamage() / 2), 15L);
-            world.spawnParticle(Particle.SPELL_WITCH, target.getLocation(), 25, 0.4, 0.5, 0.4);
-            world.spawnParticle(Particle.DRAGON_BREATH, target.getLocation(), 10, 0.3, 0.2, 0.3);
-            world.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_HURT, SoundCategory.PLAYERS, 15, 10);
+            PlayerDragonSwordEffectEvent dragonSwordEffectEvent = new PlayerDragonSwordEffectEvent(player, true, true, true);
+            if(dragonSwordEffectEvent.isCancelled()) return;
+            if(dragonSwordEffectEvent.shouldDamageEntity()){
+                Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () ->
+                        target.damage(event.getFinalDamage() / 2), 15L);
+            }
+            if(dragonSwordEffectEvent.shouldSpawnParticles()){
+                world.spawnParticle(Particle.SPELL_WITCH, target.getLocation(), 25, 0.4, 0.5, 0.4);
+                world.spawnParticle(Particle.DRAGON_BREATH, target.getLocation(), 10, 0.3, 0.2, 0.3);
+            }
+            if(dragonSwordEffectEvent.shouldPlaySound()){
+                world.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_HURT, SoundCategory.PLAYERS, 15, 10);
+            }
         }
     }
 }
