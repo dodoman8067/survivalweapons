@@ -36,10 +36,9 @@ public class DragonSword implements Listener {
 
         if(!ItemsInit.isPluginItem("sw_item_dragon_sword", player)) return;
 
-        ThreadLocalRandom rnd = ThreadLocalRandom.current();
-        int chance = rnd.nextInt(0,2);
+        double chance = Math.random() * 10;
 
-        if(chance == 1){
+        if(chance <= 5){
             PlayerDragonSwordEffectEvent dragonSwordEffectEvent = new PlayerDragonSwordEffectEvent(player, true, true, true);
             if(dragonSwordEffectEvent.isCancelled()) return;
             if(dragonSwordEffectEvent.shouldDamageEntity()){
