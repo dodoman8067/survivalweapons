@@ -1,7 +1,7 @@
 package kro.dodoworld.survivalweapons.items.custom;
 
 import kro.dodoworld.survivalweapons.items.ItemsInit;
-import kro.dodoworld.survivalweapons.util.code.CoolDown;
+import kro.dodoworld.survivalweapons.util.item.CoolDown;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Particle;
