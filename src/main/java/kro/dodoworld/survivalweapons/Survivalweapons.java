@@ -56,7 +56,6 @@ public final class Survivalweapons extends JavaPlugin {
 
         logger.info("Loading Listeners...");
         long eventMs = System.currentTimeMillis();
-        getServer().getPluginManager().registerEvents(new FireGoldenSword(), this);
         getServer().getPluginManager().registerEvents(new SelfAttackSword(), this);
         getServer().getPluginManager().registerEvents(new LightingSword(), this);
         getServer().getPluginManager().registerEvents(new GiantSword(this), this);
