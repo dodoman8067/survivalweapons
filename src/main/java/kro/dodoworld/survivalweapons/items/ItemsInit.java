@@ -74,6 +74,7 @@ public class ItemsInit {
     public static ItemStack DelicateHoe;
     public static ItemStack VampireHelmet;
     public static ItemStack PoseidonTrident;
+    public static ItemStack MonsterZapper;
 
     private static Survivalweapons plugin;
 
@@ -119,6 +120,7 @@ public class ItemsInit {
         createDelicateHoe();
         createVampireHelmet();
         createPoseidonTrident();
+        createMonsterZapper();
     }
 
     private void createFireGoldenSword(){
@@ -268,6 +270,23 @@ public class ItemsInit {
         stack.setItemMeta(meta);
 
         Excalibur = stack;
+    }
+
+    private void createMonsterZapper(){
+        ItemStack stack = new ItemStack(Material.DIAMOND_PICKAXE);
+        ItemMeta meta = stack.getItemMeta();
+        meta.setDisplayName(ChatColor.GOLD + "Monster Zapper");
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.GREEN + "주변 몬스터에게 전기 충격을 가한다.");
+        lore.add(" ");
+        lore.add(ChatColor.GRAY + "이 아이템은 마법 부여가 불가능합니다!");
+        meta.setLore(lore);
+        meta.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 1, false);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        meta.getPersistentDataContainer().set(new NamespacedKey(plugin, "sw_item_monster_zapper"), PersistentDataType.STRING, "sw_plugin_item_monster_zapper");
+        stack.setItemMeta(meta);
+
+        MonsterZapper = stack;
     }
 
     private void createIronFeatherBoots(){

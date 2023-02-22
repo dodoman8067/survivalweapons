@@ -15,6 +15,8 @@ import kro.dodoworld.survivalweapons.items.ItemsInit;
 import kro.dodoworld.survivalweapons.items.custom.*;
 import kro.dodoworld.survivalweapons.util.item.CoolDown;
 import kro.dodoworld.survivalweapons.util.item.ItemStackCraft;
+import org.bukkit.World;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Logger;
@@ -86,6 +88,7 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new FarmerBoots(), this);
         getServer().getPluginManager().registerEvents(new DelicateHoe(), this);
         getServer().getPluginManager().registerEvents(new PoseidonTrident(this), this);
+        getServer().getPluginManager().registerEvents(new MonsterZapper(this), this);
         logger.info("Loading Listeners Took " + (System.currentTimeMillis() - eventMs) + "ms");
 
         long commandMs = System.currentTimeMillis();
@@ -100,6 +103,17 @@ public final class Survivalweapons extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+        removeEntities();
         logger.info("Successfully Disabled Events, Items and Commands.");
+    }
+
+    private void removeEntities(){
+        for(World world : getServer().getWorlds()){
+            for(LivingEntity entity : world.getLivingEntities()){
+                if(entity.getScoreboardTags().contains("sw_entity_remove_when_reload")){
+                    entity.remove();
+                }
+            }
+        }
     }
 }

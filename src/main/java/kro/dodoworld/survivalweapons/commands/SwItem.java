@@ -69,6 +69,12 @@ public class SwItem implements CommandExecutor {
                         if(arg.equals("poseidon_trident")){
                             player.getInventory().addItem(new ItemStack(ItemsInit.PoseidonTrident));
                         }
+                        if(arg.equals("monster_zapper")){
+                            player.getInventory().addItem(new ItemStack(ItemsInit.MonsterZapper));
+                        }
+                        if(arg.equals("valkyrie_chestplate")){
+                            player.getInventory().addItem(new ItemStack(ItemsInit.ValkyrieChestplate));
+                        }
                     }else{
                         player.sendMessage("Usage : /switem <item_name>");
                     }
