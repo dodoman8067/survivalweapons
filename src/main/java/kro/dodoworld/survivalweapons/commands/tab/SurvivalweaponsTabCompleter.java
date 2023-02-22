@@ -13,7 +13,7 @@ public class SurvivalweaponsTabCompleter implements TabCompleter {
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
-        if(sender.isOp()){
+        if(sender.isOp() && args.length < 2){
             if(commandArgs.isEmpty()){
                 commandArgs.add("exodus");
                 commandArgs.add("marvel_of_thunder_storm");
@@ -32,6 +32,7 @@ public class SurvivalweaponsTabCompleter implements TabCompleter {
                 commandArgs.add("time_warp_pearl");
                 commandArgs.add("vampire_helmet");
                 commandArgs.add("poseidon_trident");
+                commandArgs.add("monster_zapper");
             }
 
             return commandArgs;

@@ -1,6 +1,7 @@
 package kro.dodoworld.survivalweapons.commands;
 
 import kro.dodoworld.survivalweapons.items.ItemsInit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -37,6 +38,7 @@ public class SwItem implements CommandExecutor {
                             player.getInventory().addItem(new ItemStack(ItemsInit.Anduril));
                         }
                         if(arg.equals("zombie_pigmen_sword")){
+                            player.sendMessage(ChatColor.GOLD + "WARNING : This item is deprecated and it will be removed soon.");
                             player.getInventory().addItem(new ItemStack(ItemsInit.FireGoldenSword));
                         }
                         if(arg.equals("bloodlust")){
@@ -68,6 +70,9 @@ public class SwItem implements CommandExecutor {
                         }
                         if(arg.equals("poseidon_trident")){
                             player.getInventory().addItem(new ItemStack(ItemsInit.PoseidonTrident));
+                        }
+                        if(arg.equals("monster_zapper")){
+                            player.getInventory().addItem(new ItemStack(ItemsInit.MonsterZapper));
                         }
                     }else{
                         player.sendMessage("Usage : /switem <item_name>");

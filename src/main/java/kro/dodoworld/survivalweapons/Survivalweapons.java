@@ -87,6 +87,7 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new AbilityPickaxe(), this);
         getServer().getPluginManager().registerEvents(new FarmerBoots(), this);
         getServer().getPluginManager().registerEvents(new PoseidonTrident(this), this);
+        getServer().getPluginManager().registerEvents(new MonsterZapper(this), this);
         logger.info("Loading Listeners Took " + (System.currentTimeMillis() - eventMs) + "ms");
 
         long commandMs = System.currentTimeMillis();
