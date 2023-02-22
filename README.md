@@ -1,3 +1,3 @@
 # survivalweapons
 
-Plugin for my server
+Minecraft Spigot plugin for my server
