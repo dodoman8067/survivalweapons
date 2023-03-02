@@ -7,7 +7,18 @@ api-version: 1.19
 commands:
   switem:
     description: Main Command For Survivalweapons Plugin.
+    permission: survivalweapons.items.give
     aliases:
       - sw
       - survivalweaponsitem
     usage: /<command> <item_name>
+
+permissions:
+  survivalweapons.*:
+    description: Gives Access To All Survivalweapons Commands.
+    children:
+      survivalweapons.items.give: true
+
+  survivalweapons.items.give:
+    description: Allows You To Get Items With /switem Command.
+    default: op
