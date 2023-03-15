@@ -31,7 +31,7 @@ import java.util.Random;
 
 public class PandoraBox implements Listener {
 
-    private static final Random rnd = new Random();
+    private final Random rnd = new Random();
 
     @EventHandler
     public void onInteract(PlayerInteractEvent event){
