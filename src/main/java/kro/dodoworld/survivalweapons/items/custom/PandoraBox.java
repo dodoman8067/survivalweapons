@@ -31,7 +31,7 @@ import java.util.Random;
 
 public class PandoraBox implements Listener {
 
-    private static final Random rnd = new Random();
+    private final Random rnd = new Random();
 
     @EventHandler
     public void onInteract(PlayerInteractEvent event){
@@ -48,7 +48,7 @@ public class PandoraBox implements Listener {
         }
     }
 
-    private static void doBadEffect(Player player){
+    private void doBadEffect(Player player){
         int a = rnd.nextInt(1, 11);
         if(a == 1){
             for(int i = 0; i < 3; i++){
@@ -133,7 +133,7 @@ public class PandoraBox implements Listener {
         }
     }
 
-    private static void doGoodEffect(Player player){
+    private void doGoodEffect(Player player){
         int a = rnd.nextInt(1, 11);
         if(a == 1){
             if(player.getInventory().firstEmpty() == -1){
