@@ -10,6 +10,7 @@ commands:
     permission: survivalweapons.items.give
     aliases:
       - sw
+      - survivalweaponsitem
     usage: /<command> <args>
 
 permissions:
