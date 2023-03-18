@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class BeginnerToolsCraft implements Listener {
 
-    private static ThreadLocalRandom random = ThreadLocalRandom.current();
+    private final ThreadLocalRandom random = ThreadLocalRandom.current();
 
     @EventHandler
     public void onCraft(CraftItemEvent event){
