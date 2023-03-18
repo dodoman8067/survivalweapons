@@ -30,7 +30,7 @@ public final class Survivalweapons extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         long itemMs = System.currentTimeMillis();
-        logger.info("Loading Items...");
+        logger.info("Loading items...");
         ItemsInit items = new ItemsInit(this);
         items.init();
         Anduril.registerAnduril(this);
@@ -38,9 +38,9 @@ public final class Survivalweapons extends JavaPlugin {
         VampireHelmet.registerVampireHelmet(this);
         new PoseidonTrident(this);
         PoseidonTrident.registerPoseidonTrident();
-        logger.info("Loading Items Took " + (System.currentTimeMillis() - itemMs) + "ms");
+        logger.info("Loading items took " + (System.currentTimeMillis() - itemMs) + "ms");
         long configMs = System.currentTimeMillis();
-        logger.info("Loading Configs...");
+        logger.info("Loading configs...");
         CoolDown.setUpCooldown();
         ExodusConfig.init();
         ExodusConfig.getExodusConfig().options().copyDefaults(true);
@@ -51,9 +51,9 @@ public final class Survivalweapons extends JavaPlugin {
         IronPackConfig.init();
         IronPackConfig.getIronPackConfig().options().copyDefaults(true);
         IronPackConfig.saveConfig();
-        logger.info("Loading Config Took " + (System.currentTimeMillis() - configMs) + "ms");
+        logger.info("Loading config took " + (System.currentTimeMillis() - configMs) + "ms");
 
-        logger.info("Loading Listeners...");
+        logger.info("Loading listeners...");
         long eventMs = System.currentTimeMillis();
         getServer().getPluginManager().registerEvents(new FireGoldenSword(), this);
         getServer().getPluginManager().registerEvents(new SelfAttackSword(), this);
@@ -88,20 +88,20 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new FarmerBoots(), this);
         getServer().getPluginManager().registerEvents(new PoseidonTrident(this), this);
         getServer().getPluginManager().registerEvents(new MonsterZapper(this), this);
-        logger.info("Loading Listeners Took " + (System.currentTimeMillis() - eventMs) + "ms");
+        logger.info("Loading listeners Took " + (System.currentTimeMillis() - eventMs) + "ms");
 
         long commandMs = System.currentTimeMillis();
-        logger.info("Loading Commands...");
+        logger.info("Loading commands...");
         getCommand("switem").setExecutor(new SwItem());
         getCommand("switem").setTabCompleter(new SurvivalweaponsTabCompleter());
-        logger.info("Loading Commands Took " + (System.currentTimeMillis() - commandMs) + "ms");
+        logger.info("Loading commands took " + (System.currentTimeMillis() - commandMs) + "ms");
 
-        logger.info("Successfully Registered Events, Items and Commands.");
+        logger.info("Successfully registered events, items and commands.");
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-        logger.info("Successfully Disabled Events, Items and Commands.");
+        logger.info("Successfully disabled Events, items and commands.");
     }
 }
