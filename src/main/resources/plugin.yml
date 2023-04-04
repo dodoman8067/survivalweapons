@@ -1,12 +1,12 @@
 name: Survivalweapons
 version: '${version}'
 main: kro.dodoworld.survivalweapons.Survivalweapons
-description: Only For _dodoman's Server.
+description: Only for _dodoman's server.
 author: _dodoman
 api-version: 1.19
 commands:
   switem:
-    description: Main Command For Survivalweapons Plugin.
+    description: Main command for Survivalweapons plugin.
     permission: survivalweapons.items.give
     aliases:
       - sw
@@ -15,10 +15,10 @@ commands:
 
 permissions:
   survivalweapons.*:
-    description: Gives Access To All Survivalweapons Commands.
+    description: Gives access to all Survivalweapons commands.
     children:
       survivalweapons.items.give: true
 
   survivalweapons.items.give:
-    description: Allows You To Get Items With /switem Command.
+    description: Allows you to get items with /switem command.
     default: op
