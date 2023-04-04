@@ -18,13 +18,13 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
  */
 public class DragonSword implements Listener {
 
-    private static Survivalweapons plugin;
+    private final Survivalweapons plugin;
 
     /**
      * Constructor for DragonSword
      */
     public DragonSword(Survivalweapons plugin){
-        DragonSword.plugin = plugin;
+        this.plugin = plugin;
     }
 
     /**

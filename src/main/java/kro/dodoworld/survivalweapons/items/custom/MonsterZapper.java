@@ -25,11 +25,12 @@ import org.bukkit.util.Vector;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 public class MonsterZapper implements Listener {
 
     private final Survivalweapons plugin;
-    private final List<String> playerUUIDs;
+    private final List<UUID> playerUUIDs;
 
     public MonsterZapper(Survivalweapons plugin){
         this.plugin = plugin;
@@ -39,9 +40,9 @@ public class MonsterZapper implements Listener {
     public void onInteract(PlayerInteractEvent event){
         if(event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK)){
             if(!ItemsInit.isPluginItem("sw_item_monster_zapper", event.getPlayer())) return;
-            if(playerUUIDs.contains(event.getPlayer().getUniqueId().toString())) return;
+            if(playerUUIDs.contains(event.getPlayer().getUniqueId())) return;
             Player player = event.getPlayer();
-            playerUUIDs.add(player.getUniqueId().toString());
+            playerUUIDs.add(player.getUniqueId());
 
             ArmorStand pickaxe = event.getPlayer().getWorld().spawn(event.getPlayer().getLocation().add(0, 0.5, 0), ArmorStand.class);
             pickaxe.setInvisible(true);
@@ -102,7 +103,7 @@ public class MonsterZapper implements Listener {
                                     }
                                 }
                             }
-                            playerUUIDs.remove(player.getUniqueId().toString());
+                            playerUUIDs.remove(player.getUniqueId());
                             pickaxe.remove();
                             cancel();
                         }
@@ -129,7 +130,7 @@ public class MonsterZapper implements Listener {
                                                 }
                                             }
                                         }
-                                        playerUUIDs.remove(player.getUniqueId().toString());
+                                        playerUUIDs.remove(player.getUniqueId());
                                         pickaxe.remove();
                                         cancel();
                                     }
@@ -140,7 +141,7 @@ public class MonsterZapper implements Listener {
                     if(i > distance){
                         if(!pickaxe.isDead()){
                             pickaxe.remove();
-                            playerUUIDs.remove(player.getUniqueId().toString());
+                            playerUUIDs.remove(player.getUniqueId());
                             cancel();
                         }
                     }

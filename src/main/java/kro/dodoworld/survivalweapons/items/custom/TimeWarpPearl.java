@@ -15,11 +15,11 @@ import org.bukkit.event.player.PlayerTeleportEvent;
 
 public class TimeWarpPearl implements Listener {
 
-    private static Location location;
-    private static Survivalweapons plugin;
+    private Location location;
+    private Survivalweapons plugin;
 
     public TimeWarpPearl(Survivalweapons plugin){
-        TimeWarpPearl.plugin = plugin;
+        this.plugin = plugin;
     }
 
     @EventHandler

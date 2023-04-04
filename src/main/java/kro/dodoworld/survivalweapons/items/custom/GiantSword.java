@@ -15,6 +15,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
 
@@ -22,14 +23,16 @@ import org.bukkit.util.Vector;
  * Listener for item GiantSword
  */
 public class GiantSword implements Listener {
-    private static Survivalweapons plugin;
+    private final Survivalweapons plugin;
 
     public GiantSword(Survivalweapons plugin){
-        GiantSword.plugin = plugin;
+        this.plugin = plugin;
     }
 
     @EventHandler
     public void onInteract(PlayerInteractEvent event){
+        if(event.getHand() == null) return;
+        if(!event.getHand().equals(EquipmentSlot.HAND)) return;
         if(ItemsInit.isPluginItem("sw_item_giant_sword", event.getPlayer())){
             if(event.getAction().equals(Action.RIGHT_CLICK_BLOCK) || event.getAction().equals(Action.RIGHT_CLICK_AIR)){
 
