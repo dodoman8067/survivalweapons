@@ -38,7 +38,7 @@ public class GoldenHead implements Listener {
         }
     }
 
-    private static void addEffect(Player player){
+    private void addEffect(Player player){
         player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 400, 3, true));
         player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 400, 1, true));
         player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 60, 2, true));
