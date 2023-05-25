@@ -43,7 +43,7 @@ public class BloodLust implements Listener {
     /**
      * Get kill count from lore
      */
-    private static int getDamage(ItemMeta meta){
+    private int getDamage(ItemMeta meta){
         String dmgLore = meta.getLore().get(8);
         List<String> loreSplit = new ArrayList<>(Arrays.asList(dmgLore.split(" ")));
         String finalKills = loreSplit.get(3);
@@ -55,7 +55,7 @@ public class BloodLust implements Listener {
     /**
      * Get applied Sharpness level based on kill count
      */
-    private static int getSharpLevel(ItemMeta meta){
+    private int getSharpLevel(ItemMeta meta){
         int returnValue = 1;
         int killCount = getDamage(meta) + 1;
 
