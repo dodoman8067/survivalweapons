@@ -11,7 +11,7 @@ public class AbilityPickaxe implements Listener {
     @EventHandler
     public void onBreak(BlockBreakEvent event){
         if(!ItemsInit.isPluginItem("sw_item_miner_pickaxe", event.getPlayer())) return;
-        event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 60, 0, true));
+        event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.HASTE, 60, 0, true));
     }
 
 

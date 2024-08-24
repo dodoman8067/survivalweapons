@@ -52,7 +52,7 @@ public class DragonSword implements Listener {
                         target.damage(event.getFinalDamage() / 2), 15L);
             }
             if(dragonSwordEffectEvent.shouldSpawnParticles()){
-                world.spawnParticle(Particle.SPELL_WITCH, target.getLocation(), 25, 0.4, 0.5, 0.4);
+                world.spawnParticle(Particle.WITCH, target.getLocation(), 25, 0.4, 0.5, 0.4);
                 world.spawnParticle(Particle.DRAGON_BREATH, target.getLocation(), 10, 0.3, 0.2, 0.3);
             }
             if(dragonSwordEffectEvent.shouldPlaySound()){

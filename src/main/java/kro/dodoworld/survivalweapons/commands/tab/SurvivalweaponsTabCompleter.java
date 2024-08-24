@@ -33,6 +33,7 @@ public class SurvivalweaponsTabCompleter implements TabCompleter {
                 commandArgs.add("poseidon_trident");
                 commandArgs.add("monster_zapper");
                 commandArgs.add("valkyrie_chestplate");
+                commandArgs.add("corrupted_stone");
             }
 
             return commandArgs;

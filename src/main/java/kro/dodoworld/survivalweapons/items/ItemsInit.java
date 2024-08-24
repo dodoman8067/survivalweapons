@@ -3,10 +3,12 @@ package kro.dodoworld.survivalweapons.items;
 import kro.dodoworld.survivalweapons.Survivalweapons;
 import kro.dodoworld.survivalweapons.util.item.CustomSkulls;
 import org.bukkit.ChatColor;
+import org.bukkit.FireworkEffect;
 import org.bukkit.Material;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.Color;
+import org.bukkit.inventory.EquipmentSlotGroup;
 import org.bukkit.inventory.ShapelessRecipe;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.ItemFlag;
@@ -17,6 +19,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.meta.FireworkEffectMeta;
+import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.persistence.PersistentDataType;
@@ -75,6 +79,7 @@ public class ItemsInit {
     public static ItemStack VampireHelmet;
     public static ItemStack PoseidonTrident;
     public static ItemStack MonsterZapper;
+    public static ItemStack CorruptedStone;
 
     private static Survivalweapons plugin;
 
@@ -121,14 +126,15 @@ public class ItemsInit {
         createVampireHelmet();
         createPoseidonTrident();
         createMonsterZapper();
+        createCorruptedStone();
     }
 
     private void createFireGoldenSword(){
         ItemStack stack = new ItemStack(Material.GOLDEN_SWORD);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Zombie Piglin's Sword");
-        meta.addEnchant(Enchantment.DURABILITY, 4, true);
-        AttributeModifier modifier = new AttributeModifier(UUID.randomUUID(), "generic.attackDamage", 3, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HAND);
+        meta.addEnchant(Enchantment.UNBREAKING, 4, true);
+        AttributeModifier modifier = new AttributeModifier(new NamespacedKey(plugin, "m1"), 3, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlotGroup.HAND);
         AttributeModifier modifier1 = new AttributeModifier(UUID.randomUUID(), "generic.attackSpeed", -1, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HAND);
         meta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, modifier);
         meta.addAttributeModifier(Attribute.GENERIC_ATTACK_SPEED, modifier1);
@@ -144,8 +150,8 @@ public class ItemsInit {
         ItemStack stack = new ItemStack(Material.DIAMOND_SWORD);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.RED + "Bloodlust");
-        meta.addEnchant(Enchantment.DAMAGE_ALL, 1, true);
-        meta.addEnchant(Enchantment.DURABILITY, 5, true);
+        meta.addEnchant(Enchantment.SHARPNESS, 1, true);
+        meta.addEnchant(Enchantment.UNBREAKING, 5, true);
         meta.addEnchant(Enchantment.MENDING, 1, false);
         meta.getPersistentDataContainer().set(new NamespacedKey(plugin, "sw_item_bloodlust"), PersistentDataType.STRING, "sw_plugin_item_bloodlust");
         List<String> lore = new ArrayList<>();
@@ -169,7 +175,7 @@ public class ItemsInit {
         ItemStack stack = new ItemStack(Material.DIAMOND_PICKAXE);
         Damageable meta = (Damageable) stack.getItemMeta();
         meta.setDisplayName(ChatColor.GREEN  + "Magic Pickaxe");
-        meta.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 5, true);
+        meta.addEnchant(Enchantment.FORTUNE, 5, true);
         meta.setDamage(1551);
         List<String> lore = new ArrayList<>();
         lore.add(ChatColor.GRAY + "이 아이템은 마법 부여가 불가능합니다!");
@@ -184,7 +190,7 @@ public class ItemsInit {
         ItemStack stack = new ItemStack(Material.NETHERITE_HELMET);
         Damageable meta = (Damageable) stack.getItemMeta();
         meta.setDisplayName(ChatColor.LIGHT_PURPLE + "Vampire Helmet");
-        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 5, true);
+        meta.addEnchant(Enchantment.PROTECTION, 5, true);
         List<String> lore = new ArrayList<>();
         lore.add(ChatColor.GREEN + "주변 엔티티의 피를 빨아들인다.");
         meta.getPersistentDataContainer().set(new NamespacedKey(plugin, "sw_item_vampire_helmet"), PersistentDataType.STRING, "sw_plugin_item_vampire_helmet");
@@ -194,12 +200,35 @@ public class ItemsInit {
         VampireHelmet = stack;
     }
 
+    private void createCorruptedStone(){
+        ItemStack stack = new ItemStack(Material.FIREWORK_STAR);
+        FireworkEffectMeta meta = (FireworkEffectMeta) stack.getItemMeta();
+        FireworkEffect aa = FireworkEffect.builder().withColor(Color.RED).build();
+        meta.setEffect(aa);
+        meta.setDisplayName(ChatColor.DARK_RED + "" + ChatColor.BOLD + "Corrupted Stone");
+        meta.addEnchant(Enchantment.PROTECTION, 5, true);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_ATTRIBUTES);
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.GOLD + "무기에 붙일 시 :");
+        lore.add(ChatColor.AQUA + "+ 대미지 + 5");
+        lore.add(ChatColor.AQUA + "+ 공격 속도 + 1");
+        lore.add(ChatColor.AQUA + "+ 손에 들시 효과 부여");
+        lore.add(ChatColor.AQUA + "+ Dragon Sword 면역");
+        lore.add(ChatColor.RED + "- 마법 부여 불가");
+        lore.add(ChatColor.RED + "- 모루 합성 불가");
+        meta.getPersistentDataContainer().set(new NamespacedKey(plugin, "sw_item_corrupted_stone"), PersistentDataType.STRING, "sw_plugin_item_corrupted_stone");
+        meta.setLore(lore);
+        stack.setItemMeta(meta);
+
+        CorruptedStone = stack;
+    }
+
 
     private void createMinerPickaxe(){
         ItemStack stack = new ItemStack(Material.IRON_PICKAXE);
         Damageable meta = (Damageable) stack.getItemMeta();
         meta.setDisplayName(ChatColor.GREEN  + "Miner Pickaxe");
-        meta.addEnchant(Enchantment.DIG_SPEED, 2, false);
+        meta.addEnchant(Enchantment.EFFICIENCY, 2, false);
         List<String> lore = new ArrayList<>();
         lore.add(ChatColor.GREEN + "블록 캘 시 성급함 I + 3초");
         meta.getPersistentDataContainer().set(new NamespacedKey(plugin, "sw_item_miner_pickaxe"), PersistentDataType.STRING, "sw_plugin_item_miner_pickaxe");
@@ -222,8 +251,8 @@ public class ItemsInit {
         ItemStack stack = new ItemStack(Material.DIAMOND_PICKAXE);
         Damageable meta = (Damageable) stack.getItemMeta();
         meta.setDisplayName(ChatColor.BLUE  + "Lapis Pickaxe");
-        meta.addEnchant(Enchantment.DIG_SPEED, 2, false);
-        meta.addEnchant(Enchantment.DURABILITY, 1, false);
+        meta.addEnchant(Enchantment.EFFICIENCY, 2, false);
+        meta.addEnchant(Enchantment.UNBREAKING, 1, false);
         List<String> lore = new ArrayList<>();
         lore.add(ChatColor.GREEN + "광물 경험치 x2배 확률 +50%");
         meta.setLore(lore);
@@ -246,7 +275,7 @@ public class ItemsInit {
         ItemStack stack = new ItemStack(Material.DIAMOND_BOOTS);
         Damageable meta = (Damageable) stack.getItemMeta();
         meta.setDisplayName(ChatColor.BLUE + "Farmer's Boots");
-        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1, false);
+        meta.addEnchant(Enchantment.PROTECTION, 1, false);
         List<String> lore = new ArrayList<>();
         lore.add(ChatColor.GREEN + "경작지를 부수지 못한다.");
         meta.setLore(lore);
@@ -281,7 +310,7 @@ public class ItemsInit {
         lore.add(" ");
         lore.add(ChatColor.GRAY + "이 아이템은 마법 부여가 불가능합니다!");
         meta.setLore(lore);
-        meta.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 1, false);
+        meta.addEnchant(Enchantment.FORTUNE, 1, false);
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         meta.getPersistentDataContainer().set(new NamespacedKey(plugin, "sw_item_monster_zapper"), PersistentDataType.STRING, "sw_plugin_item_monster_zapper");
         stack.setItemMeta(meta);
@@ -317,7 +346,7 @@ public class ItemsInit {
         lore.add(ChatColor.DARK_GRAY + "" + ChatColor.DARK_GRAY + ChatColor.ITALIC + "하지만 이것은 강력한 무기를 만들 수 있다는 소문이 있다.");
         meta.setColor(Color.fromRGB(250, 252, 78));
         meta.addCustomEffect(new PotionEffect(PotionEffectType.SPEED, 60, 8, false), true);
-        meta.addCustomEffect(new PotionEffect(PotionEffectType.HARM, 1, 5, false), true);
+        meta.addCustomEffect(new PotionEffect(PotionEffectType.INSTANT_DAMAGE, 1, 5, false), true);
         meta.setLore(lore);
         stack.setItemMeta(meta);
 
@@ -334,7 +363,7 @@ public class ItemsInit {
         meta.setColor(Color.fromRGB(120, 7, 7));
         meta.addCustomEffect(new PotionEffect(PotionEffectType.HUNGER, 2400, 3, false), true);
         meta.addCustomEffect(new PotionEffect(PotionEffectType.BLINDNESS, 60, 0, false), true);
-        meta.addCustomEffect(new PotionEffect(PotionEffectType.CONFUSION, 2800, 4, false), true);
+        meta.addCustomEffect(new PotionEffect(PotionEffectType.NAUSEA, 2800, 4, false), true);
         meta.setLore(lore);
         stack.setItemMeta(meta);
 
@@ -377,8 +406,8 @@ public class ItemsInit {
         ItemStack stack = new ItemStack(Material.IRON_SWORD);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Golem Sword");
-        meta.addEnchant(Enchantment.DAMAGE_ALL, 4, true);
-        meta.addEnchant(Enchantment.DURABILITY, 5, true);
+        meta.addEnchant(Enchantment.SHARPNESS, 4, true);
+        meta.addEnchant(Enchantment.UNBREAKING, 5, true);
         meta.addEnchant(Enchantment.MENDING, 1, false);
         AttributeModifier modifier = new AttributeModifier(UUID.randomUUID(), "generic.attackDamage", 12, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HAND);
         AttributeModifier modifier1 = new AttributeModifier(UUID.randomUUID(), "generic.attackSpeed", -3.4, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HAND);
@@ -436,7 +465,7 @@ public class ItemsInit {
         ItemStack stack = new ItemStack(Material.IRON_SWORD);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Giant's Sword");
-        meta.addEnchant(Enchantment.DURABILITY, 4, true);
+        meta.addEnchant(Enchantment.UNBREAKING, 4, true);
         AttributeModifier modifier = new AttributeModifier(UUID.randomUUID(), "generic.attackDamage", 9, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HAND);
         AttributeModifier modifier1 = new AttributeModifier(UUID.randomUUID(), "generic.attackSpeed", -3.2, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HAND);
         meta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, modifier);
@@ -486,8 +515,8 @@ public class ItemsInit {
         ItemStack stack = new ItemStack(Material.BOW);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Dragon Bow");
-        meta.addEnchant(Enchantment.ARROW_DAMAGE, 3, false);
-        meta.addEnchant(Enchantment.DURABILITY, 3, false);
+        meta.addEnchant(Enchantment.POWER, 3, false);
+        meta.addEnchant(Enchantment.UNBREAKING, 3, false);
         meta.getPersistentDataContainer().set(new NamespacedKey(plugin, "sw_item_dragon_bow"), PersistentDataType.STRING, "sw_plugin_item_dragon_bow");
         List<String> lore = new ArrayList<>();
         lore.add(ChatColor.YELLOW + "" + ChatColor.BOLD + "능력 : " + ChatColor.AQUA + "드래곤의 분노");
@@ -525,7 +554,7 @@ public class ItemsInit {
         ItemStack stack = new ItemStack(Material.DIAMOND_CHESTPLATE);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.LIGHT_PURPLE + "Valkyrie's Chestplate");
-        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 5, true);
+        meta.addEnchant(Enchantment.PROTECTION, 5, true);
         meta.getPersistentDataContainer().set(new NamespacedKey(plugin, "sw_item_valkyrie_chestplate"), PersistentDataType.STRING, "sw_plugin_item_valkyrie_chestplate");
         List<String> lore = new ArrayList<>();
         lore.add(ChatColor.BLUE + "+ 영구 힘 II");
@@ -612,7 +641,7 @@ public class ItemsInit {
         ItemStack stack = new ItemStack(Material.IRON_SWORD);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "Andúril");
-        meta.addEnchant(Enchantment.DAMAGE_ALL, 2, false);
+        meta.addEnchant(Enchantment.SHARPNESS, 2, false);
         meta.getPersistentDataContainer().set(new NamespacedKey(plugin, "sw_item_anduril"), PersistentDataType.STRING, "sw_plugin_item_anduril");
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
@@ -672,8 +701,8 @@ public class ItemsInit {
         ItemStack stack = new ItemStack(Material.STONE_SWORD);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.WHITE + "Beginner's Sword");
-        meta.addEnchant(Enchantment.DAMAGE_ALL, 1, false);
-        meta.addEnchant(Enchantment.DURABILITY, 1, false);
+        meta.addEnchant(Enchantment.SHARPNESS, 1, false);
+        meta.addEnchant(Enchantment.UNBREAKING, 1, false);
         List<String> lore = new ArrayList<>();
         lore.add(ChatColor.WHITE + "초보자의 검");
         meta.setLore(lore);
@@ -683,8 +712,8 @@ public class ItemsInit {
         ItemStack stack1 = new ItemStack(Material.STONE_AXE);
         ItemMeta meta1 = stack1.getItemMeta();
         meta1.setDisplayName(ChatColor.WHITE + "Beginner's Axe");
-        meta1.addEnchant(Enchantment.DIG_SPEED, 2, false);
-        meta1.addEnchant(Enchantment.DURABILITY, 1, false);
+        meta1.addEnchant(Enchantment.SHARPNESS, 2, false);
+        meta1.addEnchant(Enchantment.UNBREAKING, 1, false);
         List<String> lore1 = new ArrayList<>();
         lore1.add(ChatColor.WHITE + "초보자의 도끼");
         meta1.setLore(lore1);
@@ -694,8 +723,8 @@ public class ItemsInit {
         ItemStack stack2 = new ItemStack(Material.STONE_SHOVEL);
         ItemMeta meta2 = stack2.getItemMeta();
         meta2.setDisplayName(ChatColor.WHITE + "Beginner's Shovel");
-        meta2.addEnchant(Enchantment.DIG_SPEED, 2, false);
-        meta2.addEnchant(Enchantment.DURABILITY, 1, false);
+        meta2.addEnchant(Enchantment.EFFICIENCY, 2, false);
+        meta2.addEnchant(Enchantment.UNBREAKING, 1, false);
         List<String> lore2 = new ArrayList<>();
         lore2.add(ChatColor.WHITE + "초보자의 삽");
         meta2.setLore(lore2);
@@ -705,8 +734,8 @@ public class ItemsInit {
         ItemStack stack3 = new ItemStack(Material.STONE_PICKAXE);
         ItemMeta meta3 = stack3.getItemMeta();
         meta3.setDisplayName(ChatColor.WHITE + "Beginner's Pickaxe");
-        meta3.addEnchant(Enchantment.DIG_SPEED, 2, false);
-        meta3.addEnchant(Enchantment.DURABILITY, 1, false);
+        meta3.addEnchant(Enchantment.EFFICIENCY, 2, false);
+        meta3.addEnchant(Enchantment.UNBREAKING, 1, false);
         List<String> lore3 = new ArrayList<>();
         lore3.add(ChatColor.WHITE + "초보자의 곡괭이");
         meta3.setLore(lore3);
@@ -716,8 +745,8 @@ public class ItemsInit {
         ItemStack stack4 = new ItemStack(Material.STONE_HOE);
         ItemMeta meta4 = stack4.getItemMeta();
         meta4.setDisplayName(ChatColor.WHITE + "Beginner's Hoe");
-        meta4.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 1, false);
-        meta4.addEnchant(Enchantment.DURABILITY, 1, false);
+        meta4.addEnchant(Enchantment.FORTUNE, 1, false);
+        meta4.addEnchant(Enchantment.UNBREAKING, 1, false);
         List<String> lore4 = new ArrayList<>();
         lore4.add(ChatColor.WHITE + "초보자의 괭이");
         meta4.setLore(lore4);
@@ -740,7 +769,7 @@ public class ItemsInit {
         ItemStack stack = new ItemStack(Material.GHAST_TEAR);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.DARK_RED + "Vampire Fang");
-        meta.addEnchant(Enchantment.DAMAGE_ALL, 4, false);
+        meta.addEnchant(Enchantment.SHARPNESS, 4, false);
         List<String> lore = new ArrayList<>();
         lore.add(ChatColor.DARK_GRAY + "" + ChatColor.DARK_GRAY + ChatColor.ITALIC + "피와 제대로 결합된다면 그 어떤 것보다 날카로워진다.");
         meta.setLore(lore);
@@ -775,7 +804,7 @@ public class ItemsInit {
         ItemStack stack = new ItemStack(Material.TNT);
         ItemMeta meta = stack.getItemMeta();
         meta.setDisplayName(ChatColor.RED + "투척용 TNT");
-        meta.addEnchant(Enchantment.DURABILITY, 1, false);
+        meta.addEnchant(Enchantment.UNBREAKING, 1, false);
         meta.getPersistentDataContainer().set(new NamespacedKey(plugin, "sw_item_throwable_tnt"), PersistentDataType.STRING, "sw_plugin_item_throwable_tnt");
         List<String> lore = new ArrayList<>();
         lore.add(ChatColor.RED + "우클릭으로 TNT를 던질 수 있다.");
@@ -803,7 +832,7 @@ public class ItemsInit {
     private void createQuickPickaxe(){
         ItemStack stack = new ItemStack(Material.IRON_PICKAXE);
         ItemMeta meta = stack.getItemMeta();
-        meta.addEnchant(Enchantment.DIG_SPEED, 1, false);
+        meta.addEnchant(Enchantment.EFFICIENCY, 1, false);
         meta.setDisplayName(ChatColor.GREEN + "Quick Pickaxe");
         List<String> lore = new ArrayList<>();
         lore.add(ChatColor.GRAY + "조금 빠르다.");
@@ -824,7 +853,7 @@ public class ItemsInit {
     private void createDelicateHoe(){
         ItemStack stack = new ItemStack(Material.DIAMOND_HOE);
         ItemMeta meta = stack.getItemMeta();
-        meta.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 2, false);
+        meta.addEnchant(Enchantment.FORTUNE, 2, false);
         meta.setDisplayName(ChatColor.BLUE + "Delicate Hoe");
         List<String> lore = new ArrayList<>();
         lore.add(ChatColor.GREEN + "다 자란 식물 외에는 수확하지 못한다.");

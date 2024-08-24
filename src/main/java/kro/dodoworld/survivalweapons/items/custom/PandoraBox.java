@@ -60,7 +60,7 @@ public class PandoraBox implements Listener {
         if(a == 2){
             player.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 36000, 9));
             player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 36000, 0));
-            player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 36000, 9));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.MINING_FATIGUE, 36000, 9));
             player.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, 36000, 4));
             player.sendMessage(ChatColor.GOLD + "상자를 열었으므로 저주에 걸렸습니다!");
         }
@@ -147,9 +147,9 @@ public class PandoraBox implements Listener {
             ItemStack stack = new ItemStack(Material.ENCHANTED_BOOK);
             EnchantmentStorageMeta meta = (EnchantmentStorageMeta) stack.getItemMeta();
             meta.setDisplayName(ChatColor.GREEN + "선택의 책");
-            meta.addStoredEnchant(Enchantment.DAMAGE_ALL, 4, false);
-            meta.addStoredEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, false);
-            meta.addStoredEnchant(Enchantment.LOOT_BONUS_BLOCKS, 3, false);
+            meta.addStoredEnchant(Enchantment.SHARPNESS, 4, false);
+            meta.addStoredEnchant(Enchantment.PROTECTION, 4, false);
+            meta.addStoredEnchant(Enchantment.FORTUNE, 3, false);
             stack.setItemMeta(meta);
             if(player.getInventory().firstEmpty() == -1){
                 player.getWorld().dropItemNaturally(player.getLocation(), new ItemStack(stack));

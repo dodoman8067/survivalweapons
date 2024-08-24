@@ -20,7 +20,7 @@ public class ParticleUtil {
         double cover = 0;
         for(; cover < dis; pos1.add(vector)){
             Particle.DustOptions dustOptions = new Particle.DustOptions(color, 1);
-            world.spawnParticle(Particle.REDSTONE, pos1.getX(), pos1.getY(), pos1.getZ(), 1, dustOptions);
+            world.spawnParticle(Particle.DUST, pos1.getX(), pos1.getY(), pos1.getZ(), 1, dustOptions);
             cover += 0.1;
         }
     }

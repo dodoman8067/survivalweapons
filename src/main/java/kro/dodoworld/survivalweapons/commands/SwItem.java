@@ -77,6 +77,9 @@ public class SwItem implements CommandExecutor {
                         if(arg.equals("valkyrie_chestplate")){
                             player.getInventory().addItem(new ItemStack(ItemsInit.ValkyrieChestplate));
                         }
+                        if(arg.equals("corrupted_stone")){
+                            player.getInventory().addItem(new ItemStack(ItemsInit.CorruptedStone));
+                        }
                     }else{
                         player.sendMessage("Usage : /switem <item_name>");
                     }

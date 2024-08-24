@@ -88,6 +88,7 @@ public final class Survivalweapons extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new DelicateHoe(), this);
         getServer().getPluginManager().registerEvents(new PoseidonTrident(this), this);
         getServer().getPluginManager().registerEvents(new MonsterZapper(this), this);
+        getServer().getPluginManager().registerEvents(new TeleportSword(), this);
         logger.info("Loading listeners took " + (System.currentTimeMillis() - eventMs) + "ms");
 
         long commandMs = System.currentTimeMillis();

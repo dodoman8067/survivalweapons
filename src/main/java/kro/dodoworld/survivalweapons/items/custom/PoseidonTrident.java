@@ -49,12 +49,12 @@ public class PoseidonTrident implements Listener {
     public void onShoot(ProjectileLaunchEvent event){
         if(!(event.getEntity() instanceof Trident)) return;
         if(!(event.getEntity().getShooter() instanceof Player)) return;
-        if(((Trident) event.getEntity()).getItem().hasItemMeta() && ((Trident) event.getEntity()).getItem().getItemMeta().getPersistentDataContainer().has(new NamespacedKey(plugin, "sw_item_poseidon_trident"), PersistentDataType.STRING)){
+        if(((Trident) event.getEntity()).getItemStack().hasItemMeta() && ((Trident) event.getEntity()).getItemStack().getItemMeta().getPersistentDataContainer().has(new NamespacedKey(plugin, "sw_item_poseidon_trident"), PersistentDataType.STRING)){
             Trident trident = (Trident) event.getEntity();
             trident.addScoreboardTag("sw_entity_poseidon_trident");
             task = Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
                 if(trident.isDead()) Bukkit.getScheduler().cancelTask(task);
-                trident.getWorld().spawnParticle(Particle.REDSTONE, trident.getLocation().getX(), trident.getLocation().getY(), trident.getLocation().getZ(), 10, new Particle.DustOptions(Color.fromRGB(23, 207, 188), 3));
+                trident.getWorld().spawnParticle(Particle.DUST, trident.getLocation().getX(), trident.getLocation().getY(), trident.getLocation().getZ(), 10, new Particle.DustOptions(Color.fromRGB(23, 207, 188), 3));
             }, 0L, 1L);
         }
     }

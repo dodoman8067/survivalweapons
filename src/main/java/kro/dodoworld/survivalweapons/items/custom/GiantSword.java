@@ -36,7 +36,7 @@ public class GiantSword implements Listener {
         if(ItemsInit.isPluginItem("sw_item_giant_sword", event.getPlayer())){
             if(event.getAction().equals(Action.RIGHT_CLICK_BLOCK) || event.getAction().equals(Action.RIGHT_CLICK_AIR)){
 
-            // Checks player's item is Giant's Sword
+            // Checks the  player's item is Giant's Sword
 
                 if(CoolDown.checkCooldown(event.getPlayer(), CoolDown.CoolDownType.GIANT_SWORD)){
                     Player player = event.getPlayer();

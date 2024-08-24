@@ -16,8 +16,8 @@ public class ValkyrieChestplate {
             public void run() {
                 for (Player player : Bukkit.getOnlinePlayers()) {
                     if (ItemsInit.isPluginItem("sw_item_valkyrie_chestplate", player, EquipmentSlot.CHEST)) {
-                        player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 2, 1, true, false, true));
-                        player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 2, 1, true, false, true));
+                        player.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, 2, 1, true, false, true));
+                        player.addPotionEffect(new PotionEffect(PotionEffectType.STRENGTH, 2, 1, true, false, true));
                     }
                 }
             }

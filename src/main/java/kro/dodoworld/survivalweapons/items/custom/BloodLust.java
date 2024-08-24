@@ -33,7 +33,7 @@ public class BloodLust implements Listener {
         List<String> newLore = meta.getLore();
         int killCount = (getDamage(meta) + 1);
         newLore.set(8, ChatColor.AQUA + "킬 수 : " + ChatColor.YELLOW + killCount);
-        meta.addEnchant(Enchantment.DAMAGE_ALL, getSharpLevel(meta), true);
+        meta.addEnchant(Enchantment.SHARPNESS, getSharpLevel(meta), true);
 
 
         meta.setLore(newLore);

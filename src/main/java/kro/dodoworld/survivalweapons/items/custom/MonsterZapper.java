@@ -86,7 +86,7 @@ public class MonsterZapper implements Listener {
 
                     if(pickaxe.getTargetBlockExact(1) != null && !Objects.requireNonNull(pickaxe.getTargetBlockExact(1)).isPassable()){
                         if(!pickaxe.isDead()){
-                            pickaxe.getWorld().spawnParticle(Particle.EXPLOSION_HUGE, pickaxe.getLocation(), 4);
+                            pickaxe.getWorld().spawnParticle(Particle.EXPLOSION, pickaxe.getLocation(), 4);
                             pickaxe.getWorld().playSound(pickaxe.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, SoundCategory.PLAYERS, 10, 10);
                             for(Entity entity1 : pickaxe.getNearbyEntities(16, 16, 16)){
                                 if(entity1 instanceof LivingEntity && !(entity1 instanceof ArmorStand) && entity1 != player){
@@ -113,7 +113,7 @@ public class MonsterZapper implements Listener {
                             if(pickaxe.getLocation().distanceSquared(entity.getLocation()) <= 2){
                                 if(entity != player && entity != pickaxe){
                                     if(entity instanceof LivingEntity livingEntity){
-                                        livingEntity.getWorld().spawnParticle(Particle.EXPLOSION_HUGE, livingEntity.getLocation(), 4);
+                                        livingEntity.getWorld().spawnParticle(Particle.EXPLOSION, livingEntity.getLocation(), 4);
                                         livingEntity.getWorld().playSound(livingEntity.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, SoundCategory.PLAYERS, 10, 10);
                                         for(Entity entity1 : livingEntity.getNearbyEntities(16, 16, 16)){
                                             if(entity1 instanceof LivingEntity && !(entity1 instanceof ArmorStand) && entity1 != player){
