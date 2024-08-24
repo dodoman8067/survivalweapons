@@ -1,35 +1,33 @@
 package kro.dodoworld.survivalweapons.util.item;
 
-import com.mojang.authlib.GameProfile;
-import com.mojang.authlib.properties.Property;
+import com.destroystokyo.paper.profile.PlayerProfile;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.profile.PlayerTextures;
 
-import java.lang.reflect.Field;
-import java.util.Base64;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.UUID;
+
 public class CustomSkulls {
     public static ItemStack getSkull(String url) {
         ItemStack skull = new ItemStack(Material.PLAYER_HEAD, 1);
         if (url == null || url.isEmpty())
             return skull;
         SkullMeta skullMeta = (SkullMeta) skull.getItemMeta();
-        GameProfile profile = new GameProfile(UUID.randomUUID(), null);
-        byte[] encodedData = Base64.getEncoder().encode(String.format("{textures:{SKIN:{url:\"%s\"}}}", url).getBytes());
-        profile.getProperties().put("textures", new Property("textures", new String(encodedData)));
-        Field profileField = null;
-        try {
-            profileField = skullMeta.getClass().getDeclaredField("profile");
-        } catch (NoSuchFieldException | SecurityException e) {
-            e.printStackTrace();
+        PlayerProfile profile = Bukkit.createProfile(UUID.randomUUID());
+        PlayerTextures textures = profile.getTextures();
+        try{
+            textures.setSkin(new URI(url).toURL());
+        }catch (MalformedURLException | URISyntaxException e){
+            throw new RuntimeException(e);
         }
-        profileField.setAccessible(true);
-        try {
-            profileField.set(skullMeta, profile);
-        } catch (IllegalArgumentException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
+        profile.setTextures(textures);
+        skullMeta.setPlayerProfile(profile);
+
         skull.setItemMeta(skullMeta);
         return skull;
     }
